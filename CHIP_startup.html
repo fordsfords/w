@@ -1,0 +1,249 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; CHIP startup</b></big>
+</p><p>See <a href="http://blog.geeky-boy.com/2015/12/chip-small-cheap-computer.html" class="external text" title="http://blog.geeky-boy.com/2015/12/chip-small-cheap-computer.html" rel="nofollow">my blog post</a> for more information on the C.H.I.P. single-board computer.
+</p><p>Some of this information was derived from an excellent <a href="https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505" class="external text" title="https://bbs.nextthing.co/t/setting-up-chip-as-a-headless-server-with-minimal-tools/1505" rel="nofollow">post by NinjaKun</a>.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Initial_connect_to_CHIP_using_Mac_USB"><span class="tocnumber">1</span> <span class="toctext">Initial connect to CHIP using Mac USB</span></a>
+<ul>
+<li class="toclevel-2"><a href="#nmtui:_set_up_CHIP_network"><span class="tocnumber">1.1</span> <span class="toctext">nmtui: set up CHIP network</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Shutdown"><span class="tocnumber">2</span> <span class="toctext">Shutdown</span></a></li>
+<li class="toclevel-1"><a href="#A_first_project"><span class="tocnumber">3</span> <span class="toctext">A first project</span></a></li>
+<li class="toclevel-1"><a href="#First-time_Flashing_CHIP"><span class="tocnumber">4</span> <span class="toctext">First-time Flashing CHIP</span></a></li>
+<li class="toclevel-1"><a href="#Sensors"><span class="tocnumber">5</span> <span class="toctext">Sensors</span></a></li>
+<li class="toclevel-1"><a href="#Ubuntu_on_Mac"><span class="tocnumber">6</span> <span class="toctext">Ubuntu on Mac</span></a></li>
+<li class="toclevel-1"><a href="#Cross_compiling"><span class="tocnumber">7</span> <span class="toctext">Cross compiling</span></a></li>
+<li class="toclevel-1"><a href="#Buildroot_OS"><span class="tocnumber">8</span> <span class="toctext">Buildroot OS</span></a></li>
+<li class="toclevel-1"><a href="#Misc_notes"><span class="tocnumber">9</span> <span class="toctext">Misc notes</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<a name="Initial_connect_to_CHIP_using_Mac_USB" id="Initial_connect_to_CHIP_using_Mac_USB"></a><h2> <span class="mw-headline"> Initial connect to CHIP using Mac USB </span></h2>
+<p>Out of the box, CHIP's wifi is not configured for your local network.  Instead of finding a TV, keyboard, mouse, powered hub, power supply, and all the required cables, let's just use a single cable (USB to micro USB) and a Mac.  I use a Macbook Air.
+</p><p>Everything below is done from the Mac's terminal window.
+</p><p><br />
+Connect USB cable between Mac and CHIP.  Make sure the cable is not a "power only" cable; you want data signals.  Wait 30 seconds for CHIP to boot.
+</p><p>Enter:
+</p>
+<pre>
+ls /dev/tty.usb*
+</pre>
+<p>If it returns "No such file..." then either the cable is power-only, or CHIP isn't booting, or maybe you need to install the FTDI driver.  To see if CHIP is booting, connect the video to a TV and verify that bootup messages scroll by (no need for keyboard/mouse).  If it boots, maybe you need the FTDI driver.  See <a href="http://pbxbook.com/other/mac-tty.html" class="external free" title="http://pbxbook.com/other/mac-tty.html" rel="nofollow">http://pbxbook.com/other/mac-tty.html</a>  Also consider the USB cable - if it was provided to connect a device to a wall plug, then the cable might be power-only.  You want a cable that passes signals, as would be used when connecting a device to a laptop.
+</p><p>Anyway, let's say it works and that that "<tt>ls /dev/tty.usb*</tt>" returns "<tt>/dev/tty.usbmodem2411</tt>".  Enter:
+</p>
+<pre>
+sudo cu -l /dev/tty.usbmodem2411 -s 115200
+</pre>
+<p>Note: the usbmodem number 2411 may vary based on the results of the "ls".  The number 115200 is the baud rate and is fixed.  (Some experiments suggest that the baud rate is ignored for this kind of device.)  Sudo will often prompt you for password.  <b>Since this is being entered to your Mac shell, use your Mac password.</b>  Then hit Enter two or three times.
+</p><p>This should prompt with "chip login:".  Enter the chip account and password:
+</p>
+<pre>
+chip login: chip
+Password:               (the password is also chip)
+</pre>
+<a name="nmtui:_set_up_CHIP_network" id="nmtui:_set_up_CHIP_network"></a><h3> <span class="mw-headline"> nmtui: set up CHIP network </span></h3>
+<p>Set up CHIP's Wifi:
+</p>
+<pre>
+sudo nmtui
+</pre>
+<p>Again, Sudo will often prompt for password.  Since this is being entered to your CHIP shell, use "<tt>chip</tt>".
+</p><p>The "nmtui" program is a little awkward to use since it uses "ncurses" to simulate a GUI-like interface without a mouse.  It should come up with "Edit a connection" highlighted.
+</p>
+<ul><li> Press down arrow.  This highlights "Activate a connection"
+</li><li> Hit Return.  This brings up a selection of wifi networks.
+</li><li> Use up/down arrow keys to highlight the desired network, then hit Return.  It should prompt for your WIFI password.
+</li><li> Enter the password and hit Return.  It should connect, and leave you in the same network select menu.
+</li><li> Hit Tab to get to the menu to the right.  "&lt;Deactivate&gt;" should be highlighted.
+</li><li> Hit the down arrow to highlight "Quit" and hit return.
+</li></ul>
+<p>This should return you to a Unix prompt.  But the "nmtui" command sometimes leaves your terminal emulator in a bad state, so enter:
+</p>
+<pre>
+reset
+</pre>
+<p>This does NOT reset the CHIP, it just resets the state of the terminal.
+</p><p>Now determine CHIP's IP address:
+</p>
+<pre>
+sudo ifconfig | grep Bcast:
+</pre>
+<p>Ignore the IP address after "Bcast:", that was only used so that grep would find the right one.  Instead look at the IP after "inet addr:".  Take note - this is CHIP's IP address.
+</p><p>To log out of the chip account:
+</p>
+<pre>
+exit
+</pre>
+<p>But while that logs out, the "cu" command is still connected to CHIP.  Disconnect from the CHIP device and exit the "cu" command using tilde-dot:
+</p>
+<pre>
+~.
+</pre>
+<p>It will delay for a second and then return to the Mac prompt.
+</p><p>From now on, you should be able to log in over the network using "ssh".  There are various disadvantages to using the "cu" (or "screen") commands to log in over the USB cable, so I suggest using "ssh" once your network is set up.  For example, let's say your CHIP's IP address is 10.0.0.20.  Do this:
+</p>
+<pre>
+ssh chip@10.0.0.20
+</pre>
+<p><br />
+</p>
+<a name="Shutdown" id="Shutdown"></a><h2> <span class="mw-headline"> Shutdown </span></h2>
+<p>Like most modern general-purpose operating systems, you shouldn't just kill power to CHIP.  You should do a graceful shutdown.
+</p><p>Log into CHIP and enter:
+</p>
+<pre>
+sudo shutdown now
+</pre>
+<p>The "sudo" command will prompt you for your password.  Enter the chip account's password.
+</p><p><br />
+</p>
+<a name="A_first_project" id="A_first_project"></a><h2> <span class="mw-headline"> A first project </span></h2>
+<p>See <a href="/w/index.php?title=CHIP_Proj1" title="CHIP Proj1">CHIP Proj1</a> for a walkthrough for a first project that includes:
+</p>
+<ol><li> Do some basic cleanup on CHIP.
+</li><li> Running a web server on CHIP.
+</li><li> Writing some C code to turn CHIP's status LED on and off.
+</li><li> Building the C program so that a non-privileged account can run them without "sudo".
+</li></ol>
+<p>Now you can turn the status LED on and off from a web browser running on any computer in your network!  What fun!
+</p><p><br />
+</p>
+<a name="First-time_Flashing_CHIP" id="First-time_Flashing_CHIP"></a><h2> <span class="mw-headline"> First-time Flashing CHIP </span></h2>
+<p>Using a mac, it looks like you can't flash option 1: the full GUI-based CHIP OS.  See <a href="https://bbs.nextthing.co/t/libsub-usb-bulk-send-error-1-when-flashing-chip-os/1570/10" class="external free" title="https://bbs.nextthing.co/t/libsub-usb-bulk-send-error-1-when-flashing-chip-os/1570/10" rel="nofollow">https://bbs.nextthing.co/t/libsub-usb-bulk-send-error-1-when-flashing-chip-os/1570/10</a>  But that's fine because I don't want CHIP to boot up to its GUI.
+</p><p>I prefer option 2: debian (without gui).
+</p><p>The following commands only needs to be done once, after you've installed VirtualBox, git, and Vagrant.  See <a href="http://docs.getchip.com/#installing-c-h-i-p-sdk" class="external free" title="http://docs.getchip.com/#installing-c-h-i-p-sdk" rel="nofollow">http://docs.getchip.com/#installing-c-h-i-p-sdk</a>
+</p>
+<pre>
+git clone https://github.com/NextThingCo/CHIP-SDK
+cd CHIP-SDK
+</pre>
+<p>Enable a shared folder between the host OS and the vagrant VM.  In vagrantfile, remove the "<tt>, disabled: true</tt>" from the "<tt>config.vm.synced_folder</tt>" line.
+</p>
+<pre>
+vi Vagrantfile
+/synched
+:s/, disabled: true//
+:wq
+</pre>
+<p>If the above editor commands work right, the ~/CHIP-SDK folder should be shared between both the host and the VM.
+</p><p>Now bring up the Vagrant VM:
+</p>
+<pre>
+vagrant up
+vagrant ssh
+sudo chown -R vagrant: /home/vagrant
+</pre>
+<p>That last command is needed because installing and initializing the Vagrant VM leaves many files owned by root, which prevents some advanced things from working right.
+</p><p>Now make sure you have the <a href="http://docs.getchip.com/#flash-chip-firmware" class="external text" title="http://docs.getchip.com/#flash-chip-firmware" rel="nofollow">jumper in CHIP</a>, and plug in the USB cable.  You must do this *after* vagrant is brought up so that the VM recognizes the device.
+</p>
+<pre>
+cd CHIP-tools
+git pull
+git checkout chip/stable
+./chip-update-firmware.sh -d
+</pre>
+<p>When the script completes, DON'T TOUCH ANYTHING FOR 5 MINUTES!  It takes a few minutes for the flash memory to be fully written.  After 5 minutes, remove jumper, disconnect the micro-USB cable, and reconnect it.  Wait about a minute for CHIP to finish booting.  (Normally it only requires about 20 seconds, but the first time after a flash takes longer.)
+</p><p>Now you can log into CHIP.  Up above were instructions which did the "cu" command to "<tt>/dev/tty.usbmodem2411</tt>.  That was the Mac's device name.  But now you are running in the Vagrant VM, which is a Ubuntu Linux.  That VM now holds the device, which means you need to enter the "cu" command from the Vagrant VM and use Ubuntu's device name:
+</p>
+<pre>
+cu -l /dev/ttyACM0 -s 115200
+</pre>
+<p>Log in as chip/chip and set up WIFI again (see <a href="#nmtui:_set_up_CHIP_network" title="">#nmtui: set up CHIP network</a> above).  Take note of the IP address.
+</p><p>Now log off and exit the "cu" command.
+</p>
+<pre>
+exit
+~.
+</pre>
+<p>You can now re-run the initial steps of <a href="/w/index.php?title=CHIP_Proj1" title="CHIP Proj1">CHIP Proj1</a> to get CHIP cleaned up and secured.
+</p><p><br />
+</p>
+<a name="Sensors" id="Sensors"></a><h2> <span class="mw-headline"> Sensors </span></h2>
+<ul><li> <a href="https://www.adafruit.com/category/35" class="external free" title="https://www.adafruit.com/category/35" rel="nofollow">https://www.adafruit.com/category/35</a>
+</li></ul>
+<dl><dd><dl><dd>- Especially interested in <a href="https://www.adafruit.com/products/1782" class="external free" title="https://www.adafruit.com/products/1782" rel="nofollow">https://www.adafruit.com/products/1782</a>
+</dd></dl>
+</dd></dl>
+<p><br />
+</p>
+<a name="Ubuntu_on_Mac" id="Ubuntu_on_Mac"></a><h2> <span class="mw-headline"> Ubuntu on Mac </span></h2>
+<p>See <a href="/w/index.php?title=Ubuntu_on_Mac" title="Ubuntu on Mac">Ubuntu on Mac</a>
+</p><p><br />
+</p>
+<a name="Cross_compiling" id="Cross_compiling"></a><h2> <span class="mw-headline"> Cross compiling </span></h2>
+<p>For the most part, you should be able to compile your programs right on CHIP.  But sometimes you might want to cross-compile on the Vagrant VM.  It may not be the "right" way to do it, but it seems to work.  I basically snagged it out of other build steps when rebuilding the kernel.
+</p><p>Get into Vagrant ("<tt>vagrant ssh</tt>").  Then:
+</p>
+<pre>
+cd CHIP-buildroot
+make chip_defconfig
+make toolchain
+ARMGCC=/home/vagrant/CHIP-buildroot/output/host/usr/bin/arm-linux-gnueabihf-gcc
+ARMINC=/home/vagrant/CHIP-buildroot/output/host/usr/arm-buildroot-linux-gnueabihf/sysroot/usr/include
+$ARMGCC -I. -I$ARMINC/uapi -I$ARMINC -Wall -Os -o HelloWorld HelloWorld.c
+</pre>
+<p><br />
+</p>
+<a name="Buildroot_OS" id="Buildroot_OS"></a><h2> <span class="mw-headline"> Buildroot OS </span></h2>
+<p>I could flash option 1: Buildroot.  It comes up very primitive.
+</p>
+<pre>
+sudo visudo
+</pre>
+<p>(uncomment the line "<tt>%sudo   ALL=(ALL) ALL</tt>")
+</p>
+<pre>
+:wq
+adduser chip sudo
+addgroup: group 'chip' in use
+exit
+</pre>
+<p>The network utility either isn't there, or is in a strange path location.
+</p><p><br />
+</p>
+<a name="Misc_notes" id="Misc_notes"></a><h2> <span class="mw-headline"> Misc notes </span></h2>
+<ul><li> Cross compile: <a href="https://bbs.nextthing.co/t/location-of-cross-compile-tools-for-chip/309" class="external free" title="https://bbs.nextthing.co/t/location-of-cross-compile-tools-for-chip/309" rel="nofollow">https://bbs.nextthing.co/t/location-of-cross-compile-tools-for-chip/309</a>
+</li></ul>
+<ul><li> To read CPU temp, install lm-sensors package (apt-get install lm-sensors) and use the "sensors" command.
+</li></ul>
+<ul><li> How to create Ubuntu on a stick: <a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx" class="external free" title="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx" rel="nofollow">http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx</a>
+</li></ul>
+<dl><dd> - Persistant version: <a href="https://www.youtube.com/watch?v=MpwrrQ36yqM" class="external free" title="https://www.youtube.com/watch?v=MpwrrQ36yqM" rel="nofollow">https://www.youtube.com/watch?v=MpwrrQ36yqM</a>
+</dd><dd> - <a href="https://bbs.nextthing.co/t/need-help-reflashing-c-h-i-p/2387/3?u=fordsfords" class="external free" title="https://bbs.nextthing.co/t/need-help-reflashing-c-h-i-p/2387/3?u=fordsfords" rel="nofollow">https://bbs.nextthing.co/t/need-help-reflashing-c-h-i-p/2387/3?u=fordsfords</a>
+</dd></dl>
+<ul><li> Build a router: <a href="https://bbs.nextthing.co/t/kernel-update-for-nat-and-g-ether-neither-work-properly/2454" class="external free" title="https://bbs.nextthing.co/t/kernel-update-for-nat-and-g-ether-neither-work-properly/2454" rel="nofollow">https://bbs.nextthing.co/t/kernel-update-for-nat-and-g-ether-neither-work-properly/2454</a>
+</li></ul>
+<ul><li> RPi driver direct to gpio (user-space driver): <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=33&amp;t=9729" class="external free" title="https://www.raspberrypi.org/forums/viewtopic.php?f=33&amp;t=9729" rel="nofollow">https://www.raspberrypi.org/forums/viewtopic.php?f=33&amp;t=9729</a>
+</li></ul>
+<ul><li> Make CHIP a WIFI access point: <a href="https://bbs.nextthing.co/t/create-a-very-basic-wifi-access-point/1727" class="external free" title="https://bbs.nextthing.co/t/create-a-very-basic-wifi-access-point/1727" rel="nofollow">https://bbs.nextthing.co/t/create-a-very-basic-wifi-access-point/1727</a>
+</li></ul>
+<ul><li> <a href="https://bbs.nextthing.co/t/compile-the-linux-kernel-for-chip-my-personal-howto/2669" class="external text" title="https://bbs.nextthing.co/t/compile-the-linux-kernel-for-chip-my-personal-howto/2669" rel="nofollow">Build a new kernel</a>.
+</li></ul>
+<ul><li> <a href="http://electronics.stackexchange.com/questions/167328/photodiode-turn-digital-input-pin-into-1-with-little-light-input" class="external text" title="http://electronics.stackexchange.com/questions/167328/photodiode-turn-digital-input-pin-into-1-with-little-light-input" rel="nofollow">photodiode circuit</a>
+</li></ul>
+<dl><dd>- <a href="https://www.adafruit.com/products/2831" class="external text" title="https://www.adafruit.com/products/2831" rel="nofollow">phototransistor</a>
+</dd></dl>
+<ul><li> <a href="https://www.adafruit.com/products/355" class="external text" title="https://www.adafruit.com/products/355" rel="nofollow">Power FET</a>
+</li></ul>
+<ul><li> <a href="http://www.gearbest.com/development-boards/pp_62977.html" class="external text" title="http://www.gearbest.com/development-boards/pp_62977.html" rel="nofollow">USB to UART (logic levels)</a> - <a href="https://www.sparkfun.com/datasheets/IC/cp2102.pdf" class="external text" title="https://www.sparkfun.com/datasheets/IC/cp2102.pdf" rel="nofollow">CP2102 datasheet</a>
+</li></ul>
+<ul><li> <a href="http://www.gearbest.com/other-accessories/pp_226458.html" class="external text" title="http://www.gearbest.com/other-accessories/pp_226458.html" rel="nofollow">Audio amplifier</a> - <a href="http://www.diodes.com/_files/datasheets/PAM8403.pdf" class="external text" title="http://www.diodes.com/_files/datasheets/PAM8403.pdf" rel="nofollow">PAM8403 datasheet</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 68/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:43-0!1!0!!en!2!edit=0 and timestamp 20171202113409 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=CHIP_startup">http://wiki.geeky-boy.com/w/index.php?title=CHIP_startup</a>"</div>
+</body></html>

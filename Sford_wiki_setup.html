@@ -1,0 +1,59 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; Sford wiki setup</b></big>
+</p><p>First I had to get the fine folks at <a href="http://suso.org" class="external free" title="http://suso.org" rel="nofollow">http://suso.org</a> to set me up.  This took a while, mainly because I told them that it was very low priority and really guys, don't go out of your way or anything if it's a PITA.  And it was a bit of a PITA for them so I just kept checking in every three months or so until Jan '08.  Then I had some real reasons for wanting the wiki and asked that they bump the priority.  About 2 days later, it was up and running.  I like suso.
+</p><p>At any rate, they told me to run <a href="http://wiki.geeky-boy.com/w/config/index.php" class="external free" title="http://wiki.geeky-boy.com/w/config/index.php" rel="nofollow">http://wiki.geeky-boy.com/w/config/index.php</a> and configure the wiki.  Here's how I filled it out (most of them were defaulted):
+</p>
+<pre> MediaWiki 1.11.0 Installation
+ ... (lots of warnings)
+ Wiki name: Geekyinfo
+ Contact e-mail: sford@geeky-boy.com
+ Language: en - English
+ No license metadata
+ Admin username: WikiSysop
+ Password: (yeah right, I'm going to record it here)
+ Password confirm: (yah right, I'm going to record it hear)
+ Shared memory caching: No caching
+ E-mail features (global): Enabled
+ User-to-user e-mail: Enabled
+ E-mail notification about changes: Enabled for changes to user discussion pagefs and to pages on watchlists
+ E-mail address authentication: Enabled
+ Database type: MySQL
+ Database host: mysql2.suso.org
+ Database name: sford_wikidb
+ DB username: sford
+ DB password: (Still hoping, eh?)
+ DB password confirm: (Still hoping, huh?)
+ Superuser name: root
+ Superuser password: (Oh all right, I'll tell you.  The pass word is *BANG* URRK! *thud*)
+ Database table prefix: gi_
+ Storage Engine: InnoDB
+ Database character set: Backwards-compatible UTF-8
+</pre>
+<p>Then, as per instructions, I moved the config/LocalSettings.php file up a directory, set it's file mode (permissions) to 660, and moved the config directory to ~/wiki_config.  Then uploaded the whirlpool galaxy pic to skins/common/images/GeekyInfo.jpg.
+</p><p>Then, based in part on the instructions I found at <a href="http://23rdworld.com/2007/03/30/how-to-make-your-mediawiki-private/" class="external free" title="http://23rdworld.com/2007/03/30/how-to-make-your-mediawiki-private/" rel="nofollow">http://23rdworld.com/2007/03/30/how-to-make-your-mediawiki-private/</a> I added the following lines to the LocalSettings.php file:
+</p>
+<pre> $wgLogo = "skins/common/images/GeekyInfo.jpg";
+ # This snippet prevents new registrations from anonymous users
+ # (Sysops can still create user accounts)
+ $wgGroupPermissions['*']['createaccount'] = false;
+ # $wgGroupPermissions['*']['read'] = false;
+ $wgGroupPermissions['*']['edit'] = false;
+ $wgWhitelistRead = array( "Main Page", "Special:Userlogin", "-", "MediaWiki:Monobook.css" );
+</pre>
+<p>This lets the world read the wiki, but requires an account to edit it.  It also disables account creation by anybody except for admins.
+</p><p>Then I created the <a href="/w/index.php?title=MediaWiki:Nosuchuser" title="MediaWiki:Nosuchuser">MediaWiki:Nosuchuser</a> page.  (Note that the content of that page is *not* normally displayed as a wiki page, but instead as an error message.  As a result, wikitext isn't interpreted.
+</p><p>Then I created accounts "SfordSysop" and "Sford", gave the former admin privileges, and created user and talk pages for them.  Then I created the user and talk pages for them and created the Main Page.  Then, I protected the main page, the privileged user pages, and a small admin tips page I created.
+</p><p>I think that's about it.  Oh, somewhere in there I created the <a href="/w/index.php?title=Geekyinfo:About" title="Geekyinfo:About">Geekyinfo:About</a> page and set a few watch pages here and there.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:12-0!1!0!!en!2!edit=0 and timestamp 20171202192845 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Sford_wiki_setup">http://wiki.geeky-boy.com/w/index.php?title=Sford_wiki_setup</a>"</div>
+</body></html>

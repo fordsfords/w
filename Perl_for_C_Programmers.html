@@ -1,0 +1,797 @@
+<html><body>
+			<p>This is a Perl tutorial for C programmers.  It is my goal for a C programmer to be able to digest this entire tutorial in a single 30-minute session.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#In_The_Beginning"><span class="tocnumber">2</span> <span class="toctext">In The Beginning</span></a></li>
+<li class="toclevel-1"><a href="#Print"><span class="tocnumber">3</span> <span class="toctext">Print</span></a></li>
+<li class="toclevel-1"><a href="#Data_and_Variables"><span class="tocnumber">4</span> <span class="toctext">Data and Variables</span></a></li>
+<li class="toclevel-1"><a href="#Default_Variable"><span class="tocnumber">5</span> <span class="toctext">Default Variable</span></a></li>
+<li class="toclevel-1"><a href="#Loops"><span class="tocnumber">6</span> <span class="toctext">Loops</span></a></li>
+<li class="toclevel-1"><a href="#String_Interpolation"><span class="tocnumber">7</span> <span class="toctext">String Interpolation</span></a></li>
+<li class="toclevel-1"><a href="#Conditionals"><span class="tocnumber">8</span> <span class="toctext">Conditionals</span></a></li>
+<li class="toclevel-1"><a href="#Input_.2F_Output"><span class="tocnumber">9</span> <span class="toctext">Input / Output</span></a></li>
+<li class="toclevel-1"><a href="#die.28.29"><span class="tocnumber">10</span> <span class="toctext">die()</span></a></li>
+<li class="toclevel-1"><a href="#getopts.28.29"><span class="tocnumber">11</span> <span class="toctext">getopts()</span></a></li>
+<li class="toclevel-1"><a href="#Functions"><span class="tocnumber">12</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-1"><a href="#Regular_Expressions"><span class="tocnumber">13</span> <span class="toctext">Regular Expressions</span></a></li>
+<li class="toclevel-1"><a href="#Perlisms_I_Avoid"><span class="tocnumber">14</span> <span class="toctext">Perlisms I Avoid</span></a></li>
+<li class="toclevel-1"><a href="#Perl_Disappointments"><span class="tocnumber">15</span> <span class="toctext">Perl Disappointments</span></a></li>
+<li class="toclevel-1"><a href="#To_Infinity.2C_and_Beyond"><span class="tocnumber">16</span> <span class="toctext">To Infinity, and Beyond</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<a name="Introduction" id="Introduction"></a><h2> <span class="mw-headline"> Introduction </span></h2>
+<p>This tutorial will not make you an expert at Perl.  It will let you start writing Perl code.  I hope it will also give you an appreciation of why you might <i>want</i> to write Perl code.  I assume that you are already a reasonably good C programmer, so I don't need to teach you what the "++" operator is.  Also, you will catch on faster if you are experienced writing shell scripts (Bash), and even faster if you've used "grep", "sed" and "awk".  But if you're only a C programmer, you should not have too much trouble.
+</p><p>This tutorial assumes you will go through it from start to end.  Later sections use techniques taught in earlier sections.
+</p><p>Being basically egocentric, I will teach my own Perl programming style.  Cuz it's the best, of course.  I'm an old-time C programmer (not C++), and I tend to write a lot of my Perl code as if it were C.  A true Perl fanatic would sneer at my non-Perl-like code.
+</p><p>Also, I'll assume that you're using Unix.  Cuz it's the best, of course.  But Perl is intended to be portable across operating systems, and while it is not quite as successful as, say, Java, it's not bad.  I promise to keep the Unix-specific stuff to a minimum.
+</p><p>First a simple question: why Perl?  Here are my reasons, in order of decreasing importance:
+</p>
+<ol><li> Regular expressions (pattern matching).
+</li><li> Hashes (hash tables, hash maps, associative arrays, whatever you want to call them).
+</li><li> Weak typing.
+</li><li> Language shortcuts, like <b>while (&lt;&gt;)</b> (explained later).
+</li></ol>
+<p>All of these contribute to rapid code development.  For many kinds of text-processing applications, I can get a Perl program running in a tiny fraction of the time it would take me in C.
+</p><p>I use Perl for tools.  The decision to write a tool is always a tradeoff between how much effort it is to write it against how much effort it saves.  If C is my language for tools, I won't write very many; I would just do things manually.  With Perl, I am much more likely to go ahead and write the tool, thus improving my overall productivity.
+</p><p>And yes, I know that both Java and C++ offer regular expressions and hashes.  I've written some tools in Java using them.  And while my tool writing productivity IS higher in Java than in ordinary C, Perl is still more productive.  Especially with regular expressions - it just takes a lot more junk code in Java to do the same thing as Perl.  For all the complaints about Perl being hard to read, take a look at some java code that does regular expression matching.  The junk code WAY obscures the code intent.  The same code in Perl is much easier to read.  (The regular expression patterns themselves are equally hard to read, and is a big reason for Perl's reputation for being hard to read.)
+</p><p>You will probably notice that I include a lot of personal opinion in this article.  I won't hesitate to say feature <i>foo</i> is better than feature <i>bar</i>.  Sometimes I'll give a line of reasoning to support my opinion.  Other times I'll simply state it as fact.  I can get away with that because I'm an old geezer who will talk endlessly about the good old days if you get me started.
+</p><p>Finally, a word of warning.  I did not exhaustively try out every code fragment contained here.  I may have made some minor mistakes or typos.  Let me know if you find any.
+</p><p><br />
+</p>
+<a name="In_The_Beginning" id="In_The_Beginning"></a><h2> <span class="mw-headline"> In The Beginning </span></h2>
+<p>I like to start every Perl program with the following lines:
+</p>
+<pre> #!/usr/local/bin/perl -w
+ use strict;
+ use Getopt::Std;  # this one is optional, but I like to use "getopt()" in many of my programs.
+</pre>
+<p>Perl has a reputation for being a cowboy language which allows (encourages?) the programmer play very fast and loose and basically ignore good programming practices.  The <b>-w</b> on line 1 and the <b>use&nbsp;strict</b> on line 2 basically put a leash on the worst of programmer abuses.  Perl will give you warnings and errors.
+</p><p>In Unix, you can turn on the executable bit for the file and run it like a normal command ... IF Perl is in "/usr/local/bin".  Which sometimes it is not.  And never mind Windows, which does not even support the shebang ("#!") construct.  These days, I tend to run Perl programs like this:
+</p>
+<pre>   perl foo.pl
+</pre>
+<p>Note that the <b>#!/usr/local/bin/perl -w</b> line is still useful, even if invoking perl as above.  When Perl reads that line, it recognizes the shebang and processes the command-line options.  Thus, the <b>-w</b> option is applied.
+</p><p>Finally note that Perl uses "#"-style comments, like Unix shell scripts.  A comment starts with "#" and continues to the end of the line.
+</p><p><br />
+</p>
+<a name="Print" id="Print"></a><h2> <span class="mw-headline"> Print </span></h2>
+<p>The "print" function is much more free-form than C's printf().  You typically do not need a format string, you just list things to print, separated by commas:
+</p>
+<pre>   print "hello\n", "How are", "you?\n";    # Oops, The second line is printed as "How areyou?".
+</pre>
+<p>Note that no parentheses are used.  In Perl, enclosing function parameters in parenthesis is usually optional, but I tend to always use them for clarity.  But "print" is different.  Some things don't work if you pass "print"s parameters in parentheses.
+</p><p>You can also print to standard error:
+</p>
+<pre>   print STDERR "Error, if you get here, something is very wrong.\n";
+   exit(1);
+</pre>
+<p>Note that no comma is used between STDERR and the start of the things to be printed.  If you had a comma there, it would try to interpret STDERR as a thing you wanted to actually print.
+</p><p>You'll see more of "print" later on.
+</p><p><br />
+</p>
+<a name="Data_and_Variables" id="Data_and_Variables"></a><h2> <span class="mw-headline"> Data and Variables </span></h2>
+<p>Perl is weakly typed.  The same variable might contain an integer one moment, a string the next moment, and a floating point number the next moment.
+</p><p>A useful mental model of Perl is to assume that data is always stored as a string.  If you use the variable in a context that expects a numeric, Perl will convert the string to a number.  The result of an arithmetic expression is converted to a string when stored into a variable.  Note that this is just a useful way to think of Perl; in reality it does a lot to optimize things, like maintaining both a numeric and a string version of variables (if it thinks it should).  But you should ignore all that and just think in terms of strings being the basis of variable storage, with automatic conversions based on context.  Don't worry, it doesn't take long to get used to it.
+</p><p><br />
+<b>Simple Variables</b>
+</p><p>Simple variables must be prefixed with dollar sign (<b>$</b>).  Here is some Perl code:
+</p>
+<pre>   $name = "Steve";
+   $name = $name . "D"    # A period (<b>.</b>) is a string concatenation operator.
+   $name .= "Ford";
+   print $name, "\n";    # Oops, this prints "SteveDFord".  I forgot to include spaces.
+   $age = 53;
+   $age = $age + 1;    # I think it's my birthday today.
+   $age--;    # Ah, just checked the calendar and it's not.
+   $age += 1;    # Oops, that was last year's calendar; it IS my birthday.
+   print $name, " is ", $age, " years old\n";    # prints "SteveDFord is 54 years old"
+</pre>
+<p>See?  Once you get used to the dollar signs, it almost looks like C.  In particular, all your favorite arithmetic operators are there: pre-increment, post-increment, and whatever you call those "+=" operators.
+</p><p><br />
+<b>Declarations</b>
+</p><p>When <b>use strict</b> is in effect, Perl will refuse to run the above code as-shown because you didn't declare your variables.  Since Perl is weakly-typed, no data type needs to be specified.  There are different ways to declare variables, but please ignore most of them and stick with "my":
+</p>
+<pre>   my $name;  # perl doesn't care what type "$name" will store.
+   my $age = 53;    # you can init vars when declared.
+</pre>
+<p>Remember that $age can be interpreted as a 2-character string "53" or an integer value of 53 (numeric), depending on context.  Thus:
+</p>
+<pre>   print ($age . "1") . "\n";  # prints 531
+   print ($age + 1) .  "\n";  # prints 54
+</pre>
+<p><br />
+<b>Undefined Variables</b>
+</p><p>One nice thing about Perl is that it will warn you if you try to use an uninitialized variable.  In Perl, there is even a special value called "undef" which means undefined.
+</p><p>Frequently, this lets you find your own bugs:
+</p>
+<pre>   my $age;
+   $age = $age + 1;    # Oops, age is being used before initialization.  It has the value "undefined".
+</pre>
+<p>That will generate a run-time warning, alerting you to the bug.
+</p><p>There are also times that "undef" is a perfectly valid thing for a variable to contain.  For example, when doing file input, EOF is indicated by returning "undef".  You can test a variable to see if it is defined with the "defined()" function.  So, if you read an input line into $in_line, you can test it with "defined()" to see if the read hit EOF:
+</p>
+<pre>   if (defined($in_line)) {
+       print $in_line;
+   }
+   else {
+       print "EOF!\n";
+   }
+</pre>
+<p><br />
+<b>Arrays</b>
+</p><p>You can declare an array pretty easily:
+</p>
+<pre>   my @favorite_colors;
+</pre>
+<p>Note the <b>@</b> instead of the <b>$</b>.  Although Perl is weakly-typed, it does want to know if you intend to use a variable as an array.  More on that in a moment.
+</p><p>Also note that the size of the array does not have to be specified.  Perl will dynamically resize the array as needed.  If you assign to <b>[3]</b> of the array, it will automatically create elements <b>[0]</b> through <b>[3]</b>.  Those unused elements (0, 1 and 2) will be set to the undefined value.
+</p><p>Back to the use of <b>@</b>.  Perl is context-sensitive.  The use of <b>@</b> tells Perl to use the variable <i>in its array context</i>.  I.e. the whole array.  For example, there is a cool function "push()" which adds an element to an array:
+</p>
+<pre>   my @favorite_colors;
+   push(@favorite_colors, "green");
+   push(@favorite_colors, "orange");
+</pre>
+<p>The <b>push(@favorite_colors, "green");</b> passes the entire "favorite_colors" array to "push" and asks it to add "green" as a new element.  The "push()" function will find the highest defined index, increment it, and store "green" there.  In the above code, "favorite_colors" array starts out empty.  The first "push" will store "green" into <b>favorite_colors[0]</b>.  The second "push" will store "orange" into <b>favorite_colors[1]</b>.  So, let's make sure:
+</p>
+<pre>   print $favorite_colors[1], "\n";
+</pre>
+<p>Whoa.  What's that <b>$</b> doing there?
+</p><p>It's the context-sensitive thing.  You don't want print to operate on the entire array, only one element.  A single element of an array is a <i>simple variable</i>, and needs to be accessed with <b>$</b>.
+</p><p>Yes, it gives Perl newbies headaches, and is probably the biggest reason Perl has a bad reputation for being hard to read and maintain.  Just remember, use <b>@</b> when you want to operate on the entire array, and use <b>$</b> when you want to operate on a specific element.
+</p>
+<pre>   my @favorite_colors;
+   $favorite_colors[0] = "green";    # use <b>$</b> because you want to access a specific element.
+   push(@favoriate_colors, "orange");    # use <b>@</b> because you want push to operate on the entire array.
+   my $i;
+   for ($i = 0; $i &lt; 2; ++ $i) {  # looks a lot like C, with dollar signs.
+       print $favorite_colors[$i], "\n";    # print each element in array
+   }
+   my @temp = @favorite_colors;    # copy entire array.
+   $i = join(",", @temp);    # "join()" concatenates (as strings) array elements, with a separator (comma, in this example).
+   print $i, "\n";    # this prints "green,orange".
+</pre>
+<p><br />
+<b>Hashes</b>
+</p><p>Perl calls them "hashes", but you might know them as "maps" or "hash tables" or "associative arrays" or "key/value pairs".  The concept is VERY simple.  A hash is simply an array which is indexed with an arbitrary string instead of an integer.  Instead of calling that string an "array index", call it a "hash key".  But, as simple as the concept is, it is half the reason for using Perl in the first place (the other half is regular expressions).
+</p><p>The percent sign (<b>%</b>) is used for hashes.  And the same basic rules apply - use <b>%</b> when referring to the entire hash, and use <b>$</b> when referring to a specific element.  Also, instead of using square brackets to enclose the index, use curly braces (<b>{ }</b>) to enclose the key.
+</p>
+<pre>   my&nbsp;%student_ages;
+   $student_ages{"Steve"} = 53;    # create key "Steve"
+   $student_ages{"Alice"} = 15;    # create key "Alice"
+   my @student_names;    # define an array
+   @student_names = keys(%student_ages);    # Whoa!
+</pre>
+<p>That last line deserves some explanation.  The "keys()" function takes a hash (the *entire* hash; hence the use of <b>%</b>) and finds all of the hash keys.  It returns those keys in the form of an array, and assigns that to the <b>@student_names</b>.  The result being:
+</p>
+<pre>   print $student_names[0], "\n";    # prints either "Steve" or "Alice"
+</pre>
+<p>Note that the order of keys in the returned array is not defined.  If you want a predictable order, you could do:
+</p>
+<pre>   @student_names = sort(keys(%student_ages));  # sort() accepts an array and returns an array, sorted in alphabetic order.
+   print $student_names[0], "\n";    # prints "Alice"
+</pre>
+<p>Here's a bit more code to show how it all works:
+</p>
+<pre>   print $student_ages{"Steve"}, "\n";    # prints 53
+   my $i;
+   for ($i = 0; $i &lt; 2; ++ $i) {
+       my $name = $student_names[$i];
+       print $name, " is ", $student_ages{ $name }, " years old\n";
+   }
+</pre>
+<p>The variable "$name" is technically not needed; the inside of the loop could have been written as the single line:
+</p>
+<pre>       print $student_names[i], " is ", $student_ages{ $student_names[i] }, " years old\n";
+</pre>
+<p>That print line is a perfect example of what confuses newbies, what with all the dollar signs, square brackets and curly braces.  But it's fundamentally not that hard.  You are wanting to access a specific element of the <b>student_ages</b> hash, so you use <b>$student_ages{&nbsp;</b><i>SomeKey</i><b>&nbsp;}</b>.  The <i>SomeKey</i> is the student's name, which is in <b>$student_names[&nbsp;$i&nbsp;]</b>.
+</p><p><br />
+<b>separate name spaces</b>
+</p><p>Here's a somewhat unfortunate thing about Perl that can lead to some very hard to read code.  Simple variables, arrays, and hashes (and functions, for that matter) are in separate name spaces.  Which is to say that:
+</p>
+<pre>   my $x;
+   my @x;
+   my&nbsp;%x;
+</pre>
+<p>Those are three separate variables.  The fact that they have the same name does not lead to any ambiguity.  Perl uses context to figure out which one is being accessed:
+</p>
+<pre>   $x = 0;
+   $x[$x] = "greeting";    # store the string "greeting" into array x element 0.
+   $x{$x[$x]} = "hello there";    # store "hello there" into the hash at key "greeting"
+</pre>
+<p>For obvious reasons, I suggest avoiding using the same name for different variables in different name spaces.
+</p><p><br />
+<b>scalar()</b>
+</p><p>Although Perl does a pretty good job of using the <b>$</b>, <b>@</b>, <b>%</b>, <b>[&nbsp;]</b> and <b>{%nbsp;}</b> characters to define all the appropriate contexts, sometimes you want to override it.  Usually that means forcing Perl to treat an array or a hash as a simple value.  This is mostly for advanced programming, but there is one place where even a new-comer will use it.
+</p><p>Since arrays are dynamic, you can't use a function like "sizeof" to figure out how big it is.  So, if you refer to an entire array (using <b>@</b>), but do so in the context of a single value, it will basically return the number of elements in the array:
+</p>
+<pre>   my @test;
+   $test[5] = "hello";
+   my $num = @test;    # "$num" is a simple variable; forces "@test" to be treated as a single value.
+   print $num, "\n";    # prints 6.  (Remember elements 0 - 4 are undefined and 5 is defined.)
+</pre>
+<p>In <b>my $num = @test;</b> Perl is able to understand that you want to force interpretation of "@test" to a single value (i.e. number of elements).  But what about:
+</p>
+<pre>   print @test, "\n";
+</pre>
+<p>Perl will assume you want to pass the entire array to print.  Try it - the results are interesting.  (Spoiler: when it tries to print elements 0-4, it will complain that they are undefined.)  If you want to force it to pass the number of elements, you need to use "scalar()":
+</p>
+<pre>   print scalar(@test), "\n";    # prints 6.
+</pre>
+<p>I tend to use "scalar()" more than I absolutely have to, just for clarity sake.  So I would an earlier line as:
+</p>
+<pre>   my $num = scalar(@test);    # "scalar()" technically not necessary, but explicitly states my intention.
+</pre>
+<p>I'm sure there are other important uses of "scalar", but I pretty much only use it to get the number of elements in an array.
+</p><p><br />
+</p>
+<a name="Default_Variable" id="Default_Variable"></a><h2> <span class="mw-headline"> Default Variable </span></h2>
+<p>There is no analog to this in C, but it is so universal in Perl that you might as well get used to it.  The simple variable "$_", called the "default variable", is a special pre-defined variable with some magical properties.  There are a specific set of built-in Perl functions which will use "$_" as input if you don't supply any arguments.  And there are a small number of Perl built-in function which will leave output in "$_" if the function's output is not specified.
+</p><p>For example, later on you will see the code:
+</p>
+<pre>   while (&lt;&gt;) {
+       print;
+   }
+</pre>
+<p>The "<b>while (&lt;&gt;)</b>" construct reads a line of input and places it in "$_".  The "print;" line takes the contents of "$_" and prints it to STDOUT.  Both of these will be explained in more detail later.  For now just know that the default variable "$_" is implicitly being used there.
+</p><p>For a full treatment of what uses "$_", see <a href="http://perldoc.perl.org/perlvar.html#General-Variables" class="external free" title="http://perldoc.perl.org/perlvar.html#General-Variables" rel="nofollow">http://perldoc.perl.org/perlvar.html#General-Variables</a> .  It is one of those things which I bring up, not because you need to know it to write Perl code, but because lots of existing Perl programs use it.
+</p><p><br />
+</p>
+<a name="Loops" id="Loops"></a><h2> <span class="mw-headline"> Loops </span></h2>
+<p>Looping constructs are pretty much what you would expect as a C programmer.  While and for loops work the same, and have already been demonstrated in previous code.
+</p><p><br />
+<b>break -&gt; last</b>
+</p><p>C has the "break" statement to exit out of a loop.  Perl uses "last".
+</p><p><br />
+<b>continue -&gt; next</b>
+</p><p>C has the "continue" statement to jump immediately back to the top of the loop.  Perl uses "next".
+</p><p><br />
+<b>do { ... } while</b>
+</p><p>In C, a "do" loop is just another looping construct.  In Perl, "do" is very different.  For example, the "last" and "next" statements don't do what you think.  Avoid the "do { ... } while" construct.
+</p><p><br />
+<b>foreach</b>
+</p><p>There is an additional looping construct called "foreach", which has no analog in C.  It is designed to loop through an array without having to bother with the array index.
+</p><p>Consider from a previous example:
+</p>
+<pre>   for ($i = 0; $i &lt; 2; ++ $i) {
+       my $name = $student_names[$i];
+       print $name, " is ", $student_ages{ $name }, " years old\n";
+   }
+</pre>
+<p>You could also code that as:
+</p>
+<pre>   foreach $i (@student_names) {
+       # the variable $i has the contents of each array element.
+       print $i, " is ", $student_ages{ $i }, " years old\n";
+   }
+</pre>
+<p>It turns out that the "foreach" construct can make implicit use of the default variable "$_":
+</p>
+<pre>   foreach (@student_names) {
+       # the variable $_ has the contents of each array element.
+       print $_, " is ", $student_ages{ $_ }, " years old\n";
+   }
+</pre>
+<p><br />
+</p>
+<a name="String_Interpolation" id="String_Interpolation"></a><h2> <span class="mw-headline"> String Interpolation </span></h2>
+<p>Shell programmers will be used to this.  You can do variable substitution inside of strings.  For example:
+</p>
+<pre>   my $name = "Steve";
+   my $age = 53;
+   my $out_line = "$name is $age years old";
+</pre>
+<p>There, isn't that easier to both write and read than using concatenation:
+</p>
+<pre>   my $out_line = $name . " is " . $age . " years old";    # yuk
+</pre>
+<p>Here's a line from earlier in this tutorial:
+</p>
+<pre>       print $student_names[$i], " is ", $student_ages{ $student_names[$i] }, " years old\n";
+</pre>
+<p>Here's an easier version:
+</p>
+<pre>       print "$student_names[$i] is $student_ages{ $student_names[$i] } years old\n";
+</pre>
+<p>All that said, I have run into situations where the expression is complicated enough that the string interpolation fails.  So sometimes I have to fall back on concatenation.
+</p><p>Suppose that you want to add a suffix to the name.  For example:
+</p>
+<pre>   my $name = "Steve";
+   print "How many $names are here today?\n";
+</pre>
+<p>This won't work because it looks for a variable named "$names".  You can tell Perl the exact variable name with curly braces:
+</p>
+<pre>   print "How many ${name}s are here today?\n";    # displays How many Steves are here today?
+</pre>
+<p>Finally, sometimes you simply do not want any string interpolation to happen.  In that case, use single quote marks around your string:
+</p>
+<pre>   print 'How many ${name}s are here today?\n';    # displays How many ${name}s are here today?
+</pre>
+<p>It is no coincidence that the above is virtually identical to how shell scripts work (Bourn / Bash).
+</p><p><br />
+</p>
+<a name="Conditionals" id="Conditionals"></a><h2> <span class="mw-headline"> Conditionals </span></h2>
+<p>Perl "if" statements work pretty much the same way as C "if" statements.  Here are some exceptions:
+</p>
+<table border="1">
+<caption>
+</caption><tr>
+<td> C
+</td><td> Perl
+</td><td>
+</td></tr>
+<tr>
+<td> if&nbsp;(x&nbsp;==&nbsp;1)&nbsp;<br />&nbsp;&nbsp;printf("x=%d\n");&nbsp;
+</td><td> if&nbsp;($x&nbsp;==&nbsp;1)&nbsp;{&nbsp;<br />&nbsp;&nbsp;print&nbsp;"x=$x\n";&nbsp;<br />}&nbsp;
+</td><td> Curly braces are <i>always</i> required.  Same with "else" clauses and "while" loops.
+</td></tr>
+<tr>
+<td> if&nbsp;(strcmp(x,&nbsp;"quit")&nbsp;==&nbsp;0)&nbsp;<br />&nbsp;&nbsp;exit(0);&nbsp;
+</td><td> if&nbsp;($x&nbsp;eq&nbsp;"quit")&nbsp;{&nbsp;<br />&nbsp;&nbsp;exit(0);&nbsp;<br />}&nbsp;
+</td><td> Strings are compared with <b>eq</b> instead of <b>==</b>. This is because variables can be interpreted either as strings or as numerics, depending on context.  So you have to provide that context so that Perl does the right thing.  If you do <b>$x == "quit"</b> it will interpret the string "quit" as a numeric; since it is not a valid numeric, it uses zero.  Thus, <b>"hi" == "bye"</b> evaluates as true while <b>"hi" eq "bye"</b> evaluates to false.  Unfortunately Perl does not warn you when it sees <b>"hi" == "bye"</b>.
+</td></tr>
+<tr>
+<td> if&nbsp;(strcmp(x,&nbsp;"hello")&nbsp;==&nbsp;0)&nbsp;<br />&nbsp;&nbsp;printf("greetings\n");&nbsp;<br />else&nbsp;if&nbsp;(strcmp(x,&nbsp;"goodby")&nbsp;==&nbsp;0)&nbsp;<br />&nbsp;&nbsp;printf("salutations\n");&nbsp;
+</td><td> if ($x &nbsp;eq&nbsp;"hello")&nbsp;{&nbsp;<br />&nbsp;&nbsp;print&nbsp;"greetings\n";&nbsp;<br />}&nbsp;elsif&nbsp;($x&nbsp;eq&nbsp;"goodby")&nbsp;{&nbsp;<br />&nbsp;&nbsp;print&nbsp;"salutations\n";&nbsp;<br />}&nbsp;
+</td><td> Since curly braces are always required, "else if (...)" would have to be coded as "else { if (...) {".  This doubles the nesting level. So Perl invented "elsif" as a single token. Shell scripts have a similar construct, and I often confuse them. &nbsp;:-(
+</td></tr></table>
+<p>Other string comparisons are "ne" (Not Equal), and the expected set of "lt", "le", "gt", "ge" for doing lexical (ascii) ordering.
+</p><p>One final useful function is <b>defined()</b>.  Remember above when I said that variables can have an undefined value, which will print a warning if you try to use them?  This is useful for more than just catching code bugs.  You can check if a variable is defined:
+</p>
+<pre>   my $x;
+   $x = some_funct_that_might_return_undefined();
+   if (defined($x)) {
+       print "$x\n";
+   }
+</pre>
+<p><br />
+<b>Short-Circuiting Instead of "if"</b>
+</p><p>Here's an easy-to-underand chunk of code:
+</p>
+<pre>   if (! getopts('h')) {
+       usage();
+   }
+</pre>
+<p>Parse some options, returns true if it succeeds.  So the "if" statement calls usage if it failed.  Here's how a lot of Perl programmers would write it:
+</p>
+<pre>   getopts("h") || usage();
+</pre>
+<p>Just as in C, the "||" operator is subject to <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation" class="external text" title="http://en.wikipedia.org/wiki/Short-circuit_evaluation" rel="nofollow">short-circuit evaluation</a>, meaning that if "getopts()" returns true, "usage()" is guaranteed to not be executed.  Conversely, if "getopts()" returns false, "usage()" <i>is</i> executed.  Exact same behavior as the "if" code.
+</p><p>So why do it?  Once you learn the idiom, I feel the code IS more expressive.  The important thing being done is calling "getopts()".  But in the 3-line version, the call is buried in the middle of an "if" conditional.  The call to "usage()" is not central to the intent of the code - it's just error handling - but visually it is front-and-center.  In the one-line version, the call to "getopts()" is front-and-center, and the call to "usage()" is relegated to its rightful place: only executed if something goes wrong in "getopts()".
+</p><p>But even if you disagree with me in terms of expressiveness, it is a very common construct in Perl programs, so get used to it.
+</p><p><br />
+</p>
+<a name="Input_.2F_Output" id="Input_.2F_Output"></a><h2> <span class="mw-headline"> Input / Output </span></h2>
+<p>The I/O mechanisms for Perl have undergone a lot of evolution since Perl's early days.  This is unfortunate since there are now several methods in common use which must be learned to be fluent in Perl.  I will stick with one method.
+</p>
+<pre>   # Copy a file
+   my $i_file;    # going to use as file handle.
+   if (! open($i_file, "&lt;", "input.txt")) {    # the "&lt;" means it is reading the file.  Like shell file re-direction.
+       print STDERR "Error, could not open 'input.txt' ($!)\n";  # "$!" is built-in variable containing the error description
+       exit(1);
+   }
+  &nbsp;
+   my $o_file;
+   # The above "if (! open" construct is very un-Perl-like.  Let's short-circuit it and use "die" to be more Perl-like.
+   open($o_file, "&gt;", "output.txt") || die("Error, could not open 'output.txt' ($!)\n");  # print to STDERR and exit
+  &nbsp;
+   my $i_line;
+   # The &lt;<i>FileHandle</i>&gt; construct is how you read a line.
+   while (defined($i_line = &lt;$i_file&gt;)) {    # $i_line will contain undefined when &lt;$i_file&gt; hits EOF.
+       print $o_file $i_line;
+   }
+   close($i_file);
+   close($o_file);
+</pre>
+<p>A couple of things to mention about the print statement.  Notice the lack of comma between "$o_file" and "$i_line".  That is how print knows that "$o_file" is a file handle, not a variable to actually print.  Now you see why <b>print STDERR "Error, blah blah\n";</b> has no comma after STDERR.
+</p><p>Note that the "while" statement uses the "defined" function to detect EOF.  You may see some existing Perl code that assigns an input line to a variable, but does not test for defined.  *This can be a bug!*  Remember that the interpretation of a variable's content is context-sensitive.  Suppose you wrote your code like this:
+</p>
+<pre>   if ($i_line = &lt;$i_file&gt;) {
+       print $i_line;
+   }
+</pre>
+<p>It would seem to work fine, UNTIL your input file contained a line consisting of the single character "0" with no newline (i.e. last line in the file).  In that case, Perl will interpret the variable as numeric, with the value 0, and the "if" will fail even though the read succeeded.  So you should always test input with "defined()".
+</p><p>Also, note that the print statement does not include "\n".  This is because <b>&lt;$i_file&gt;</b> reads a line, up to <i>and including</i> the newline.  So "$i_line" already has a newline in it.  It is very easy to strip the trailing newline:
+</p>
+<pre>   chomp($i_line);    # strip trailing newline, if any
+</pre>
+<p>Now, let's streamline the code, like a real Perl programmer.  Remember the default variable?  When a file read operation is the conditional in a "while" loop, the variable assignment can be omitted and the inputted line will be placed in "$_".  So, the above while loop can be re-written as;
+</p>
+<pre>   while (&lt;$i_file&gt;) {    # Read input line into $_ and check for "defined" (requires "while")
+       print $o_file;    # nothing supplied to print; so $_ is printed
+   }
+</pre>
+<p>Note that the file read operation must the *only* thing in the "while" conditional in order for it to automatically assign to "$_" and automatically test for "defined".  I.e. if you try "<b>while (!$quit &amp;&amp; &lt;$i_file&gt;)</b>" you will find that the read line is simply thrown away, not assigned to "$_".  (But you can always use "<b>while (!$quit &amp;&amp; defined($_=&lt;$i_file&gt;))</b>".)  Also note that only file read operations automatically assign to "$_" when inside a while conditional.  I.e. the combination of while and file read is magical.
+</p><p>Next, there are three built-in pre-defined file handles, STDIN, STDOUT and STDERR.  For historical reasons, there is no <b>$</b> in front of these.  So, instead of explicitly opening files, you could re-write it to simply copy from STDIN to STDOUT.  The entire program then becomes:
+</p>
+<pre>   while (&lt;STDIN&gt;) {
+       print;
+   }
+</pre>
+<p>No opens, no closes, no variables used at all.  Once again, since the file read is the only thing inside the "while" condition, it uses $_ and tests for "defined".
+</p><p>One final cool thing:
+</p>
+<pre>   my @i_lines = &lt;STDIN&gt;    # read operation done in array context!  Reads entire file.
+   for (my $i = 0; $i &lt; scalar(@i_lines); ++$i) {
+       print $i_lines[$i];
+   }
+</pre>
+<p>That first line declares an array and reads the ENTIRE INPUT FILE into the array.  So when the "for" line starts, the whole file is in memory and available for access.  Also note that you can declare the "for" loop's index variable right inside the "for" construct.  Also note the use of "scalar()" to determine the number of elements in the array.
+</p><p>Remember the "foreach" loop?  The above might be written as:
+</p>
+<pre>   my @i_lines = &lt;STDIN&gt;    # read operation done in array context!  Reads entire file.
+   foreach (@i_lines) {
+       print;
+   }
+</pre>
+<p><br />
+<b>Super Input</b>
+</p><p>One more magical construct.  Let's re-write the above program one more time (in the file "copyit.pl"):
+</p>
+<pre>   while (&lt;&gt;) {
+       print;
+   }
+</pre>
+<p>The construct <b>&lt;&gt;</b> is a super form of input which has extra semantics:
+</p>
+<ol><li> If no files were specified on the command-line, read from STDIN.  At EOF of STDIN, "&lt;&gt;" returns false.
+</li><li> If one or more files were specified on the command-line, open the first file and read it.  At EOF of that file, simply open the next file and read it.  And so on.  At EOF of the last file, "&lt;&gt;" returns false.
+</li><li> If one or more files were specified on the command-line, and one of those files is "-", STDIN is read for that file.
+</li></ol>
+<p>So, "copyit.pl" can be run as:
+</p>
+<pre>   perl copyit.pl &lt;input.txt &gt;output.txt
+</pre>
+<p>Or:
+</p>
+<pre>   perl copyit.pl input.txt &gt;output.txt
+</pre>
+<p>Or:
+</p>
+<pre>   ls | perl copyit.pl input1.txt input2.txt - input4.txt &gt;output.txt
+</pre>
+<p>That last form combines input1.txt, input2.txt, the output of "ls" (STDIN), and "input4.txt".  I.e. "copyit.pl" is a simple version of the Unix command "cat".  Pretty amazing for a 3-line program.
+</p><p>I usually hate "extra magical" things because they are hard to remember and can trip up a newbie.  But the construct <b>while (&lt;&gt;) {</b> is so wide-spread that you should just get used to it.  I would guess that 70% of my Perl tools use it.
+</p><p><br />
+</p>
+<a name="die.28.29" id="die.28.29"></a><h2> <span class="mw-headline"> die() </span></h2>
+<p>The "die()" function is just a way of printing an error (to STDERR) and exiting the program.
+</p>
+<pre>   isvalid($i_line) || die("input line '$i_line' is not valid");
+</pre>
+<p>Note that a newline is not needed for "die()".
+</p><p><br />
+<b>Assert</b>
+</p><p>You use "assert()" in your C code, right?  You don't?  Shame on you!  You should.
+</p><p>An assert is simply a form of internal code validation.  You add a line which asserts that some required condition is true, and assert aborts the program if the condition is false.  Sprinkling asserts in your code is very useful for finding bugs in your code.
+</p><p>Perl does not have an "assert()" function.  But you can do the same thing with a common Perl idiom:
+</p>
+<pre>   (condition) || die(message);  # the parenthesis around "condition" are optional
+</pre>
+<p>The "||" operator does short-circuit evaluation, meaning it only executes "die()" if the condition is false.  The "die()" function prints to STDERR and then calling "exit(1)".  It has the added sweetness of printing the line number in the Perl source code.  BTW, I don't think anybody besides me calls that construct an "assert", but it is basically the same idea.
+</p><p>Here is an example of the construct:
+</p>
+<pre>   open(my $i_file, "&lt;", "input.txt") || die("Could not open 'input.txt': $!");
+</pre>
+<p>Compare that to the more C-like construct:
+</p>
+<pre>   if (! open(my $i_file, "&lt;", "input.txt") {
+       die("Could not open 'input.txt': $!");
+   }
+</pre>
+<p>Again, I have to point out the expressiveness of the assert-like construct.  Not only does it use fewer lines of code, it also emphasizes the intent of the code.  The intent is to open the input file.  In the C-like version, that open is buried inside an "if" conditional.  The error handling code is <i>not</i> central to the intent of the code, and yet the C-like version puts it front-and-center.  Once you are familiar with this Perl idiom, that one-liner expresses the intent of the code better.
+</p><p><br />
+</p>
+<a name="getopts.28.29" id="getopts.28.29"></a><h2> <span class="mw-headline"> getopts() </span></h2>
+<p>Many Unix-based C programmers are used to calling "getopts()".  But some aren't, and Windows doesn't have "getopts()".  It is used to parse command-line options in a concise, standardized way.  Perl has "getopt()" on all platforms, including Windows.  it supports single-letter options, *not* long-form like --foo.
+</p>
+<pre>   my $num_things = 10;  # default value, overridable with "-n NUM"
+  &nbsp;
+   # "getopt()" declares variables "$opt_a" - "$opt_z" and "$opt_A" - "$opt_Z".
+   # We can't declare them like "my $opt_h" because that forces a local copy.
+   # We need the equiv of C's "extern", which is "use vars qw(...)".
+  &nbsp;
+   use vars qw($opt_h $opt_n);  # Gain access to getopt's variables
+  &nbsp;
+   # The string passed to getopts() tells it which options to accept.  The colon means that the option has a value.
+   if (! getopts("hn:")) {
+       exit(1);    # user's option string is bad.  getopt() already printed an error.  
+   }
+  &nbsp;
+   # Options are now parsed; $opt_h and $opt_n are either undefined, or set.
+   if (defined($opt_h)) {
+       help();  # our own function to print help
+       exit(0);
+   }
+   if (defined($opt_n)) {
+       $num_things = $opt_n;
+   }
+</pre>
+<p><br />
+</p>
+<a name="Functions" id="Functions"></a><h2> <span class="mw-headline"> Functions </span></h2>
+<p>Calling a function is pretty C-like.  But defining a function is different.  Let's take the easy case first: a function with no input parameters and no return value.
+</p>
+<pre>   sub usage {
+       print STDERR "usage: mytool -h [ IN_FILE ... ]\n";
+   }
+</pre>
+<p>Note that even though the function has no input parameters or return value, the caller still needs to call it with parenthesis: <b>usage()</b>.  In fact, the caller can go ahead and pass in parameters and pretend to use its return value!
+</p>
+<pre>   my $rtn_val = usage(1, 44, "what the hey?");    # input params are ignored.
+</pre>
+<p>No errors or warnings are printed.  So what ends up in <b>$rtn_val</b>?  The undefined value, of course!
+</p>
+<pre>   if (! defined($rtn_val)) {
+       print "No return val\n;"    # this one gets printed
+   } else {
+       print "return val = '$rtn_val'\n";    # this one not printed
+   }
+</pre>
+<p>Calling a function with the wrong number of input parameters is not considered an error in Perl (although it is usually poor programming practice).  Also, if no value is returned, the caller simply gets the "undefined" value out of it.  Any attempt to *use* that value will generate a warning.
+</p><p>So now let's say you DO have input parameters, two in this example:
+</p>
+<pre>   sub max {
+       my ($a, $b) = @_;    # grab input parameters
+       if ($a &gt;= $b) {
+           return $a;
+       } else {
+           return $b;
+       }
+   }
+</pre>
+<p>That <b>my ($a, $b) = @_;</b> line is a bit different, isn't it?  Easy part first: the "@_".  The fact that it starts with "@" says that it is an array.  And it is.  The fact that the variable name is "_" suggests that it is some kind of default variable.  And it is.  So "@_" is a default array.  (Which is <i>different</i> from the default simple variable <b>$_</b>.  Confused yet?)  The <b>@_</b> array is pre-loaded with the passed-in values from the function's caller.
+</p><p>In fact, you don't even really need that "my" line at all!  You could re-write the function as:
+</p>
+<pre>   sub max {
+       if ($_[0] &gt;= $_[1]) {
+           return $_[0];
+       } else {
+           return $_[1];
+       }
+   }
+</pre>
+<p>But that is a nightmare to read; you really want the input parameters to be in well-named variables.  So one step better is:
+</p>
+<pre>   sub max {
+       my $a = $_[0];  # first element of the @_ array
+       my $b = $_[1];  # second element of the @_ array
+       if ($a &gt;= $b) {
+           return $a;
+       } else {
+           return $b;
+       }
+   }
+</pre>
+<p>So, what's with the <b>my ($a, $b) = @_;</b> nonsense?  For one thing, it is a Perl idiom so wide-spread that you need to get used to it.  That's just how people do it.  The detailed explanation of what it is doing requires explanation beyond the scope of this tutorial; suffice it to say that a parenthesized list of simple variables can be treated as if it were an array.  So <b>($a&nbsp;$b)&nbsp;=&nbsp;@_;</b> is simply copying the contents of the <b>@_</b> array to the <b>($a,&nbsp;$b)</b> array.  Seems like a lot of obfuscation to save one line, doesn't it?
+</p><p>Well ... there actually is another advantage.  You see, whereas C has an arcane syntax for defining functions with variable numbers of input parameters, Perl functions <i>always</i> have variable numbers of parameters.  The caller can pass in as many or as few parameters as it wants, and good old Perl will simply dynamically size the array <b>@_</b> to contain the right number of elements.  So, suppose you coded the function with:
+</p>
+<pre>   sub max {
+       my $a = $_[0];
+       my $b = $_[1];
+</pre>
+<p>If the caller only passes in 1 parameter, then that second assignment statement would generate a warning.  Whereas if you use <b>my&nbsp;($a,&nbsp;$b)&nbsp;=&nbsp;@_;</b>, Perl will discard any extras if there are too many, and set variables to undefined if there are too few, all without any warnings.  Subsequent usages of <b>$a</b> or <b>$b</b> will generate warnings if they are undefined.
+</p><p>So which is really better?  Don't know.  Don't care.  As I said before, the <b>my&nbsp;($a,&nbsp;$b)&nbsp;=&nbsp;@_;</b> idiom is so wide-spread that you should just get used to it.
+</p><p>You could do one more thing if you really want to write bullet-proof code:
+</p>
+<pre>   sub max {
+       # The following line asserts that two parameters were passed
+       (scalar(@_) == 2) || die("max: wrong number of input parameters passed:" . join(@_, ", "));
+       my ($a, $b) = @_;    # grab input parameters
+       if ($a &gt;= $b) {
+           return $a;
+       } else {
+           return $b;
+       }
+   }
+</pre>
+<p>I don't know of any Perl programmers who would actually do that, but it does suggest a slightly different technique: writing functions with a <i>variable number of input parameters</i>.  Let's make max such that you can pass arbitrarily many input numbers in (requires at least one):
+</p>
+<pre>   sub max {
+       my $n = scalar(@_);  # number of input parameters
+       my $m = $_[0];  # assume first element is the max
+       for (my $i = 1; $i &lt; $n; ++$i) {
+           if ($_[$i] &gt; $m) {
+               $m = $_[$i];
+           }
+       }
+       return $m;
+   }
+</pre>
+<p>Now you can call it:
+</p>
+<pre>   print "Max is: " . max(1, 3, -8, 2) . "\n";  # print's 3
+   print "Max is: " . max(@an_array) . "\n";  # scans the array and returns the largest value contained therein
+</pre>
+<p>Wow!  Look at that second line!  Passing an array into a function is the same as passing in a series of parameters.  In fact, there is no real difference between the two.  The function itself just has the "@_" array containing input parameters.  It has no way of knowing which of those elements are individual values v.s. elements in a passed-in array.
+</p><p>This is actually a bit disappointing for C programmers.  Consider the C function:
+</p>
+<pre>   void add_arrays (int *a1, int *a2, int n)  # add contents of array a2 to array a1.
+   {
+       int i;
+       for (i=0; i&lt;n; ++i) {
+           a1[i] += a2[i];
+       }
+   }
+</pre>
+<p>There is no good way to do that in Perl without using <i>references</i> (the Perl equivalent of pointers).  Ditto if you want to pass in a hash; you need references.  Alas, references are beyond the scope of this tutorial.  So until then, just use globals if you need to pass in hashes or multiple arrays.
+</p><p>Besides a true "variable number of parameters" model, you can also have functions with optional parameters.
+</p>
+<pre>   sub abc {
+       my ($a, $b) = @_;
+      &nbsp;
+       if (defined($b)) {
+           return($b);
+       } else {
+           return($a);
+       }
+   }
+</pre>
+<p>The second parameter is optional.  So:
+</p>
+<pre>   print abc(5), "\n";    # prints 5
+   print abc(5, 6), "\n";    # prints 6
+   print abc(5, 6, 7), "\n";    # prints 6 (ignores 3rd parameter)
+   my @x;
+   $x[0] = 5;
+   print abc(@x), "\n";    # prints 5
+   $x[1] = 6;
+   print abc(@x), "\n";    # prints 6
+</pre>
+<p><br />
+</p>
+<a name="Regular_Expressions" id="Regular_Expressions"></a><h2> <span class="mw-headline"> Regular Expressions </span></h2>
+<p>Perl's powerful <a href="http://en.wikipedia.org/wiki/Regular_expression" class="external text" title="http://en.wikipedia.org/wiki/Regular_expression" rel="nofollow">Regular Expression</a> (RE) handling capabilities is half the reason for using Perl.  Without REs, I would never write another line of Perl.  Yes, Java has RE capabilities with approximately the same flexibility, but Perl is so expressive that it is so much faster to write in Perl than Java (or so I have found).
+</p><p>REs are also half the reason that people think Perl programs are impossible to read and maintain.  In this respect, it's not really Perl's fault; a Java program with lots of REs will be just as hard to read as a Perl program with lots of REs.  An RE is just one of those love-hate things.  Blame the 1950s computer scientist <a href="http://en.wikipedia.org/wiki/Stephen_Cole_Kleene" class="external text" title="http://en.wikipedia.org/wiki/Stephen_Cole_Kleene" rel="nofollow">Stephen Kleene</a>.
+</p><p>I'm going to assume that you're already reasonably comfortable with regular expressions from tools like "vi" and "grep".  See <a href="http://www.regular-expressions.info/quickstart.html" class="external free" title="http://www.regular-expressions.info/quickstart.html" rel="nofollow">http://www.regular-expressions.info/quickstart.html</a> for a quick tutorial and <a href="http://perldoc.perl.org/perlre.html" class="external free" title="http://perldoc.perl.org/perlre.html" rel="nofollow">http://perldoc.perl.org/perlre.html</a> for a full Perl RE reference.  But bear in mind that entire books have been written about regular expressions.  Don't try to become an expert right off the bat; you can do amazing things with very basic RE techniques.
+</p><p><br />
+<b>Patterns and Match Operators</b>
+</p><p>A RE pattern is normally delimited with a forward slash "/".  For example: <b>/hi there/</b>.  A better example: <b>/there are [0-9]* pigs in the poke/</b>.
+</p><p>The match operator is "=~".  Think of it as "approximately equal to"; regular expressions allow all kinds of approximate matches.
+</p>
+<pre>   if ( $in_line =~ /there are [0-9]* pigs in the poke/ ) {
+       print "There are pigs in the poke!\n";
+   }
+</pre>
+<p><br />
+<b>Sub-Patterns</b>
+</p><p>Too bad you can't extract the number of pigs in that poke.  Too bad you'll have to do all kinds of gross string operations to isolate the number.  Too bad you can't do something like this:
+</p>
+<pre>   if ( $in_line =~ /there are ([0-9]*) pigs in the poke/ ) {
+       print "There are $1 pigs in the poke!\n";
+   }
+</pre>
+<p>Good news!  Parentheses are used to identify sub-patterns for later use.  Suppose there are not only pigs, but various other animals in the poke.
+</p>
+<pre>   if ( $in_line =~ /there are ([0-9]*) ([a-z]*) in the poke/ ) {
+       print "There are $1 ${2}s in the poke!\n";  # curly braces needed to prevent Perl from looking for "$2s".
+   }
+</pre>
+<p>But what if you want to match an actual parenthesis character?  You have to escape them.  You may have seen documents which spell out numbers and also include numerics in parentheses.  For example, the input string might be "there are five (5) pigs in the poke".  Here's how to match it:
+</p>
+<pre>   if ( $in_line =~ /there are [a-z]* \(([0-9]*)\) ([a-z]*) in the poke/ ) {
+</pre>
+<p><br />
+<b>Case Insensitivity</b>
+</p><p>What if you don't want to pay attention to case?  Use the "i" suffix on the pattern:
+</p>
+<pre>   if ( $in_line =~ /there are ([0-9]*) ([a-z]*) in the poke/i ) {    # will match both upper and lower case
+</pre>
+<p><br />
+<b>Default Variable</b>
+</p><p>Remember the default variable "$_"?  If the string you want to match is in $_, then you can write the "if" as:
+</p>
+<pre>   if ( /there are ([0-9]*) ([a-z]*) in the poke/ ) {
+</pre>
+<p>This, combined with the magical input construct "while (&lt;&gt;)" allows for a very concise way of writing simple programs:
+</p>
+<pre>   while (&lt;&gt;) {
+       if ( /there are ([0-9]*) ([a-z]*) in the poke/ ) {
+           print "There are $1 ${2}s in the poke!\n";
+       } elsif ( /quit/ ) {
+           print "good by\n";
+           exit(0);
+       }
+   }
+</pre>
+<p><br />
+<b>Substitute</b>
+</p><p>A special case of pattern matching uses the "s" prefix on the pattern.  It allows for quick and easy text substitutions.
+</p>
+<pre>   $in_line =~ s/poke/bag/;
+</pre>
+<p>Note that if $in_line does not contain "poke", the line has no effect.  No warning is printed.  But also note that the entire line returns a numeric value corresponding to the number of substitutions it did.  Since non-zero is interpreted as true, you can do this:
+</p>
+<pre>   if ( $in_line =~ s/poke/bag/ ) {
+       print "'poke' is an old-fashioned term; using 'bag'\n";
+   }
+</pre>
+<p>Suppose that "poke" appears more than once in $in_line?  The above line will only replace the first one.  If you want it to replace *all* of them, use the "g" suffix on the pattern:
+</p>
+<pre>   if ( $in_line =~ s/poke/bag/g ) {
+</pre>
+<p>If you want the initial match of "poke" to be case-insensitive, you can also include the "i" suffix:
+</p>
+<pre>   if ( $in_line =~ s/poke/bag/gi ) {  # order of "gi" does not matter
+</pre>
+<p>This will change "Poke the pigs in the poke." to "bag the pigs in the bag."
+</p><p>As with matching, the substitute can be used with the default variable.
+</p>
+<pre>   while (&lt;&gt;) {
+       s/poke/bag/gi;
+       print;
+   }
+</pre>
+<p><br />
+</p>
+<a name="Perlisms_I_Avoid" id="Perlisms_I_Avoid"></a><h2> <span class="mw-headline"> Perlisms I Avoid </span></h2>
+<p>I rarely (if ever) use the techniques in this section, but when reading Perl documentation it is helpful to understand these idioms exist.
+</p><p><br />
+<b>Unless</b>
+</p><p>Don't like the "not" operator (<b>!</b>)  in if statements?  As in <b>if (! $quit) { process(); }</b>  Some people apparently hate it so much they introduced the "unless" statement:
+</p>
+<pre>   unless ($quit) { process(); }
+</pre>
+<p>There, isn't that easier to understand?  No?  I don't think so either.
+</p><p><br />
+<b>Post-Conditional</b>
+</p><p>I lied when I said that "if" statements always require curly braces.  You can switch around the "if" and the "then" parts:
+</p>
+<pre>   process() if (! $quit);
+</pre>
+<p>This is *identical* to "if (! $quit) {process();}".  It works for "unless" too:
+</p>
+<pre>   process() unless ($quit);
+</pre>
+<p>This last one is almost ... <i>almost</i> mind you ... worth using.  The important thing here is that "process()" is called.  But not if the "$quit" flag is set.  So this idiom puts emphasis on what is normally done, and provides the exceptional case as an afterthought.  I can see it, but post-conditionals are so contrary to what pretty much any other language has, that I refuse to use it.  But you *will* see it used in Perl documentation, so remember it.
+</p><p><br />
+<b>Optional Parentheses</b>
+</p><p>In Perl, you usually don't have to use parentheses around input parameters on a function call.  For example, instead of this:
+</p>
+<pre>   $x = max(1, 2, 3);
+</pre>
+<p>you can use:
+</p>
+<pre>   $x = max 1, 2, 3;
+</pre>
+<p>Again, I think it is a stupid deviation to all other languages, but it is used in perl documentation, so remember it.
+</p><p><br />
+</p>
+<a name="Perl_Disappointments" id="Perl_Disappointments"></a><h2> <span class="mw-headline"> Perl Disappointments </span></h2>
+<p>Although I am generally a Perl fan, there are some things that I don't like.
+</p>
+<ul><li> <b>default variable</b> - I find the default variable $_ to be more confusing for newbies than it is worth.  It leads to confusing code for people not experienced in Perl.
+</li><li> <b>switch case</b> - Perl does not have a switch construct.  This leads to a lot of "if/then/else" code.
+</li><li> <b>magic</b> - there are a lot more magical constructs in Perl than I've mentioned.  Most of them do more harm than good, IMO.
+</li></ul>
+<p><br />
+</p>
+<a name="To_Infinity.2C_and_Beyond" id="To_Infinity.2C_and_Beyond"></a><h2> <span class="mw-headline"> To Infinity, and Beyond </span></h2>
+<p>There are many Perl techniques and features that are beyond the scope of this short tutorial.
+</p><p>Remember that Perl is a language which has evolved significantly over the years.  That evolution has improved the language in many ways.  Some of those improvements were not actually adding features, but making some existing features better.  Like file handles: the original file handle was hard to use.  The file handles mentioned in this tutorial are newer and better.  But if you want to be able to read and maintain code written a long time ago (or written recently by somebody who stopped following improvements in the language), you would have to learn all those rusty old features in addition to all the shiny new ones.  ("local" is another one.  Don't ask.)
+</p><p>But even ignoring those rusty old features, there are a number of advanced features that can be very handy if you want to learn them.  I'll present a few of them in the order of usefulness:
+</p>
+<ol><li> References - the Perl version of pointers.  Needed to pass arrays and hashes to functions, and to create nested data structures (like an array of hashes, or a hash of arrays).
+</li><li> Object orientation - the "good" method of modularizing Perl into re-usable components.  Introduces some OO semantics.
+</li><li> Threading - I haven't looked at it, but I presume it includes things like mutexes and such.
+</li><li> Formats - useful for generating reports, although I must admit that I've never used them.
+</li></ol>
+<p>As for learning them, I'm fond of the O'Reilly's <a href="http://shop.oreilly.com/product/9780596000271.do" class="external text" title="http://shop.oreilly.com/product/9780596000271.do" rel="nofollow">camel book</a>, but there are lots to choose from.
+</p><p>Finally, there is a staggering number of user-submitted packages available at <a href="http://www.cpan.org/" class="external free" title="http://www.cpan.org/" rel="nofollow">http://www.cpan.org/</a> .  Seriously huge.  I don't even know what Galois Field arithmetic is, but cpan has a <a href="http://search.cpan.org/~dmalone/Math-FastGF2-0.04/lib/Math/FastGF2.pm" class="external text" title="http://search.cpan.org/~dmalone/Math-FastGF2-0.04/lib/Math/FastGF2.pm" rel="nofollow">module for it</a>.  If it's not in CPAN, it's probably NP-complete.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 17/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:30-0!1!0!!en!2!edit=0 and timestamp 20171202071848 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Perl_for_C_Programmers">http://wiki.geeky-boy.com/w/index.php?title=Perl_for_C_Programmers</a>"</div>
+</body></html>

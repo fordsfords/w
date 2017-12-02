@@ -1,0 +1,31 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; <a href="/w/index.php?title=Sford_fun" title="Sford fun">Sford fun</a> &gt; Sford index=1 story</b></big>
+</p><p>Non-programmers may leave now, unless you like listening to old programmers' war stories.
+</p><p>Many years ago, I worked on an embedded project.  Our normal way of handling internal errors was to call "fatal error", passing in the function name and a short description of the error.  This was in a primitive language (<a href="http://en.wikipedia.org/wiki/PL/M" class="external text" title="http://en.wikipedia.org/wiki/PL/M" rel="nofollow">PL/M</a>) that didn't support <a href="http://en.wikipedia.org/wiki/Varargs#Example_in_C" class="external text" title="http://en.wikipedia.org/wiki/Varargs#Example_in_C" rel="nofollow">varargs</a>, so we couldn't support an arbitrary "printf" style of function.  Instead, we wrote our fatal error to accept a single integer to help the programmer diagnose the problem.  For example (in C, not PL/M):
+</p>
+<pre>   int foo(int leg_num)
+   {
+       if (leg_num &gt; 2) fatal_error("foo", "bad leg num", leg_num);
+   . . .
+</pre>
+<p>The fatal_error() function would display a line approximately of the form:
+</p>
+<pre>   Fatal error [foo]: bad leg num (index=3)
+</pre>
+<p>Not great, but it helped.
+</p><p>Well actually ... not so much.  We would get reports from users.  Those reports would usually be, "Well, it said something about 'foo' or maybe it was something else, but it definitely said, 'index equals 3.'  I wrote that down!"
+</p><p>Oh thanks!  The least-useful part of the error message is the part that users wrote down.
+</p><p>Sound familiar?  No seriously, just how familiar does that sound?  If anybody actually reads this and knows the product this was for, let me know and I'll give you $50.  My email address is on my <a href="http://geeky-boy.com/" class="external text" title="http://geeky-boy.com/" rel="nofollow">home page</a>.  Don't see it?  Look again.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:42-0!1!0!!en!2!edit=0 and timestamp 20171202192842 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Sford_index%3D1_story">http://wiki.geeky-boy.com/w/index.php?title=Sford_index%3D1_story</a>"</div>
+</body></html>
