@@ -17,7 +17,7 @@ cp orig/* .
 echo "<html><body>" >x.1
 echo "</body></html>" >x.3
 for F in *.html; do :
-  sed -e '1,/-- start content --/d;s/"\/w\/index.php?title=\([^"]*\)"/"\1.html"/;/-- end content --/,$d' <$F >x.2
+  sed -e '1,/-- start content --/d;s/%3D/=/g;s/"\/w\/index.php?title=\([^"]*\)"/"\1.html"/;/-- end content --/,$d' <$F >x.2
   cat x.[123] >$F
 done
 
