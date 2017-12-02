@@ -32,7 +32,7 @@ worth my time to cull them.  So here they are.</p>
 <ul>
 __EOF__
 
-sed -e '1,$s/^[^=]*=\([^ ]*\) \(.*\)$".*$/<li><a href="\1.html">\2<\/a>/' <index >>index.html
+sed -e '1,$s/^[^=]*=\([^ ]*\) \(.*\)$/<li><a href="\1.html">\2<\/a>/' <index >>index.html
 
 echo "</ul></body></html>" >>index.html
 
