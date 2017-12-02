@@ -1,0 +1,43 @@
+<html><body>
+			<p>I am primarily a C programmer, with an additional love for Perl.  One thing that attracts me to Java is that it is a less esoteric language than Perl, but has a much richer standard library, with much of the functionality that I love about Perl.
+</p><p>This page is not a Java tutorial.  It is a bunch of tips and techniques that I have learned the hard way, by crashing into a brick wall and groping for the door.  Maybe these tips will save you from a bloody nose.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Regular_expressions"><span class="tocnumber">1</span> <span class="toctext">Regular expressions</span></a></li>
+<li class="toclevel-1"><a href="#Reference"><span class="tocnumber">2</span> <span class="toctext">Reference</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<a name="Regular_expressions" id="Regular_expressions"></a><h2> <span class="mw-headline"> Regular expressions </span></h2>
+<ul><li> <b>match</b> - the "match()" method is intended to match the <i>entire</i> string.  I.e. it implies "^" and "$" at the start and end of the pattern.  If you want to a Perl-style non-anchored patterns, use the "find" method, which unfortunately is not available in the String class.  You need to create a Pattern and a Matcher.  Also, the "find" method is a stateful method - you can call it multiple times to match subsequent substrings that match.
+</li></ul>
+<ul><li> <b>String equality</b> - Gotta love OO languages, with their overloading and such.  In Perl, if you have two String objects and you want to see if they contain the same string, you might try "<tt>if&nbsp;(x&nbsp;==&nbsp;y)</tt>".  And you would be wrong.  That checks to see if the two objects are in fact the same object.  To test for string equality, you must use the "equals()" method of one of the strings: "<tt>if&nbsp;(x.equals(y))</tt>".
+</li></ul>
+<ul><li> <b>Backslash</b> - In Perl, you use backslash (\) to escape meta-characters.  If Java source code, you specify patterns as Java strings.  Therefore, to pass a backslash to Java's RE engine, you need to use a double-backslash in your source code.
+</li></ul>
+<p><br />
+</p>
+<a name="Reference" id="Reference"></a><h2> <span class="mw-headline"> Reference </span></h2>
+<ul><li> <b>Language</b> - I haven't found a really good language reference.  <a href="mailto:sford@geeky-boy.com" class="external text" title="mailto:sford@geeky-boy.com" rel="nofollow">Let me know</a> if you find one.  I have used <a href="http://docs.oracle.com/javase/specs/" class="external free" title="http://docs.oracle.com/javase/specs/" rel="nofollow">http://docs.oracle.com/javase/specs/</a> with some success.  I wish I could find a Java equivalent of good old K&amp;R.
+</li></ul>
+<ul><li> <b>Standard Library</b> - I always go to <a href="http://docs.oracle.com/javase/1.4.2/docs/api/" class="external free" title="http://docs.oracle.com/javase/1.4.2/docs/api/" rel="nofollow">http://docs.oracle.com/javase/1.4.2/docs/api/</a> 
+</li></ul>
+<dl><dd><ul><li> In particular, I spend a lot of time at <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html" class="external text" title="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/String.html" rel="nofollow">String</a> and <a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/System.html" class="external text" title="http://docs.oracle.com/javase/1.4.2/docs/api/java/lang/System.html" rel="nofollow">System</a>.
+</li></ul>
+</dd></dl>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 3/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:35-0!1!0!!en!2!edit=0 and timestamp 20171202095508 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Java_stuff_I_always_forget">http://wiki.geeky-boy.com/w/index.php?title=Java_stuff_I_always_forget</a>"</div>
+</body></html>

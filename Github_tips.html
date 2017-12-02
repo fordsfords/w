@@ -1,0 +1,74 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; Github tips</b></big>
+</p>
+<ul><li> Create local project directory with LICENSE and README.md files.
+</li></ul>
+<ul><li> Log into <a href="https://github.com" class="external free" title="https://github.com" rel="nofollow">https://github.com</a> using your account.
+</li></ul>
+<ul><li> Click "+ New repository".  Enter repo name and brief description.  Do not create any initial files (like README).  This should display a set of git commands, which can be modified appropriately.  When I uploaded "blink", I did the following (from my Mac):
+</li></ul>
+<pre>
+git init
+git add *
+git commit -m &quot;initial commit&quot;
+git remote add origin https://github.com/fordsfords/blink.git
+git push -u origin master
+</pre>
+<ul><li> Back on the web site, reload the project page.  You should see your README.
+</li></ul>
+<ul><li> Click "Branch: master" button, enter "gh-pages", and hit return.
+</li></ul>
+<ul><li> Wait a minute or two.  Or three.  Then bring up <a href="https://github.com/fordsfords/blink/tree/gh-pages" class="external free" title="https://github.com/fordsfords/blink/tree/gh-pages" rel="nofollow">https://github.com/fordsfords/blink/tree/gh-pages</a> (with your project name instead of "blink").
+</li></ul>
+<ul><li> Start up github GUI program.
+</li></ul>
+<ul><li> File -&gt; Add Local Repository...
+</li></ul>
+<dl><dd><dl><dd> - Browse to directory.  Click "Add".
+</dd></dl>
+</dd></dl>
+<p><br />
+</p>
+<a name="Update" id="Update"></a><h2> <span class="mw-headline"> Update </span></h2>
+<ul><li> Use github GUI program to ensure "master" branch is active.  Do a "sync" (upper right-hand).
+</li></ul>
+<ul><li> Edit a file
+</li></ul>
+<ul><li> From github GUI program, enter change summary.
+</li></ul>
+<ul><li> Click "Commit and Sync master"
+</li></ul>
+<p><br />
+</p>
+<a name="Release_stable" id="Release_stable"></a><h2> <span class="mw-headline"> Release stable </span></h2>
+<ul><li> Start github GUI program and sync (upper right-hand).
+</li></ul>
+<ul><li> Make sure you are on "gh-pages" branch.
+</li></ul>
+<ul><li> Click "branches".
+</li></ul>
+<ul><li> Select "Merge View".
+</li></ul>
+<ul><li> Drag "master" to left box, "dh-pages" to right box.  Should say, "Merging master into gh-pages".
+</li></ul>
+<ul><li> Click "Merge Branches".
+</li></ul>
+<ul><li> Click "Changes".
+</li></ul>
+<ul><li> Click "sync" (upper right-hand).
+</li></ul>
+<ul><li> Switch back to "master" branch.
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 6/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:48-0!1!0!!en!2!edit=0 and timestamp 20171202192835 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Github_tips">http://wiki.geeky-boy.com/w/index.php?title=Github_tips</a>"</div>
+</body></html>

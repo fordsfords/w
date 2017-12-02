@@ -1,0 +1,71 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; CHIP lessons</b></big>
+</p><p>In order to compile C programs, you need to bring up the CHIP SDK. Here's a list of things the <a href="http://docs.getchip.com/" class="external text" title="http://docs.getchip.com/" rel="nofollow">CHIP doc</a> didn't tell me. Much of this info was derived from other posts to the <a href="https://bbs.nextthing.co/" class="external text" title="https://bbs.nextthing.co/" rel="nofollow">CHIP forum</a>. Thanks to all who shared!  (An early version of this article is also <a href="https://bbs.nextthing.co/t/lessons-learned-compiling-a-c-program/1638" class="external text" title="https://bbs.nextthing.co/t/lessons-learned-compiling-a-c-program/1638" rel="nofollow">in the forum</a>, and I've been trying to keep <i>this</i> article up-to-date with good replies that have been posted.)
+</p><p><br />
+</p>
+<ul><li> Currently, the Mac will not be able to flash the full CHIP OS (option 3 under <a href="http://docs.getchip.com/#flash-chip-firmware" class="external free" title="http://docs.getchip.com/#flash-chip-firmware" rel="nofollow">http://docs.getchip.com/#flash-chip-firmware</a>).  The image is too large for the normal download, and fastboot doesn't work with the Mac.  See <a href="https://bbs.nextthing.co/t/libsub-usb-bulk-send-error-1-when-flashing-chip-os/1570/11" class="external text" title="https://bbs.nextthing.co/t/libsub-usb-bulk-send-error-1-when-flashing-chip-os/1570/11" rel="nofollow">computermouth's post</a>.  Fortunately, I'm happy with the Debian OS (option 2).
+</li></ul>
+<ul><li> When following the instructions at <a href="http://docs.getchip.com/#installing-c-h-i-p-sdk" class="external free" title="http://docs.getchip.com/#installing-c-h-i-p-sdk" rel="nofollow">http://docs.getchip.com/#installing-c-h-i-p-sdk</a> everything goes smoothly until the Vagrant VM is brought up for the first time.  After using "vagrant ssl" to log into the VM, the files are owned by root instead of the vagrant user.  So before doing anything else, enter:
+</li></ul>
+<pre>   sudo chown -R vagrant: /home/vagrant
+</pre>
+<dl><dd> This changes the files to be owned by the vagrant user.
+</dd></dl>
+<ul><li> The Mac's "screen" command seems doesn't like CHIP's "nmtui" output.  But the Vagrant VM's "screen" command seems to handle CHIP's "nmtui" output much better, and has some advantages.  So use "screen" from the VM.  The device name in the VM seems to always be "<tt>/dev/ttyACM0</tt>".
+</li></ul>
+<dl><dd><dl><dd> - One specific reason to use "screen" instead of "cu" is that, by default, both "cu" and "ssl" use tilde (~) as the escape character.  So if you want to exit "cu" and hit "~.", it actually exits completely out of the "vagrant&nbsp;ssl"
+</dd></dl>
+</dd></dl>
+<ul><li> I've seen cases where the Vagrant VM doesn't recognize the USB connection unless it is connected while the VM is running.  If "screen" complains that <tt>/dev/ttyACM0</tt> can't be accessed, try unplugging CHIP and re-plugging it.  (Then you'll have to wait 20 seconds or so for CHIP to boot enough to be recognized.)
+</li></ul>
+<ul><li> You need to set up the WIFI.  The easy way is to log onto chip and run the "nmtui" command:
+</li></ul>
+<pre>   screen /dev/ttyACM0 115200
+</pre>
+<dl><dd> Hit an extra return to get the login prompt.  Log in with chip/chip.
+</dd></dl>
+<pre>   sudo nmtui
+</pre>
+<dl><dd> The "sudo" command may prompt you for the chip account password, chip.  
+</dd></dl>
+<pre>   ifconfig
+</pre>
+<dl><dd> Ignore the "lo" section.  The second line of the "wlan0" section shows the IP address after "inet addr:".  Take note of that IP address, but also be aware that this address can change.  If you need the IP address to stay constant, you'll have to configure it.
+</dd></dl>
+<ul><li> To compile a C program, you can't use the normal C compiler.  You need a cross-compiler.  But the Vagrant VM doesn't start out with the cross-compiler available.  So after changing file ownership (above), enter:
+</li></ul>
+<pre>   cd CHIP-buildroot
+   make chip_defconfig
+   make nconfig
+</pre>
+<dl><dd> After building nconfig, it automatically runs it.  Just enter F9 to exit.  Then enter:
+</dd></dl>
+<pre>   make toolchain
+</pre>
+<dl><dd> This takes a few minutes to run, after which the compiler and linker are ready to go.
+</dd></dl>
+<ul><li> To compile the C program "HelloWorld.c", you'll want to create a script:
+</li></ul>
+<pre>   /home/vagrant/CHIP-buildroot/output/host/usr/bin/arm-linux-gnueabihf-gcc \
+       -I/home/vagrant/CHIP-buildroot/output/host/usr/arm-buildroot-linux-gnueabihf/sysroot/usr/include/uapi \
+       -I/home/vagrant/CHIP-buildroot/output/host/usr/arm-buildroot-linux-gnueabihf/sysroot/usr/include \
+       -I/home/vagrant/CHIP-buildroot/output/host/usr/arm-buildroot-linux-gnueabihf/sysroot/usr/include/uapi \
+       -I/home/vagrant/CHIP-buildroot/output/host/usr/arm-buildroot-linux-gnueabihf/sysroot/usr/include \
+       -I. -Os hello.c -o hello
+</pre>
+<ul><li> Now transfer it to CHIP.  If CHIP's IP address is 10.0.0.20, enter:
+</li></ul>
+<pre>   scp hello chip@10.0.0.20:
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:44-0!1!0!!en!2!edit=0 and timestamp 20171202095845 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=CHIP_lessons">http://wiki.geeky-boy.com/w/index.php?title=CHIP_lessons</a>"</div>
+</body></html>

@@ -1,0 +1,2290 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; Sford cheat sheets</b></big>
+</p><p>I may fix the wikitext and break this into separate pages some day.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Linux_stuff_I_always_forget"><span class="tocnumber">1</span> <span class="toctext">Linux stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Signal_stuff"><span class="tocnumber">1.1</span> <span class="toctext">Signal stuff</span></a></li>
+<li class="toclevel-2"><a href="#Packages"><span class="tocnumber">1.2</span> <span class="toctext">Packages</span></a></li>
+<li class="toclevel-2"><a href="#Debian_package"><span class="tocnumber">1.3</span> <span class="toctext">Debian package</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Git_stuff_I_always_forget"><span class="tocnumber">2</span> <span class="toctext">Git stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#First-time_git_init"><span class="tocnumber">2.1</span> <span class="toctext">First-time git init</span></a></li>
+<li class="toclevel-2"><a href="#Clone_Semlit"><span class="tocnumber">2.2</span> <span class="toctext">Clone Semlit</span></a></li>
+<li class="toclevel-2"><a href="#Clone_UMExamples"><span class="tocnumber">2.3</span> <span class="toctext">Clone UMExamples</span></a></li>
+<li class="toclevel-2"><a href="#Minor_change"><span class="tocnumber">2.4</span> <span class="toctext">Minor change</span></a></li>
+<li class="toclevel-2"><a href="#Make_it_live"><span class="tocnumber">2.5</span> <span class="toctext">Make it live</span></a></li>
+<li class="toclevel-2"><a href="#Merging_remote_change"><span class="tocnumber">2.6</span> <span class="toctext">Merging remote change</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Wiki_stuff_I_always_forget"><span class="tocnumber">3</span> <span class="toctext">Wiki stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Grammar_stuff_I_always_forget"><span class="tocnumber">4</span> <span class="toctext">Grammar stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Quotation_Marks"><span class="tocnumber">4.1</span> <span class="toctext">Quotation Marks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Docbook_stuff_I_always_forget"><span class="tocnumber">5</span> <span class="toctext">Docbook stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Socket_stuff_I_always_forget"><span class="tocnumber">6</span> <span class="toctext">Socket stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#PHP_stuff_I_always_forget"><span class="tocnumber">7</span> <span class="toctext">PHP stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Java_stuff_I_always_forget"><span class="tocnumber">8</span> <span class="toctext">Java stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#CPU_stuff_I_always_forget"><span class="tocnumber">9</span> <span class="toctext">CPU stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Unix_stuff_I_always_forget"><span class="tocnumber">10</span> <span class="toctext">Unix stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Random_Snoop_Facts"><span class="tocnumber">10.1</span> <span class="toctext">Random Snoop Facts</span></a></li>
+<li class="toclevel-2"><a href="#Cygwin"><span class="tocnumber">10.2</span> <span class="toctext">Cygwin</span></a></li>
+<li class="toclevel-2"><a href="#FreeBSD"><span class="tocnumber">10.3</span> <span class="toctext">FreeBSD</span></a></li>
+<li class="toclevel-2"><a href="#RedHat_Linux"><span class="tocnumber">10.4</span> <span class="toctext">RedHat Linux</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Internet_stuff_I_always_forget"><span class="tocnumber">11</span> <span class="toctext">Internet stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Html_stuff_I_always_forget"><span class="tocnumber">12</span> <span class="toctext">Html stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Apache_stuff_I_always_forget"><span class="tocnumber">13</span> <span class="toctext">Apache stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Indigo_Perl"><span class="tocnumber">13.1</span> <span class="toctext">Indigo Perl</span></a></li>
+<li class="toclevel-2"><a href="#mod_perl"><span class="tocnumber">13.2</span> <span class="toctext">mod_perl</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#C_stuff_I_always_forget"><span class="tocnumber">14</span> <span class="toctext">C stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Perl_stuff_I_always_forget"><span class="tocnumber">15</span> <span class="toctext">Perl stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#MySql_stuff_I_always_forget"><span class="tocnumber">16</span> <span class="toctext">MySql stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Oracle_Stuff_I_always_Forget"><span class="tocnumber">17</span> <span class="toctext">Oracle Stuff I always Forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Fun_with_.24ORACLE_HOME.2Fbin.2Fsqlplus:"><span class="tocnumber">17.1</span> <span class="toctext">Fun with $ORACLE_HOME/bin/sqlplus:</span></a></li>
+<li class="toclevel-2"><a href="#Restarting_Oracle"><span class="tocnumber">17.2</span> <span class="toctext">Restarting Oracle</span></a></li>
+<li class="toclevel-2"><a href="#Restarting_the_Oracle_Listener"><span class="tocnumber">17.3</span> <span class="toctext">Restarting the Oracle Listener</span></a></li>
+<li class="toclevel-2"><a href="#Oracle_errors"><span class="tocnumber">17.4</span> <span class="toctext">Oracle errors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Algorithms_I_always_forget"><span class="tocnumber">18</span> <span class="toctext">Algorithms I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Atomic_add"><span class="tocnumber">18.1</span> <span class="toctext">Atomic add</span></a></li>
+<li class="toclevel-2"><a href="#Condition_Variables"><span class="tocnumber">18.2</span> <span class="toctext">Condition Variables</span></a></li>
+<li class="toclevel-2"><a href="#Two-lock_Queue"><span class="tocnumber">18.3</span> <span class="toctext">Two-lock Queue</span></a></li>
+<li class="toclevel-2"><a href="#Dekker.27s_algorithm"><span class="tocnumber">18.4</span> <span class="toctext">Dekker's algorithm</span></a></li>
+<li class="toclevel-2"><a href="#Multi-Reader.2C_Single-Writer_Locking"><span class="tocnumber">18.5</span> <span class="toctext">Multi-Reader, Single-Writer Locking</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Debugging_stuff_I_always_forget"><span class="tocnumber">19</span> <span class="toctext">Debugging stuff I always forget</span></a>
+<ul>
+<li class="toclevel-2"><a href="#GDB"><span class="tocnumber">19.1</span> <span class="toctext">GDB</span></a></li>
+<li class="toclevel-2"><a href="#DBX"><span class="tocnumber">19.2</span> <span class="toctext">DBX</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Windows_stuff_I_always_forget"><span class="tocnumber">20</span> <span class="toctext">Windows stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#RADIUS"><span class="tocnumber">21</span> <span class="toctext">RADIUS</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Formats"><span class="tocnumber">21.1</span> <span class="toctext">Formats</span></a></li>
+<li class="toclevel-2"><a href="#Authenticator"><span class="tocnumber">21.2</span> <span class="toctext">Authenticator</span></a></li>
+<li class="toclevel-2"><a href="#Radius_Codes"><span class="tocnumber">21.3</span> <span class="toctext">Radius Codes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Java_Run-time_Environment_.28JRE.29"><span class="tocnumber">22</span> <span class="toctext">Java Run-time Environment (JRE)</span></a></li>
+<li class="toclevel-1"><a href="#Network_Change_for_Suns"><span class="tocnumber">23</span> <span class="toctext">Network Change for Suns</span></a></li>
+<li class="toclevel-1"><a href="#Rsh_on_Alternat_Port"><span class="tocnumber">24</span> <span class="toctext">Rsh on Alternat Port</span></a></li>
+<li class="toclevel-1"><a href="#Restart_Sun_.22Workshop.22_Licence_Manager"><span class="tocnumber">25</span> <span class="toctext">Restart Sun "Workshop" Licence Manager</span></a></li>
+<li class="toclevel-1"><a href="#Virtual_Interfaces"><span class="tocnumber">26</span> <span class="toctext">Virtual Interfaces</span></a></li>
+<li class="toclevel-1"><a href="#Account_Creation"><span class="tocnumber">27</span> <span class="toctext">Account Creation</span></a></li>
+<li class="toclevel-1"><a href="#Perforce_Stuff_I_Always_Forget"><span class="tocnumber">28</span> <span class="toctext">Perforce Stuff I Always Forget</span></a></li>
+<li class="toclevel-1"><a href="#CVS_Stuff_I_Always_Forget"><span class="tocnumber">29</span> <span class="toctext">CVS Stuff I Always Forget</span></a></li>
+<li class="toclevel-1"><a href="#Mac_Stuff_I_Always_Forget"><span class="tocnumber">30</span> <span class="toctext">Mac Stuff I Always Forget</span></a></li>
+<li class="toclevel-1"><a href="#IMAP_stuff_I_always_forget"><span class="tocnumber">31</span> <span class="toctext">IMAP stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#SeaMonkey_stuff_I_always_forget"><span class="tocnumber">32</span> <span class="toctext">SeaMonkey stuff I always forget</span></a></li>
+<li class="toclevel-1"><a href="#Barrier_stuff_I_always_forget"><span class="tocnumber">33</span> <span class="toctext">Barrier stuff I always forget</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p><p>This document contains misc info that sford always forgets.
+</p><p>The latest version of this document can be found at <a href="http://wiki.geeky-boy.com/w/index.php?title=Sford_cheat_sheets" class="external free" title="http://wiki.geeky-boy.com/w/index.php?title=Sford_cheat_sheets" rel="nofollow">http://wiki.geeky-boy.com/w/index.php?title=Sford_cheat_sheets</a>
+</p><p>This document contains misc info that I always forget.
+I do not guarentee that any of this information is correct or even
+useful to anybody except myself.
+See <a href="http://geeky-boy.com/standard/" class="external free" title="http://geeky-boy.com/standard/" rel="nofollow">http://geeky-boy.com/standard/</a> for my standard disclaimer and copyright.
+</p>
+<a name="Linux_stuff_I_always_forget" id="Linux_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Linux stuff I always forget </span></h2>
+<a name="Signal_stuff" id="Signal_stuff"></a><h3> <span class="mw-headline"> Signal stuff </span></h3>
+<p>Signal-safe functions: <a href="http://man7.org/linux/man-pages/man7/signal-safety.7.html" class="external free" title="http://man7.org/linux/man-pages/man7/signal-safety.7.html" rel="nofollow">http://man7.org/linux/man-pages/man7/signal-safety.7.html</a>
+</p>
+<pre>
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;semaphore.h&gt;
+
+sem_t sleep_sem;
+
+void sig_handler(int signum)
+{
+  static char sig_name[] = &quot;alarm\n&quot;;
+  write(1, sig_name, strlen(sig_name));
+  sem_post(&amp;sleep_sem);
+}
+
+int main(int argc, char **argv)
+{
+  sem_init(&amp;sleep_sem, 0, 0);
+
+  struct sigaction sa;
+  sa.sa_handler = &amp;sig_handler;
+  sa.sa_flags = SA_RESTART;
+  sigemptyset(&amp;sa.sa_mask);  /* Allow other signals to interrupt this one. */
+  sigaction(SIGALRM, &amp;sa, NULL);
+
+  alarm(3);  /* Wake up in 3 sec. */
+  sem_wait(&amp;sleep_sem);
+
+  return 0;
+}
+</pre>
+<p><br />
+</p>
+<a name="Packages" id="Packages"></a><h3> <span class="mw-headline"> Packages </span></h3>
+<p>Advanced Package Tool (APT): higher-level package manager than dpkg and .  Aptitude: ncurses front-end.
+</p>
+<pre> sudo apt-get install pkgname  # install individual package (and its dependencies).
+ sudo apt-get update    # update available packages list.
+ sudo apt-get upgrade  # get latest versions of packages.
+ sudo apt-cache search searchpat  # good for finding which package contains a command.
+ sudo dpkg -i PathToDotDebFile.deb  # install .deb file
+
+</pre>
+<ul><li> <code>apt-get remove packagename</code> - remove the binaries, but not the configuration or data files of the package packagename. It will also leave dependencies installed with it on installation time untouched.
+</li><li> <code>apt-get purge packagename</code> or <code>apt-get remove --purge packagename</code> - will remove about everything regarding the package packagename, but not the dependencies installed with it on installation. Both commands are equivalent.  Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders there. There is no easy way to get those removed as well.
+</li><li> <code>apt-get autoremove</code> - removes orphaned packages, i.e. installed packages that used to be installed as an dependency, but aren't any longer. Use this after removing a package which had installed dependencies you're no longer interested in.
+</li><li> <code>aptitude remove packagename</code> or <code>aptitude purge packagename</code> (likewise) will also attempt to remove other packages which were required by packagename on but are not required by any remaining packages.
+</li></ul>
+<p><br />
+</p>
+<a name="Debian_package" id="Debian_package"></a><h3> <span class="mw-headline"> Debian package </span></h3>
+<pre> sudo apt-get install debhelper   # if not installed.
+ cd chip-power/chip-power
+ sudo dpkg-buildpackage -us -uc  # build .deb package file.
+ cd ..
+ sudo dpkg -i chip-power_0.6_all.deb  # install .deb package.
+</pre>
+<p><br />
+</p>
+<a name="Git_stuff_I_always_forget" id="Git_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Git stuff I always forget </span></h2>
+<a name="First-time_git_init" id="First-time_git_init"></a><h3> <span class="mw-headline"> First-time git init </span></h3>
+<pre>$ cd ~
+$ git config --global user.name "Steve Ford"
+$ git config --global user.email sford@geeky-boy.com
+$ git config --global core.editor vim
+$ git config --list
+core.excludesfile=~/.gitignore
+core.legacyheaders=false
+core.quotepath=false
+core.pager=less -r
+mergetool.keepbackup=true
+push.default=simple
+color.ui=auto
+color.interactive=auto
+repack.usedeltabaseoffset=true
+alias.s=status
+alias.a=!git add . &amp;&amp; git status
+alias.au=!git add -u . &amp;&amp; git status
+alias.aa=!git add . &amp;&amp; git add -u . &amp;&amp; git status
+alias.c=commit
+alias.cm=commit -m
+alias.ca=commit --amend
+alias.ac=!git add . &amp;&amp; git commit
+alias.acm=!git add . &amp;&amp; git commit -m
+alias.l=log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset&nbsp;%s&nbsp;%C(white)-&nbsp;%an,&nbsp;%ar%Creset'
+alias.ll=log --stat --abbrev-commit
+alias.lg=log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset&nbsp;%s&nbsp;%C(bold green)(%cr)%Creset&nbsp;%C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit --date=relative
+alias.llg=log --color --graph --pretty=format:'%C(bold white)%H&nbsp;%d%Creset%n%s%n%+b%C(bold blue)%an &lt;%ae&gt;%Creset&nbsp;%C(bold green)%cr (%ci)' --abbrev-commit
+alias.d=diff
+alias.master=checkout master
+alias.spull=svn rebase
+alias.spush=svn dcommit
+alias.alias=!git config --list | grep 'alias\.' | sed 's/alias\.\([^=]*\)=\(.*\)/\1\	 =&gt; \2/' | sort
+include.path=~/.gitcinclude
+include.path=.githubconfig
+include.path=.gitcredential
+diff.exif.textconv=exif
+credential.helper=osxkeychain
+user.name=Steve Ford
+user.email=sford@geeky-boy.com
+core.editor=vim
+</pre>
+<p><br />
+</p>
+<a name="Clone_Semlit" id="Clone_Semlit"></a><h3> <span class="mw-headline"> Clone Semlit </span></h3>
+<pre>$ cd ~
+$ mkdir src
+$ cd src
+$ git clone <a href="https://github.com/fordsfords/semlit" class="external free" title="https://github.com/fordsfords/semlit" rel="nofollow">https://github.com/fordsfords/semlit</a>
+Cloning into 'semlit'...
+remote: Counting objects: 133, done.
+remote: Total 133 (delta 0), reused 0 (delta 0), pack-reused 133
+Receiving objects: 100% (133/133), 122.83 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (71/71), done.
+Checking connectivity... done.
+$ cd semlit
+$ ./bld.sh
+$ cp -v bin/* ~/bin/
+bin/semlit.pl -&gt; /Users/sford/bin/semlit.pl
+bin/semlit.sh -&gt; /Users/sford/bin/semlit.sh
+$ cd ..
+</pre>
+<p><br />
+</p>
+<a name="Clone_UMExamples" id="Clone_UMExamples"></a><h3> <span class="mw-headline"> Clone UMExamples </span></h3>
+<pre>$ cd ~/src
+$ git clone <a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a>
+Cloning into 'UMExamples'...
+remote: Counting objects: 122, done.
+remote: Compressing objects: 100% (86/86), done.
+remote: Total 122 (delta 42), reused 110 (delta 32), pack-reused 0
+Receiving objects: 100% (122/122), 71.65 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (42/42), done.
+Checking connectivity... done.
+$ cd UMExamples
+$ ./bld.sh
+bld.sh: Info: c/check_flight_size_ewouldblock.sldoc: building semiliterate doc
+bld.sh: Info: c/context_create.sldoc: building semiliterate doc
+bld.sh: Info: c/minsrc.sldoc: building semiliterate doc
+bld.sh: Info: java/minsrc.sldoc: building semiliterate doc
+bld.sh: Info: c/source_create.sldoc: building semiliterate doc
+bld.sh: Info: building html index files
+$ $ git log --pretty=oneline
+ed695dfc52b83b189f6fac24f476039abb3874dc Merge branch 'gh-pages'
+b2659718cd487f907041eae3d2444f1eef870881 Minor change
+6775ff050044a27b2ddae90a466fa47075b8d55b Merge branch 'master' into gh-pages
+b7a3bc43e624001be7a35c6e13f61c103a531a1c Changed everything. &nbsp;:-)
+de9118714c98dd1f4c282f97620db116dd093dcb removing weird \ file
+a3d45704e959e19f713f2e429f64ef47e94b910b adding link the example html pages
+9a797c7d0951f3a3177f825de976fe66ead02e21 initial commit of UMExamples with 4 samples and directory structure
+1ab2ce36abd37b542f8140dde7fe059dad23febf Initial commit
+$ cd ..
+</pre>
+<p><br />
+</p>
+<a name="Minor_change" id="Minor_change"></a><h3> <span class="mw-headline"> Minor change </span></h3>
+<pre>$ cd ~/src/UMExamples/
+$ vi minsrc/c/minsrc_c.slsrc
+</pre>
+<p><i>(in line 21, change "program" to "macro")</i>
+</p>
+<pre>$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+	modified:   minsrc/c/minsrc_c.slsrc
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ git add --dry-run --all
+add 'minsrc/c/minsrc_c.slsrc'
+$ git add --all
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+	modified:   minsrc/c/minsrc_c.slsrc
+$ git commit
+[master 7cc16f2] Fixed comment
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</pre>
+<p><i>(could have skipped the "git add" and instead used "git commit -a" to stage and commit)</i>
+</p>
+<pre>$ git remote -v
+origin	<a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a> (fetch)
+origin	<a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a> (push)
+$ git push origin master
+Username for '<a href="https://github.com'" class="external free" title="https://github.com'" rel="nofollow">https://github.com'</a>: fordsfords
+Password for '<a href="https://fordsfords@github.com'" class="external free" title="https://fordsfords@github.com'" rel="nofollow">https://fordsfords@github.com'</a>: 
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 427 bytes | 0 bytes/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+To <a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a>
+   ed695df..7cc16f2  master -&gt; master
+</pre>
+<p><br />
+</p>
+<a name="Make_it_live" id="Make_it_live"></a><h3> <span class="mw-headline"> Make it live </span></h3>
+<pre>$ git checkout gh-pages
+Switched to branch 'gh-pages'
+Your branch is up-to-date with 'origin/gh-pages'.
+$ git merge master
+</pre>
+<p><i>(a bunch of earlier changes are listed)</i>
+</p>
+<pre>$ git push origin gh-pages
+Total 0 (delta 0), reused 0 (delta 0)
+To <a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a>
+   b265971..c63cd86  gh-pages -&gt; gh-pages
+$ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+</pre>
+<p><br />
+</p>
+<a name="Merging_remote_change" id="Merging_remote_change"></a><h3> <span class="mw-headline"> Merging remote change </span></h3>
+<pre>$ git fetch origin
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (10/10), done.
+remote: Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (10/10), done.
+From <a href="https://github.com/UltraMessaging/UMExamples" class="external free" title="https://github.com/UltraMessaging/UMExamples" rel="nofollow">https://github.com/UltraMessaging/UMExamples</a>
+   7cc16f2..385846b  master     -&gt; origin/master
+</pre>
+<p><i>(this fetches to local repo, but does not merge into my current work area)</i>
+</p>
+<pre>$ git merge
+Updating 7cc16f2..385846b
+Fast-forward
+ .../c/check_flight_size_ewouldblock.slsrc.html     | 247 +++++++--------------
+ .../check_flight_size_ewouldblock_store.slsrc.html | 133 ++---------
+ setting_attributes/README.txt                      |   5 +
+ 3 files changed, 110 insertions(+), 275 deletions(-)
+ create mode 100644 setting_attributes/README.txt
+</pre>
+<p><i>(could use "git pull" instead of "git fetch"/"git merge")</i>
+</p><p><br />
+</p>
+<a name="Wiki_stuff_I_always_forget" id="Wiki_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Wiki stuff I always forget </span></h2>
+<ul><li> When verifying an e-mail address, the wiki sends it to the user with a "from" address of the user's own e-mail address.  (This triggered my virus filter which assumes that any e-mails to me that are from me are viruses, which is a statistically valid assumption.)
+</li></ul>
+<ul><li> See <a href="/w/index.php?title=Sford_wiki_setup" title="Sford wiki setup">Sford wiki setup</a> for how I set up the Geekyinfo wiki.
+</li></ul>
+<a name="Grammar_stuff_I_always_forget" id="Grammar_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Grammar stuff I always forget </span></h2>
+<p>The following is stolen, lock, stock, and barrel, from <a href="http://grammar.ccc.commnet.edu/grammar/marks/quotation.htm" class="external free" title="http://grammar.ccc.commnet.edu/grammar/marks/quotation.htm" rel="nofollow">http://grammar.ccc.commnet.edu/grammar/marks/quotation.htm</a>
+</p>
+<a name="Quotation_Marks" id="Quotation_Marks"></a><h3> <span class="mw-headline"> Quotation Marks </span></h3>
+<p>Use quotation marks to set off material that represents quoted or spoken language. Quotation marks also set off the titles of things that do not normally stand by themselves: short stories, poems, and articles. Usually, a quotation is set off from the rest of the sentence by a comma; however, the typography of quoted material can become quite complicated. Here is one simple rule to remember:
+</p><p>In the United States, periods and commas go inside quotation marks regardless of logic. Click HERE for an explanation (sort of).
+</p><p>In the United Kingdom, Canada, and islands under the influence of British education, punctuation around quotation marks is more apt to follow logic. In American style, then, you would write: My favorite poem is Robert Frost's "Design." But in England you would write: My favorite poem is Robert Frost's "Design". The placement of marks other than periods and commas follows the logic that quotation marks should accompany (be right next to) the text being quoted or set apart as a title. Thus, you would write (on either side of the Atlantic):
+</p>
+<ul><tt>What do you think of Robert Frost's "Design"?</tt></ul> and
+<ul><tt>I love "Design"; however, my favorite poem was written by Emily Dickinson.</tt></ul>
+<p>Further, punctuation around quoted speech or phrases depends on how it fits into the rest of your text. If a quoted word or phrase fits into the flow of your sentence without a break or pause, then a comma may not be necessary:
+</p>
+<ul><tt>The phrase "lovely, dark and deep" begins to suggest ominous overtones.</tt></ul>
+<p>Following a form of to say, however, you'll almost always need a comma:
+</p>
+<ul><tt>My father always said, "Be careful what you wish for."</tt></ul>
+<p>If the quoted speech follows an independent clause yet could be part of the same sentence, use a colon to set off the quoted language:
+</p>
+<ul><tt>My mother's favorite quote was from Shakespeare: "This above all, to thine own self be true."</tt></ul>
+<p>When an attribution of speech comes in the middle of quoted language, set it apart as you would any parenthetical element:
+</p>
+<ul><tt>"I don't care," she said, "what you think about it."</tt></ul>
+<p>Be careful, though, to begin a new sentence after the attribution if sense calls for it:
+</p>
+<ul><tt>"I don't care," she said. "What do you think?"</tt></ul>
+<p>Convention normally insists that a new paragraph begins with each change of speaker:
+</p>
+<ul><tt>"I don't care what you think anymore," she said, jauntily tossing back her hair and looking askance at Edward.</tt></ul>
+<ul><tt>"What do you mean?" he replied.</tt></ul>
+<ul><tt>"What do you mean, 'What do I mean?'" Alberta sniffed. She was becoming impatient and wished that she were elsewhere.</tt></ul>
+<ul><tt>"You know darn well what I mean!" Edward huffed.</tt></ul>
+<ul><tt>"Have it your way," Alberta added, "if that's how you feel."</tt></ul>
+<p>In proofreading and editing your writing, remember that quotation marks always travel in pairs! Well, almost always. When quoted dialogue carries from one paragraph to another (and to another and another), the closing quotation mark does not appear until the quoted language finally ends (although there is a beginning quotation mark at the start of each new quoted paragraph to remind the reader that this is quoted language). Also, in parenthetical documentation (see the <a href="http://grammar.ccc.commnet.edu/mla/index.shtml" class="external text" title="http://grammar.ccc.commnet.edu/mla/index.shtml" rel="nofollow">Guide to Writing Research Papers</a>), the period comes after the parenthetical citation which comes after the quotation mark" (Darling 553).
+</p><p>In reporting "silent speech".noting that language is "said," but internally and not spoken out loud.writers are on their own. Writers can put quotation marks around it or not:
+</p>
+<ul><tt>Oh, what a beautiful morning, Curly said to himself.</tt></ul>
+<ul><tt>"Oh, what a beautiful morning!" Curly said to himself.</tt></ul>
+<p>Some writers will set such unspoken language in italics or indent it in order to set it off from other "regular" language. That's probably not a good idea if there is a lot of it because the indents can be confusing and italics can become tiresome to read after a while. The decision will probably depend on the amount of silent speech within the text. Probably the best way to handle silent speech is to find an author whom you like who does a lot of this.Graham Swift in his novel Last Orders, for instance.and copy that author's style. Consistency, of course, is very important.
+</p><p>Some interesting things can happen with verb tenses when we report action in indirect or reported speech (<tt>"The president said that he was going to Egypt tomorrow"</tt>). For help with this issue, we would refer to you Professor Mary Nell Sorensen's Web site at the University of Washington.	
+</p><p>Be careful not to use quotation marks in an attempt to emphasize a word (the kind of thing you see in grocery store windows.Big "Sale" Today!). Underline or italicize that word instead. (The quotation marks will suggest to some people that you are using that word in a special or peculiar way and that you really mean something else.or that your sale is entirely bogus.)
+</p><p>The American Medical Association Manual of Style (9th ed, 1998) calls misused quotation marks like this Apologetic Quotation Marks and says:
+</p>
+<blockquote>Quotation marks used around words to give special effect or to indicate irony are usually unnecessary. When irony or special effect is intended, skillful preparation can take the place of using these quotes. Resort to apologetic quotation marks or quotation marks used to express irony only after such attempts have failed, keeping in mind that the best writing does not rely on apologetic quotation marks. (p 220)</blockquote>
+<p>Refer to <a href="http://grammar.ccc.commnet.edu/mla/index.shtml" class="external text" title="http://grammar.ccc.commnet.edu/mla/index.shtml" rel="nofollow">Guide to Writing Research Papers</a> and, especially, the English faculty's <a href="http://grammar.ccc.commnet.edu/grammar/composition/literature.htm" class="external text" title="http://grammar.ccc.commnet.edu/grammar/composition/literature.htm" rel="nofollow">Suggestions for Writing Papers for Literature Courses</a> for further help in handling quotations.
+</p><p>We do not enclose indirect quotations in quotation marks. An indirect quotation reports what someone says but not in the exact, original language. Indirect quotations are not heard in the same way that quoted language is heard.
+</p>
+<ul><tt>The President said that NAFTA would eventually be a boon to small businesses in both countries.</tt></ul>
+<ul><tt>Professor Villa told her students the textbooks were not yet in the bookstore.</tt></ul>
+<p><b>Double Punctuation with Quotations</b>
+</p><p>Occasionally - very occasionally, we hope - we come across a sentence that seems to demand one kind of punctuation mark within quotation marks and another kind of punctuation mark outside the quotation marks. A kind of pecking order of punctuation marks takes over: other marks are stronger than a period and an exclamation mark is usually stronger than a question mark. If a statement ends in a quoted question, allow the question mark within the quotation marks suffice to end the sentence.
+</p>
+<ul><tt>Malcolm X had the courage to ask the younger generation of American blacks, "What did we do, who preceded you?"</tt></ul>
+<p>On the other hand, if a question ends with a quoted statement that is not a question, the question mark will go outside the closing quotation mark.
+</p>
+<ul><tt>Who said, "Fame means when your computer modem is broken, the repair guy comes out to your house a little faster"?</tt></ul>
+<p>If a question ends with a quotation containing an exclamation mark, the exclamation mark will supersede the question and suffice to end the sentence.
+</p>
+<ul><tt>Wasn't it Malcolm X who declared, "Why, that's the most hypocritical government since the world began!"</tt></ul>
+<p>A single question mark will suffice to end a quoted question within a question:
+</p>
+<ul><tt>"Didn't he ask, 'What did we do, who preceded you?'" queried Johnson.</tt></ul>
+<p>Authority for this section: New York Public Library Writer's Guide to Style and Usage HarperCollins: New York. 1994. 277. Cited with permission, examples our own.
+</p><p><b>Single Quotation Marks</b>
+</p><p>In the United States, we use single quotation marks to enclose quoted material (or the titles of poems, stories, articles) within other quoted material:
+</p>
+<ul><tt>"'Design' is my favorite poem," he said.</tt></ul>
+<ul><tt>"Did she ask, 'What's going on?'"</tt></ul>
+<ul><tt>Ralph Ellison recalls the Golden Age of Jazz this way: "It was itself a texture of fragments, repetitive, nervous, not fully formed; its melodic lines underground, secret and taunting; its riffs jeering-'Salt peanuts! Salt peanuts!'" </tt></ul>
+<p>British practice, again, is quite different. In fact, single-quote marks and double-quote marks are apt to be reversed in usage. Instructors in the U.S. should probably take this into account when reading papers submitted by students who have gone to school in other parts of the globe.
+</p><p>In newspapers, single quotation marks are used in headlines where double quotation marks would otherwise appear.
+</p>
+<ul><tt>Congress Cries 'Shame!'</tt></ul>
+<p>One further use, according to the Chicago Manual of Style: in philosophical discourse, key concepts may be set apart with single-quote marks. When such concepts are set off in this way, periods and commas go outside the single-quote marks:
+</p>
+<ul><tt>Sartre's treatment of 'being', as opposed to his treatment of 'non-being', has been thoroughly described in Kaufmann's book.&lt;/pre&gt;</tt></ul>
+<ul><li>There are peculiar typographical reasons why the period and comma go inside the quotation mark in the United States. The following explanation comes from the <a href="http://www.cis.ohio-state.edu/hypertext/faq/usenet/alt-usage-english-faq/faq.html" class="external text" title="http://www.cis.ohio-state.edu/hypertext/faq/usenet/alt-usage-english-faq/faq.html" rel="nofollow">"Frequently Asked Questions"</a> file of alt.english.usage: "In the days when printing used raised bits of metal, "." and "," were the most delicate, and were in danger of damage (the face of the piece of type might break off from the body, or be bent or dented from above) if they had a '"' on one side and a blank space on the other. Hence the convention arose of always using '."' and ',"' rather than '".' and '",', regardless of logic." This seems to be an argument to return to something more logical, but there is little impetus to do so within the United States.
+</li></ul>
+<a name="Docbook_stuff_I_always_forget" id="Docbook_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Docbook stuff I always forget </span></h2>
+<p>Ref: <a href="http://www.docbook.org/tdg/en/html/docbook.html" class="external free" title="http://www.docbook.org/tdg/en/html/docbook.html" rel="nofollow">http://www.docbook.org/tdg/en/html/docbook.html</a>
+</p><p>More doc: <a href="http://www.sagehill.net/docbookxsl/" class="external free" title="http://www.sagehill.net/docbookxsl/" rel="nofollow">http://www.sagehill.net/docbookxsl/</a>
+</p><p>"Include" files:
+</p>
+<pre>&lt;b&gt;
+&lt;!ENTITY ch01 SYSTEM &quot;ch01.sgm&quot;&gt;
+...
+&amp;ch01;
+&lt;/b&gt;</pre>
+<a name="Socket_stuff_I_always_forget" id="Socket_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Socket stuff I always forget </span></h2>
+<p><a href="http://www.madore.org/~david/computers/connect-intr.html" class="external free" title="http://www.madore.org/~david/computers/connect-intr.html" rel="nofollow">http://www.madore.org/~david/computers/connect-intr.html</a> - Blocking connect socket call can get EINTR and it's a pain to deal with.
+</p>
+<a name="PHP_stuff_I_always_forget" id="PHP_stuff_I_always_forget"></a><h2> <span class="mw-headline"> PHP stuff I always forget </span></h2>
+<ul><li> "==" checks for value equivalence.  "===" checks for both value and type equivalence.
+</li><li> // comment
+</li><li> define('id', value) - defines a constant named "id".  No "$" is used with the id.
+</li><li> '\n' is a 2-character string containing a backslash and the letter n.  "\n" is a newline.  "\q" is a 2-character string (backslash, letter q).  "abc $x xyz" does variable interpolation, single quote does not.
+</li><li> $x = &lt;&lt;__EOF__ ... __EOF__ (here doc)
+</li><li> $x = array(1, 2, 4, 8, 16);  $x = array('one' =&gt;1, 'two' =&gt; 2);  $x = array('ford' =&gt; array('husband'=&gt;'Steve', 'wife'=&gt;'Marg'), 'frank' =&gt; array(...));
+</li><li> functions do not automatically have access to global variables.  Must use "global $x" to get it.
+</li><li> References: $a=5;  $b=&amp;$a;  $b=2;  This overwrites $a with 2.  Most-useful with functions: function test(&amp;$a) {$a = 4; } will overwrite the actual parameter in a call.
+</li><li> Pointers: $a='b';  $$a=3;  this sets $b to 3.  Also: $a='test';  $a();  This calls test()
+</li><li> foreach ($array as $val) v.s. foreach ($array as &amp;$val) - with "&amp;" body of loop can modify the array element.  foreach($array as $key=&gt;$val)
+</li><li> can have static vars in functions.
+</li><li> require_once 'x.php';
+</li><li> Classes:
+</li></ul>
+<pre> class XClass {
+     public $xcolor;
+     private $xorientation;
+     static $num_instances = 0;
+     public const RIGHT = 1;
+     function __construct($orient = 2) {    // default value for parameter
+         $this-&gt;xorientation = $orient;    // $this-&gt; == $instance_var-&gt;
+         $this-&gt;num_instances ++;
+     }
+     function __destruct() {
+         if ($this-&gt;num_instances &lt;= 0) throw new Exception("Oops");
+         $this-&gt;num_instances --;
+     }
+     private function set_orientation($orient) {
+         $this-&gt;orientation = $orient;
+     }
+     public function turn_right() {
+         $this-&gt;set_orientation($this-&gt;orientation + self::RIGHT);    // self:: == ClassName::
+     }
+     static function instance_count() {
+         return $this-&gt;num_instances;
+     }
+ }
+ $x = new XClass;    // could also include (5)
+ $x-&gt;turn_right();
+ unset($x);
+ print XClass::instance_count();
+</pre>
+<p><br />
+</p>
+<a name="Java_stuff_I_always_forget" id="Java_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Java stuff I always forget </span></h2>
+<p>JMS docs:
+<a href="http://java.sun.com/products/jms/docs.html" class="external free" title="http://java.sun.com/products/jms/docs.html" rel="nofollow">http://java.sun.com/products/jms/docs.html</a>
+</p>
+<a name="CPU_stuff_I_always_forget" id="CPU_stuff_I_always_forget"></a><h2> <span class="mw-headline"> CPU stuff I always forget </span></h2>
+<ul>
+
+For 32-bit sparc (v8) v.s. 64-bit sparc (v9) issues, see
+<a href="http://docs.sun.com/db/doc/806-0477" class="external free" title="http://docs.sun.com/db/doc/806-0477" rel="nofollow">http://docs.sun.com/db/doc/806-0477</a> which contains:
+
+<table border="2">
+<tr><td align="center" valign="top"><p><strong>Data Type</strong></p></td><td align="center" valign="top"><p><strong>ILP32 size</strong></p></td><td align="center" valign="top"><p><strong>LP64 size</strong></p></td></tr>
+<tr><td align="center" valign="top"><p><tt>char</tt></p></td><td align="center" valign="top"><p>8 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>short</tt></p></td><td align="center" valign="top"><p>16 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>int</tt></p></td><td align="center" valign="top"><p>32 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>long</tt></p></td><td align="center" valign="top"><p>32 </p></td><td align="center" valign="top"><p><strong>64</strong></p></td></tr>
+<tr><td align="center" valign="top"><p><tt>long long</tt></p></td><td align="center" valign="top"><p>64 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>pointer</tt></p></td><td align="center" valign="top"><p>32 </p></td><td align="center" valign="top"><p><strong>64</strong></p></td></tr>
+<tr><td align="center" valign="top"><p><tt>enum</tt></p></td><td align="center" valign="top"><p>32 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>float</tt></p></td><td align="center" valign="top"><p>32 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>double</tt></p></td><td align="center" valign="top"><p>64 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+<tr><td align="center" valign="top"><p><tt>long double </tt></p></td><td align="center" valign="top"><p> 128 </p></td><td align="center" valign="top"><p>unchanged </p></td></tr>
+</table>
+<p>Also, note that Solaris uses "LD_LIBRARY_PATH_64" for 64-bit executables, or
+"LD_LIBRARY_PATH" if "..._64" is not defined.  To enable 64-bit compiles,
+use "-xarch=v9".
+</p><p>The above table describes the data model for most (all?) Unix platforms.
+However, Microsoft felt the need to do it differently, so  <b>64-bit Windows
+LONG is 32-bits</b>.  See <a href="http://msdn2.microsoft.com/en-us/library/s3f49ktz(VS.80).aspx" class="external free" title="http://msdn2.microsoft.com/en-us/library/s3f49ktz(VS.80).aspx" rel="nofollow">http://msdn2.microsoft.com/en-us/library/s3f49ktz(VS.80).aspx</a>
+</p>
+<li><b>Endian</b>
+- BIG endian (sparc, 68k, hp-pa, mips/irix): MSB at lower address,
+LITTLE endian (x86, VAX, Alpha, mips/ultrix): LSB at lower address.
+
+Note that C bit field ordering is not standardized, but
+<a href="http://developers.sun.com/solaris/developer/support/driver/wps/endianness/files/c0102.html#CHAPTER-EX-11" class="external text" title="http://developers.sun.com/solaris/developer/support/driver/wps/endianness/files/c0102.html#CHAPTER-EX-11" rel="nofollow">in practice</a>
+you find that BIG endian machines assign fields from high-to-low whereas LITTLE
+endian assign from low-to-high.  This means that you should never use C bit fields in wire protocols or shared databases (assuming you want them to interoperate).
+
+<li><b>SPARC</b> - see Sun's
+"<a href="http://docs.sun.com:80/ab2/@LegacyTocView?toc=SUNWab_45_3%3A%2Fsafedir%2Fspace3%2Fcoll2%2FSUNWabsdk%2Ftoc%2FSPARC%3ASPARC%3Aclose;bt=SPARC+Assembly+Language+Reference+Manual" class="external text" title="http://docs.sun.com:80/ab2/@LegacyTocView?toc=SUNWab_45_3%3A%2Fsafedir%2Fspace3%2Fcoll2%2FSUNWabsdk%2Ftoc%2FSPARC%3ASPARC%3Aclose;bt=SPARC+Assembly+Language+Reference+Manual" rel="nofollow">SPARC Assembly Language Reference Manual</a>".
+Also see
+<a href="http://www.enchantedlearning.com/sparc/" class="external free" title="http://www.enchantedlearning.com/sparc/" rel="nofollow">http://www.enchantedlearning.com/sparc/</a>
+
+<li>See <a href="http://jbayko.sasktelwebsite.net/cpu.html" class="external free" title="http://jbayko.sasktelwebsite.net/cpu.html" rel="nofollow">http://jbayko.sasktelwebsite.net/cpu.html</a>
+for "Great Microprocessors of the Past and Present".  Also see
+<a href="http://www.owlnet.rice.edu/~comp320/related.html" class="external free" title="http://www.owlnet.rice.edu/~comp320/related.html" rel="nofollow">http://www.owlnet.rice.edu/~comp320/related.html</a>
+for a bunch of cool links.
+
+</ul>
+<a name="Unix_stuff_I_always_forget" id="Unix_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Unix stuff I always forget </span></h2>
+<p>"Rosetta Stone for Unix" <a href="http://bhami.com/rosetta.html" class="external free" title="http://bhami.com/rosetta.html" rel="nofollow">http://bhami.com/rosetta.html</a>
+</p><p>Normal file protection: file mode.  chmod.  Linux extended file permissions: attributes.  lsattr and chattr.  See <a href="https://wiki.archlinux.org/index.php/File_permissions_and_attributes#File_attributes" class="external free" title="https://wiki.archlinux.org/index.php/File_permissions_and_attributes#File_attributes" rel="nofollow">https://wiki.archlinux.org/index.php/File_permissions_and_attributes#File_attributes</a>
+</p><p><a href="http://www.geeky-boy.com/advanced-linux-programming.pdf" class="external text" title="http://www.geeky-boy.com/advanced-linux-programming.pdf" rel="nofollow">advanced-linux-programming.pdf</a>
+</p><p><a href="http://www.faqs.org/faqs/Solaris2/FAQ/" class="external free" title="http://www.faqs.org/faqs/Solaris2/FAQ/" rel="nofollow">http://www.faqs.org/faqs/Solaris2/FAQ/</a>
+- Solaris 2 FAQ (master
+<a href="ftp://ftp.wins.uva.nl/pub/solaris" class="external free" title="ftp://ftp.wins.uva.nl/pub/solaris" rel="nofollow">ftp://ftp.wins.uva.nl/pub/solaris</a>)
+</p><p>Library stuff: env var "LD_PRELOAD": <a href="http://uberhip.com/godber/interception/html/slide_5.html" class="external free" title="http://uberhip.com/godber/interception/html/slide_5.html" rel="nofollow">http://uberhip.com/godber/interception/html/slide_5.html</a>
+and <a href="http://developers.sun.com/solaris/articles/lib_interposers_code.html#malloc_interposer.c" class="external free" title="http://developers.sun.com/solaris/articles/lib_interposers_code.html#malloc_interposer.c" rel="nofollow">http://developers.sun.com/solaris/articles/lib_interposers_code.html#malloc_interposer.c</a>
+Shared libraries: <a href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html" class="external free" title="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html" rel="nofollow">http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html</a>
+</p><p>HPUX - no /var/adm/messages file, see instead "/var/adm/syslog/syslog.log".
+No /etc/rc.d directory, see instead "/sbin/rc*".
+Also, "/usr/lib/netsvc/fs/autofs/automountd".
+</p><p>Signal handling - if writing a library routine that needs to handle
+a signal (e.g. SIGPIPE in a function that writes to a socket), then it
+should save and restore the caller's signal handler.  Use sigaction
+(SVr4) or sigvec (BSD) so that extra flags can be saved and restored.
+But having lib routines do that is not recommended.  For one thing, there
+is only one signal handler for an entire multi-threaded process.  By
+having the lib routine set it's own handler, even temporarily, leaves
+a potential race condition where the wrong handler will catch a given
+signal.  Also, if an application thread establishes a signal handler
+during our execution, then *we* won't catch *our* signal.  And we could
+restore the "wrong" handler, especially if both the applic and the lib
+do save/restore.
+</p><p><br />
+</p>
+<br /><ul>
+
+<li><b><tt>iconv</tt></b>
+Have some strange character set?
+<pre>
+    iconv &lt;x.csv -f UTF-16 -t UTF-8
+</pre>
+<li><b><tt>autoflush</tt></b>
+
+Here are some commands that use autoflush by default: <tt>cat</tt>, <tt>tail -f</tt>, <tt>ping</tt>, <tt>while ... do echo; done</tt>.  Here are some commands which do NOT autoflush by default: <tt>grep</tt>, <tt>tr</tt>, <tt>sed</tt>, <tt>cut</tt>, <tt>awk</tt>, <tt>perl</tt>
+(in perl setting "$|" does set autoflush).
+
+I tested these on Linux.  Naturally there may be differences on other Unixes.  Here's how I've been testing them:
+<tt>ping localhost | FILTER | cat</tt>
+
+Substitute grep, tr, etc for FILTER and it has to buffer a couple minutes worth of pings before it flushes.  Substitute cat for FILTER and it autoflushes.
+There are some commands and functions that I never seem to be able to
+remember.  Many are rarely needed, but essential when you need them.
+
+<li><b><tt>awk</tt></b>
+- man page:
+<a href="http://docs.sun.com/app/docs/doc/819-2239/awk-1" class="external free" title="http://docs.sun.com/app/docs/doc/819-2239/awk-1" rel="nofollow">http://docs.sun.com/app/docs/doc/819-2239/awk-1</a>
+Note - Sun may be the only Unix that has old 1977 awk separate from new 1985
+awk ("nawk").  The new awk not only allows user-defined functions, it also
+provides the "sub" and "gsub" functions.
+
+Tutorial page:
+<a href="http://www.vectorsite.net/tsawk.html" class="external free" title="http://www.vectorsite.net/tsawk.html" rel="nofollow">http://www.vectorsite.net/tsawk.html</a>
+
+One-liners are easy:
+<pre>
+    if [ -f &quot;/usr/nawk&quot; ]; then AWK=&quot;nawk&quot;; else AWK=awk; fi
+    echo 4.00.00-rc1 | $AWK '{gsub(/\./,&quot;_&quot;,$0);print &quot;SDK_&quot; $0}'
+    id | $AWK '{split($0, a, /[()]/);print &quot;user=&quot; a[2]}'
+</pre>
+<li><b>One-liners</b>
+- You don't need to use awk to do quick one-liners.
+Here's a one liner that makes a splits space-separated fields into multiple
+lines:
+<pre>
+    echo $LONGLINE | perl -nlae 'foreach (@F) {print;}'
+</pre>
+<p>(-n=Loop, -l=Chomp&amp;PrintNl -a=AutoSplit -e=Src)  Just remember that
+(unlike awk) the array
+of fields (@F) is zero-based, not one-based.  You can also include
+"<tt>-F<em>x</em></tt>" where "<tt><em>x</em></tt>" is a delim
+character.
+</p>
+<li><tt><b>cat x | pbcopy; echo `pbpaste`</b></tt> Mac OSX command-line access to cut buffer
+
+<li><tt><b>more /var/log/dmesg</b></tt> Linux method of examining hardware (Solaris: <tt><b>psrinfo -v</b></tt>)
+
+<li><tt><b>kill -6</b></tt>
+- kill a process and generate a core file.
+</li>
+<li><tt><b>mount -t smbfs -o username=administrator,password= //blunjo/c$ /blunjo/c</b></tt>
+- 
+</li>
+<li><tt><b>prompt</b></tt>
+- command in ftp to toggle interactive prompting during multiple file
+operations.  Useful if you forgot to use the "-i" option to supress prompting.
+</li>
+<li><tt><b>memcpy(), memmove()</b></tt>
+- Don't use "bcopy()", etc since they aren't as portable.  Both memcpy()
+and memmove() have the same parameter order (dst, src, cnt); memmove()
+works with overlapping buffers but might be a bit slower.
+</li>
+<li><tt><b>sum</b></tt>
+- NOTE - USE "cksum" INSTEAD!  But here's my notes on sum anyway.
+The second number is the block count, but note that different versions of
+sum have different block sizes.  There are too damn many versions of
+sum; sometimes multiple versions on one system!  They broadly divide into
+two camps: System V (sysv) and Berkely.  Berkely is a somewhat better
+algorithm in that it is sensative to byte order.  Plus, the sysv sums
+all have an option (-r) that gives the same checksum, although different
+block counts.  Whereas not all the Berkely sums can give sysv values.
+<pre>
+Berkely-based:
+  Solaris /usr/ucb/sum - Berkely with 1024-byte blocks (no options).
+  Cygwin sum - Berkely with 1024-byte blocks.  The &quot;-s&quot; option makes it
+      Sysv (with 512-byte blocks).
+  Linux /usr/bin/sum - same as Cygwin sum.
+  Aix /bin/sum - Berkely with 1024-byte blocks.  The &quot;-o&quot; option gives the
+      checksum as sysv &lt;em&gt;but with half the block count (+/- 1)&lt;/em&gt;.
+  Tru64 /bin/sum - Same as Aix /bin/sum.
+  Tru64 /usr/local/gnu/bin/sum - same as Cygwin sum.
+
+Sysv-based:
+  Solaris /bin/sum - Sysv with 512-byte blocks.  The &quot;-r&quot; option gives the same
+      checksum as Berkely &lt;em&gt;but with double the block count (+/- 1)&lt;/em&gt;.
+  Hpux /usr/bin/sum - same as Solaris /bin/sum.
+  MKS sum - same as Solaris /bin/sum.
+  Irix /bin/sum - same as Solaris /bin/sum
+</pre>
+</li>
+<li><tt><b>ulimit -c unlimited</b></tt>
+- allow infinite sized core files.  Usually don't have to do this - do a
+"ulimit -a" to see.
+</li>
+<li><tt><b>vi -c "set nu" foo</b></tt>
+- turn on line numbers in vi.  (Can also put it in "$HOME/.exrc" file, or
+in EXINIT env var.)
+Another vi (and sed) fact - when grouping parts of a pattern, the
+parenthesis must be escaped.  E.g.:
+<br /><tt><b>&nbsp;&nbsp;s/abc=\([0-9]*\)/\1/</b></tt>
+</li>
+<li><tt><b>HOST=`(hostname || uname -n) 2&gt;/dev/null | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/;s/\..*$//;q'`</b></tt>
+- get root hostname in lower-case.
+
+<li><tt><b>proc</b></tt>
+- "proc tools" (see "man -s 1 proc") for examining processes: <tt><b>proc,
+pflags, pcred, pmap, pldd, psig, pstack, pfiles, pwdx, pstop, prun, pwait,
+ptree, ptime</b></tt>.
+</li>
+<li><tt><b>topas</b></tt>
+- the AIX version of "top".
+</li>
+<li><tt><b>umask 22</b></tt>
+- the number is assumed to be octal.  Any bit set to 1 will <em>prevent</em>
+the corresponding bit from being set when files are created.  So "22" will
+prevent group and other writes.
+</li>
+<li><tt><b>nslookup -type=MX foo.com</b></tt>
+- List the mail exchanger records.  Numerically small priority (preference)
+numbers represent high priority (i.e. are tried first).
+</li>
+<li><tt><b>elif</b> v.s. <b>elsif</b></tt>
+- Bourne shell uses "<tt><b>elif</b></tt>" while perl uses
+"<tt><b>elsif</b></tt>".
+</li>
+<li><tt><b>sed</b></tt>
+- It took me over an hour to figure out how to use the "i" command.  The
+following code inserts a "hash-bang" (a.k.a. "shell-bang", "sha-bang",
+"she-bang") line before the first input line, and
+appends the contents of file "x" after the first input line:
+<br /><tt>&nbsp;&nbsp;1i\</tt>
+<br /><tt>&nbsp;&nbsp;#!/bin/sh</tt>
+<br /><tt>&nbsp;&nbsp;1r x</tt>
+
+Another sed (and vi) fact - when grouping parts of a pattern, the
+parenthesis must be escaped.  E.g.:
+<br /><tt>&nbsp;&nbsp;s/abc=\([0-9]*\)/\1/</tt>
+</li>
+<p>For more sed info (including Windows sed), see
+<a href="http://www.student.northpark.edu/pemente/sed/" class="external free" title="http://www.student.northpark.edu/pemente/sed/" rel="nofollow">http://www.student.northpark.edu/pemente/sed/</a>
+and <a href="http://sed.sourceforge.net/" class="external free" title="http://sed.sourceforge.net/" rel="nofollow">http://sed.sourceforge.net/</a>
+</p>
+<li><tt><b>nm</b></tt>
+- print name list (symbol name map) of an object file.
+
+<li><tt><b>man ascii</b></tt>
+- prints tables of ascii in octal, hex, and decimal.
+
+<li><tt><b>newaliases</b></tt>
+- needs to be executed (as root) when the "/etc/aliases" mail alias
+file is updated.
+
+<li><tt><b>dd if=/dev/rmt/1lbn of=/tmp/x ibs=10240</b></tt>
+- read a file from an amanda mag tape (the "n" on the end of the device
+references the "non-rewind" device).  Note that the block size 10240 (10k)
+is "tar"s default block size, and can be specified as "20b".  Amanda
+uses block size of 32K.
+
+<li><tt><b>mt -f /dev/rmt/1lbn {rewind|fsf|bsf} [count]</b></tt>
+- rewind, forward space over "count" EOF marks, back space over "count"
+EOF marks.  (Can also do "fsr" and "bsr" for record movements.)  Note
+that "bsf" leaves you right <em>before</em> the skipped EOF, meaning
+that an immediate read will give EOF.  Thus, to truely back up one
+file, you need to do "bsf 2" followed by "fsf".  (Or just do "nbsf 1".)
+
+<li><tt><b>echo "xyz.sh" | at -s -q b -m now</b></tt>
+- put the script "xyz.sh" into the batch queue.  Same as "batch".
+
+&lt;a name="forgot_find"&gt;&lt;/a&gt;
+<li><tt><b>find . \( -name CVS -prune \) -o -type f -print</b></tt>
+- finds data files except for those under CVS directories.
+
+<tt><b>find . \( -name core -o -name '*.o' \) -mtime +7 -exec rm {} \;</b></tt>
+- deletes all core and *.o files modified more than 8 days ago.
+
+See also [[#forgot_xargs|xargs].
+
+NOTE: -atime and
+-mtime each have three different usages, as described in this excerpt from
+<a href="http://www.redhat.com/archives/redhat-list/2002-December/msg00762.html" class="external free" title="http://www.redhat.com/archives/redhat-list/2002-December/msg00762.html" rel="nofollow">http://www.redhat.com/archives/redhat-list/2002-December/msg00762.html</a>
+<pre>
+&gt;   -mtime 3		# between 3 and 4 days ago
+&gt;   -mtime +3		# more than 4 days ago
+&gt;   -mtime -3		# less than 3 days ago
+&gt; 
+&gt; so, using a timeline, we have
+&gt; 
+&gt;  |--------|--------|--------|--------|--------|- .. going back in time
+&gt; now       1        2        3        4        5
+&gt; 
+&gt; &lt;----------- -3 -----------&gt;&lt;-- 3 --&gt;&lt; ------ +3 -------- ...
+</pre>
+<li><tt><b>xhost +</b></tt>
+- Allows X clients on any remote host to use this X server (display).
+
+<li><tt><b>script x.log</b></tt>
+- starts a new shell with all output logged to a file.
+
+<li><tt><b>"|/usr/local/bin/mail_in -c listname"</b></tt>
+- when placed (including double quotes) in either <tt>.forward</tt>
+or <tt>/etc/aliases</tt>,
+will fork/exec process.  Will run any number of them in parallel (i.e.
+does <em>not</em> serialize).
+
+&lt;a name="forgot_xargs"&gt;&lt;/a&gt;
+<li><tt><b>xargs &lt;many_files ls -l</b></tt>
+- for when there are too many command-line arguments.  Reads arguments
+from file and executes command as few times as possible with as many
+arguments as possible with each invocation.  (See also
+<a href="#forgot_find" title="">find</a>.)
+
+<li><tt><b>truss</b></tt>
+(Solarus) - trace system calls.  Linux uses "strace", and FreeBsd uses "trace".
+
+<li><tt><b>dd if=/dev/rmt/0n ibs=10k &gt;x.tar</b></tt>
+- pull a tar file off tape.  Here are some more:
+<pre>
+  mt -f /dev/rmt/0 rewind
+  dd &lt;x.tar of=/dev/rmt/0n obs=10k     &lt;em&gt;(makes exact duplicate of 1st tape)&lt;/em&gt;
+</pre>
+<li><tt><b>findbug -p T4.7BP1 -N | summarybug &gt;bug_sum_N</b></tt>
+- command-line ddts interface.  Here's more:
+<pre>
+  findbug -p T4.7BP1 -u fords '(' status '==' A '||' status '==' O ')' '||' '(' Resolved-on '&gt;' YYMMDD '&amp;&amp;' Resolved-on '!=' &quot;&quot; ')' &gt;bug_list_AO.fords
+  findbug -p T4.7BP1 -u fords Resolved-on '&lt;=' YYMMDD '&amp;&amp;' Resolved-on '!=' &quot;&quot; &gt;bug_list_R.fords
+</pre>
+<li><tt><b>tr -d '\r' &lt;x.1 &gt;x.2</b></tt>
+- Remove carriage returns (translate Windows text file to Unix).  Here's
+how I did the whole apache distribution (skipping binary and html files):
+<pre>
+  find . -type f -print | egrep -v &quot;/htdocs/|/icons/&quot; &gt;txt_files
+  file `cat txt_files` | egrep -v &quot;text$|script$&quot;
+    &lt;em&gt;(That line listed 3 files, which I removed from &quot;txt_files&quot;)&lt;/em&gt;
+  for F in `cat txt_files`; do tr -d '\r' &lt;$F &gt;$F.t; cat $F.t &gt;$F; rm $F.t; done
+</pre>
+<li><tt><b>nisls -R</b></tt>
+- get listing of NIS+ tables.  Here's more:
+<pre>
+  niscat mail_aliases.org_dir
+</pre>
+<li><tt><b>ldd <i>executable</i></b></tt>
+- print shared dynamic library dependencies.
+
+<li><tt><b>ulimit -n 1024</b></tt>
+- sets max num file descriptors (stdio will get sick if it gets a
+descriptor &gt; 256).  Can also do:
+<pre>
+    struct rlimit rl;
+    rl.rlim_max = 1024;
+    rl.rlim_cur = 1024;
+    stat = setrlimit(RLIMIT_NOFILE, &amp;rl);  /* 0=success, -1:errno */
+</pre>
+<p>If need more than 1024, see 3.45 in the
+<a href="http://www.faqs.org/faqs/Solaris2/FAQ/" class="external text" title="http://www.faqs.org/faqs/Solaris2/FAQ/" rel="nofollow">Solaris 2 FAQ</a>.
+</p>
+<li><tt><b>egrep EINTR `find /usr/include -name '*.h' -print`</b></tt>
+- find Unix error codes.
+
+<li><tt><b>psrinfo -v</b></tt>
+- processor speed &amp; number of processors (solaris)
+
+<li><tt><b>showrev -p</b></tt>
+- patches on the system (solaris)
+
+<li><tt><b>wall [-a]</b></tt>
+- Write a broadcast message to all logged-in users.  "-a" includes
+pseudo-terminals (for xterms).
+
+<li><tt><b>eval</b></tt>
+- args are read and concatenated together into a single command which is
+read and executed by the shell.  It basically allows for a 2-pass construction
+of the command line.  This allows one to simulate a bourne shell array or hash:
+<pre>
+  I=2
+  eval X$I=\&quot;test 1 2 3\&quot;
+  eval Y=\&quot;\$X$I\&quot;
+  echo $Y
+</pre>
+</ul>
+<a name="Random_Snoop_Facts" id="Random_Snoop_Facts"></a><h3> <span class="mw-headline"> Random Snoop Facts </span></h3>
+<p>Snoop is solaris-only.  It normally requires root privilage to run it,
+but I've modified systems to allow anybody to use it (set
+ownership to root and set the "set-uid" bit: "chmod 4555 snoop").
+</p><p>Linux has a similar tool: "tcpdump".  (It is located in /usr/local/sbin,
+which is not normally in the PATH, so you need to explicitly call it
+out.)
+</p><p>I don't know tcpdump very well, so I'll concentrate on snoop.
+</p><p>Snoop normally outputs to the screen, but over the years I've kicked
+myself over and over again for using it that way.  I don't know how many
+times I've run it and the interesting stuff scrolls off the screen and
+it's hard to reproduce what I'm looking for.  So now I use it's storage
+mode.  Use the "-o outfile" instead of STDOUT redirection!  It saves
+more info that way.
+</p><p>The output file generated by "-o" is not ascii.  You need to use snoop
+to read and display its contents ("-i infile").  This is actually a Good
+Thing, because you can use all of snoop's selection and filtration when
+displaying packets.  And you can change your mind as often as you like
+as to how much info to display.
+</p><p>As a result, always capture more packets than you want.  Cast your net
+wide, and then use snoop's packet selection power during the display
+phase.  It's easy to display less than you capture; it's impossible to
+display more than you capture.
+</p><p>The easiest way to use it is "snoop -o ofile".  This will capture every
+packet transferred.  Unfortunately, that will include telnet traffic. 
+So, in spite of my warning to cast your net wide, I usually do restrict
+the capture to packets between the two systems you're interested in. 
+(Also, make sure your telnet session is not nested through the remote
+host.  I.e. I might telnet to host1, and from there telnet to
+host2.  If I then snoop host1 from host2, it will capture all that
+stupid telnet traffic.)
+</p><p>So, if you're running your client on the local system, and server is
+running on host1, enter:
+</p>
+<pre>  snoop -o ofile quad001</pre>
+<p>This will capture packets both sent and received.  You will need to use
+"ctrl-c" to stop it.
+</p><p>Then, to display it, enter:
+</p>
+<pre>  snoop -i x -x 0 -t r | more</pre>
+<p>The "-x 0" tells it to dump the contents of the packet in hex, starting
+with offset 0 within the packet.  The "-t r" tells it to display
+timestamps relative to the receipt of the first packet (by default it
+displays time *between* the packets).
+</p>
+<a name="Cygwin" id="Cygwin"></a><h3> <span class="mw-headline"> Cygwin </span></h3>
+<p>Cygwin is a UNIX environment for Windows.  See
+<a href="http://www.cygwin.com/" class="external free" title="http://www.cygwin.com/" rel="nofollow">http://www.cygwin.com/</a>
+for more info and the latest download.  The Cygwin user's guide is at
+<a href="http://sources.redhat.com/cygwin/cygwin-ug-net/cygwin-ug-net.html" class="external free" title="http://sources.redhat.com/cygwin/cygwin-ug-net/cygwin-ug-net.html" rel="nofollow">http://sources.redhat.com/cygwin/cygwin-ug-net/cygwin-ug-net.html</a>
+and the FAQ is at
+<a href="http://www.cygwin.com/faq/" class="external free" title="http://www.cygwin.com/faq/" rel="nofollow">http://www.cygwin.com/faq/</a>
+</p><p>"/usr/doc/Cygwin/inetutils*.README" for more info.
+</p>
+<a name="FreeBSD" id="FreeBSD"></a><h3> <span class="mw-headline"> FreeBSD </span></h3>
+<p>The FreeBSD handbook:
+<a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/index.html" class="external free" title="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/index.html" rel="nofollow">http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/index.html</a>
+</p><p>Downloaded "4.3-install.iso" from
+<a href="ftp://ftp9.FreeBSD.org/pub/os/FreeBSD/releases/i386/ISO-IMAGES/" class="external free" title="ftp://ftp9.FreeBSD.org/pub/os/FreeBSD/releases/i386/ISO-IMAGES/" rel="nofollow">ftp://ftp9.FreeBSD.org/pub/os/FreeBSD/releases/i386/ISO-IMAGES/</a>
+and cut a CD on phoebus (207.24.169.86) as root with:
+</p>
+<pre>
+    cdrecord -v speed=2 dev=0,1,0 4.3-install.iso
+</pre>
+<p>(Created user on hagar with "/usr/sbin/useradd -u 1009 sford", then
+added "/opt/schily/bin" to PATH and "/opt/schily/man" to MANPATH.)
+</p><p>Installed devel system "thor" with mostly defaults for
+everything.  When I create the "sford" account, I added it to the
+"wheel" group so that it has "su" capabilities.
+</p>
+<a name="RedHat_Linux" id="RedHat_Linux"></a><h3> <span class="mw-headline"> RedHat Linux </span></h3>
+<p>Some doc:
+</p>
+<ul>
+<li><a href="http://www.redhat.com/mirrors/LDP/LDP/gs/node6.html" class="external free" title="http://www.redhat.com/mirrors/LDP/LDP/gs/node6.html" rel="nofollow">http://www.redhat.com/mirrors/LDP/LDP/gs/node6.html</a>
+- System Administration
+</ul>
+<p>Install RedHat as follows:
+</p>
+<ol>
+<li>Boot to the 7.1 RedHat CD (disk 1) and enter "text"
+<li>Select: "English", "US", "Custom System"
+<li>For Auto Partition, select "Continue"
+<li>For LILO Config, select "OK", "OK", "OK"
+<li>For Network Config, de-select "DHCP" and enter "207.24.172.38",
+"255.255.255.0", "207.24.172.1", "207.24.79.11", "207.24.79.12"
+<li>For Hostname enter "thor"
+<li>For Firewall, select "No Firewall"
+<li>For Mouse, select "generic - 2 button PS/2"
+<li>For Language, select "English (USA)"
+<li>For timezone, select "Hardware clock set to GMT" and "America/Chicago"
+<li>For Root Password, use old vaisya
+<li>For User Accounts, create "sford" and "dcrpt"
+<li>For Authent config, select "OK"
+<li>For package groups, select "Networked Workstation", "NFS Server",
+"SMB Server", "IPX/Netware Connect", "Web Server"
+</ol>
+<p>Then reboot, log in, "su" to root.
+</p><p>To enable apache and prepare it for DCReporter development:
+</p>
+<pre>
+    mkdir /var/www/perl
+    cd /etc
+    for F in 3 4 5; do mv rc${F}.d/K15httpd rc${F}.d/S85httpd; done
+    vi /etc/group           &lt;em&gt;(add &quot;dcrpt,sford&quot; to end of &quot;dcrpt&quot; entry)&lt;/em&gt;
+    chgrp dcrpt `find /var/www -print`
+    vi /etc/httpd/httpd.conf
+        &lt;em&gt;(Add &quot;PerlSendHeader On&quot; to &quot;&lt;Location /perl&gt;&quot; after &quot;PerlHandler&quot;.
+         Also change all &quot;AllowOverride None&quot; to &quot;AllowOverride All&quot;.
+         Also set up &quot;ServerAdmin&quot; and &quot;ServerName&quot;.)&lt;/em&gt;
+</pre>
+<a name="Internet_stuff_I_always_forget" id="Internet_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Internet stuff I always forget </span></h2>
+<p>Good place for RFCs:
+<a href="http://www.faqs.org/rfcs/rfc-activeT.html" class="external free" title="http://www.faqs.org/rfcs/rfc-activeT.html" rel="nofollow">http://www.faqs.org/rfcs/rfc-activeT.html</a>
+</p><p>Protocol overhead byte counts (TCP/UDP/IP):
+<a href="http://sd.wareonearth.com/~phil/net/overhead/" class="external free" title="http://sd.wareonearth.com/~phil/net/overhead/" rel="nofollow">http://sd.wareonearth.com/~phil/net/overhead/</a>
+</p><p>Private networks (unrouted IP addresses) from
+<a href="http://www.faqs.org/rfcs/rfc1597.html" class="external free" title="http://www.faqs.org/rfcs/rfc1597.html" rel="nofollow">http://www.faqs.org/rfcs/rfc1597.html</a>
+</p>
+<pre>
+    10.0.0.0    - 10.255.255.255  (class A network, or CIDR 10.0.0.0/8)
+    172.16.0.0  - 172.31.255.255  (16 class B networks, or CIDR 172.16.0.0/12)
+    192.168.0.0 - 192.168.255.255 (256 class C networks, or CIDR 192.168.0.0/16)
+</pre>
+<a name="Html_stuff_I_always_forget" id="Html_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Html stuff I always forget </span></h2>
+<p>HTML 3.2 spec:
+<a href="http://www.w3.org/TR/REC-html32.html" class="external free" title="http://www.w3.org/TR/REC-html32.html" rel="nofollow">http://www.w3.org/TR/REC-html32.html</a>
+</p><p>Trademarks: &amp;#8482;=&#8482; &amp;#153;=&#153; &amp;reg;=&reg;
+</p><p>To include username/password in FTP urls: <a href="ftp://usr:psw@host/" class="external free" title="ftp://usr:psw@host/" rel="nofollow">ftp://usr:psw@host/</a>...
+</p><p>auto-refresh page:
+</p>
+<table bgcolor="#000000" width="90%"><tr><td>
+<table bgcolor="#C0C0C0" width="100%" cellpadding="3"><tr><td>
+<pre>
+&lt;b&gt;&lt;html&gt;&lt;/b&gt;
+&lt;b&gt;&lt;head&gt;&lt;/b&gt;...&lt;b&gt;&lt;/head&gt;&lt;/b&gt;
+&lt;b&gt;&lt;body&gt;&lt;/b&gt;
+&lt;b&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;&lt;/b&gt;num-sec&lt;b&gt;; url=http://&lt;/b&gt;full-url&lt;b&gt;&quot;&gt;&lt;/b&gt;
+</pre>
+</td></tr></table>
+</td></tr></table>
+<p>Basic table:
+</p>
+<table bgcolor="#000000" width="90%"><tr><td>
+<table bgcolor="#C0C0C0" width="100%" cellpadding="3"><tr><td>
+<pre>
+&lt;b&gt;&lt;table&lt;/b&gt; &lt;b&gt;border=0&lt;/b&gt; &lt;b&gt;bgcolor=0&lt;/b&gt;
+&lt;b&gt;    cellpadding=3&lt;/b&gt;&lt;em&gt;(spacing-within-cell)&lt;/em&gt;
+&lt;b&gt;    cellspacing=3&lt;/b&gt;&lt;em&gt;(spacing-between-cells)&lt;/em&gt;
+&lt;b&gt;    align=LEFT&lt;/b&gt;|&lt;b&gt;center&lt;/b&gt;|&lt;b&gt;right&lt;/b&gt;
+&lt;b&gt;    width=&lt;/b&gt;&lt;em&gt;pixels&lt;/em&gt;|&lt;em&gt;percent-of-window&lt;/em&gt;&lt;b&gt;%&lt;/b&gt;
+&lt;b&gt;&gt;&lt;/b&gt;
+&lt;b&gt;&lt;tr&lt;/b&gt; &lt;b&gt;bgcolor=&quot;#FFFFFF&quot;&lt;/b&gt;
+&lt;b&gt;    align=LEFT&lt;/b&gt;|&lt;b&gt;center&lt;/b&gt;|&lt;b&gt;right&lt;/b&gt; &lt;b&gt;valign=top&lt;/b&gt;|&lt;b&gt;MIDDLE&lt;/b&gt;|&lt;b&gt;bottom&lt;/b&gt;
+&lt;b&gt;&gt;&lt;/b&gt;
+&lt;b&gt;&lt;td&lt;/b&gt;
+&lt;b&gt;    nowrap&lt;/b&gt; &lt;b&gt;rowspan=&lt;/b&gt;&lt;em&gt;num-rows&lt;/em&gt;
+&lt;b&gt;    align=LEFT&lt;/b&gt;|&lt;b&gt;center&lt;/b&gt;|&lt;b&gt;right&lt;/b&gt; &lt;b&gt;valign=top&lt;/b&gt;|&lt;b&gt;MIDDLE&lt;/b&gt;|&lt;b&gt;bottom&lt;/b&gt;
+&lt;b&gt;    colspan=&lt;/b&gt;&lt;em&gt;num-cols&lt;/em&gt;
+&lt;b&gt;&gt;&lt;/b&gt;
+</pre>
+</td></tr></table>
+</td></tr></table>
+<p>To make a nice colored box with text:
+</p>
+<table bgcolor="#000000"><tr><td>
+<table bgcolor="#C0C0C0" cellpadding="3"><tr><td>
+<pre>
+&lt;table bgcolor=&quot;#000000&quot;&gt;&lt;tr&gt;&lt;td&gt;
+&lt;table bgcolor=&quot;#C0C0C0&quot; cellpadding=&quot;3&quot;&gt;&lt;tr&gt;&lt;td&gt;
+&lt;pre&gt;
+blah blah blah...
+&lt;/pre&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+</pre>
+</td></tr></table>
+</td></tr></table>
+<p>To make a link that spawns a new window:
+</p>
+<table bgcolor="#000000"><tr><td>
+<table bgcolor="#C0C0C0" cellpadding="3"><tr><td>
+<pre>
+&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;
+function vw(url) {
+  page=window.open(url, 'vw', 'toolbars=0,directories=0,menubar=0,status=0,location=0,scrollbars=1,resizable=1,width=350,height=290');
+  page.focus(); }
+&lt;/script&gt;
+...
+&lt;a href=&quot;javascript:vw('../')&quot;&gt;Up&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;javascript:vw('../')&quot;&gt;Up&lt;/a&gt;
+&lt;a href=&quot;javascript:vw('http://www.geeky-boy.com/')&quot;&gt;Geek&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;javascript:vw('http://www.geeky-boy.com/')&quot;&gt;Geek&lt;/a&gt;
+</pre>
+</td></tr></table>
+</td></tr></table>
+<a name="Apache_stuff_I_always_forget" id="Apache_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Apache stuff I always forget </span></h2>
+<a name="Indigo_Perl" id="Indigo_Perl"></a><h3> <span class="mw-headline"> Indigo Perl </span></h3>
+<p>Indigo Perl is a binary build of Perl for Win32 with an integrated
+Apache web server configured for mod_perl.  See
+<a href="http://www.indigostar.com/" class="external free" title="http://www.indigostar.com/" rel="nofollow">http://www.indigostar.com/</a>
+for more info and the latest download.
+</p><p>To install it, perform the following steps:
+</p>
+<ol>
+<li>Extract "indigoperl-5_6.zip" to "c:\indigo" and run "setup.bat".  Hit
+"enter" to install in current directory.
+<li>Extract "indigo_icons.zip" to "c:\indigo".
+<li>Edit "c:\indigo\conf\httpd.conf" and make the following changes:
+<pre>
+        old                                    new
+    ServerAdmin you@your.address           ServerAdmin steve_ford@geeky-boy.com
+...
+    ServerName localhost                   ServerName 192.168.0.6
+...
+    ScriptAlias /perl-bin/ &quot;perl-bin/&quot;     ScriptAlias /perl/ &quot;c:/indigo/perl/&quot;
+    PerlSendHeader On                      PerlSendHeader On
+    &lt;Location /perl-bin&gt;                   &lt;Location /perl&gt;
+</pre>
+<li>Edit "c:\indigo\htdocs\index.html" and globally substitute "perl"
+for "perl-bin".
+<li>Rename "c:\indigo\perl-bin" to "c:\indigo\perl".
+<li>Make copies of "Stop Apache" and "Start Apache" shortcuts onto the
+desktop.  (This is for convenience only.)  Also put a copy of "Start Apache"
+into the "Startup" folder under the Start menu.
+<li>Start Apache.
+<li>Bring up the home page and try running the "mod_perl_test.pl" script.
+</ol>
+<a name="mod_perl" id="mod_perl"></a><h3> <span class="mw-headline"> mod_perl </span></h3>
+<p>Some useful doc:
+</p>
+<ul>
+<li><a href="http://www.modperl.com/book/chapters/ch9.html" class="external free" title="http://www.modperl.com/book/chapters/ch9.html" rel="nofollow">http://www.modperl.com/book/chapters/ch9.html</a>
+- Chapter 9: Perl API Reference Guide
+<li><a href="http://perl.apache.org/guide/" class="external free" title="http://perl.apache.org/guide/" rel="nofollow">http://perl.apache.org/guide/</a>
+- mod_perl Guide (lots of misc info)
+</ul>
+<p>Ftp to host1 and get the following files from the
+directory "/usr/local/sford.nobackup":
+</p>
+<pre>
+  Digest-MD5-2.14.tar.gz
+  libnet-1.0703.tar.gz
+  MIME-Base64-2.12.tar.gz
+  URI-1.15.tar.gz
+  HTML-Tagset-3.03.tar.gz
+  HTML-Parser-3.25.tar.gz
+  libwww-perl-5.53.tar.gz
+
+  mod_perl-1.26.tar.gz
+  apache_1.3.20.tar.gz
+  mod_perl_extras.tar.gz
+</pre>
+<p>The first seven regular perl packages.  Unpack and install each of them
+in the order shown:
+</p>
+<pre>
+  gunzip -c &lt;PACKAGE.tar.gz | tar xvf -
+  cd PACKAGE
+  perl Makefile.PL
+  make
+  make test
+  su                   &lt;em&gt;(enter root password)&lt;/em&gt;
+  make install
+  exit                 &lt;em&gt;(exit root)&lt;/em&gt;
+  cd ..
+</pre>
+<p>Apache, mod_perl, and mod_perl_extras need to be done sort-of interleaved.
+First extract apache.  Then build mod_perl according to "INSTALL.apaci":
+</p>
+<pre>
+  gunzip -c &lt;apache_1.3.20.tar.gz | tar xvf -
+  gunzip -c &lt;mod_perl-1.26.tar.gz | tar xvf -
+  cd mod_perl-1.26
+  vi Makefile.PL       &lt;em&gt;(change &quot;(RM)&quot; to &quot;(RM_F)&quot;)&lt;/em&gt;
+  perl Makefile.PL APACHE_SRC=../apache_1.3.20/src DO_HTTPD=1 USE_APACI=1 PREP_HTTPD=1 EVERYTHING=1
+  make                 &lt;em&gt;(leave out &quot;make test&quot;)&lt;/em&gt;
+  su                   &lt;em&gt;(enter root password)&lt;/em&gt;
+  make install
+  exit                 &lt;em&gt;(exit root)&lt;/em&gt;
+  cd ..
+</pre>
+<p>Now finish apache:
+</p>
+<pre>
+  cd apache_1.3.20
+  ./configure --prefix=/usr/local/apache --activate-module=src/modules/perl/libperl.a
+  make
+  su                   &lt;em&gt;(enter root password)&lt;/em&gt;
+  make install
+  gunzip -c &lt;../mod_perl_extras.tar.gz | (cd /usr/local/apache;tar xvf -)
+  chown nobody /usr/local/apache/logs/cgi.log
+  chgrp nobody /usr/local/apache/logs/cgi.log
+  vi /usr/local/apache/conf/httpd.conf
+      &lt;em&gt;(update &quot;Port&quot;, &quot;ServerAdmin&quot;, &quot;ServerName&quot;)&lt;/em&gt;
+      &lt;em&gt;(go to end and add 'Include &quot;conf/mod_perl.conf&quot;')&lt;/em&gt;
+  /usr/local/apache/bin/apachectl start
+  telnet localhost 80
+  GET /perl/sample     &lt;em&gt;(should print output of sample mod_perl program)&lt;/em&gt;
+  exit                 &lt;em&gt;(exit root)&lt;/em&gt;
+  cd ..
+</pre>
+<p>Be sure to look in the "htdocs" and "cgi-bin" direcories and remove anything
+you don't want.
+</p><p>To password-secure the site (all passwords set to "sissors"):
+</p>
+<pre>
+  su                   &lt;em&gt;(enter root password)&lt;/em&gt;
+  cd /usr/local/apache/
+  vi conf/httpd.conf
+      &lt;em&gt;(change most &quot;AllowOverride&quot; lines to &quot;AllowOverride All&quot;)&lt;/em&gt;
+      &lt;em&gt;(go to the end and add 'Include &quot;conf/auth.conf&quot;')&lt;/em&gt;
+  echo &quot;samsclub: sford sam chw ginzburg jmp&quot; &gt;conf/group
+  cp /dev/null conf/passwd
+  for F in sford sam chw ginzburg jmp tst;do bin/htpasswd -b conf/passwd $F sissors;done
+</pre>
+<p>Then add ".htaccess" files in the various directories.  Some examples:
+</p>
+<pre>
+  echo &quot;require valid-user&quot; &gt;htdocs/.htaccess
+  echo &quot;require group samsclub&quot; &gt;perl/.htaccess
+  echo &quot;require user sford&quot; &gt;cgi-bin/.htaccess
+</pre>
+<p>Note that given this setup, the "icons" directory is not protected.
+</p>
+<a name="C_stuff_I_always_forget" id="C_stuff_I_always_forget"></a><h2> <span class="mw-headline"> C stuff I always forget </span></h2>
+<ul>
+
+<li><b><tt>do ... while (<i>expr</i>);</tt></b>
+- rarely used, frowned upon my many.  Use "<tt>break</tt>" or
+"<tt>continue</tt>" (unlike perl where "do" blocks are *expressions*).
+If more than one statement is to be used, use: <tt><b>do {...} while (<i>expr</i>);</b></tt>
+
+This construct can be useful with multi-statement macros.  Many people will try:
+<br /><tt><b>&nbsp;&nbsp;#define LOG(x) {char o[99];sprintf(o,"%s,%d:%s",__FILE__,__LINE__,x);printf("%s\n",o);}</b></tt>
+<br />the problem with that is that the caller will want to invoke it with:
+<br /><tt><b>&nbsp;&nbsp;if (err) LOG("blah"); else doit;</b></tt>
+<br />The semi-colon before the else will mess it up.  But a do ... while needs
+a semicolon, so <b>this</b> will work:
+<br /><tt><b>&nbsp;&nbsp;#define LOG(x) do{char o[99];sprintf(o,"%s,%d:%s",__FILE__,__LINE__,x);printf("%s\n",o);}while(0)</b></tt>
+
+<li><b><tt>#define ASSRT(x) do { if (!(x)) { printf("%s failed\n", #x ); abort(); } while (0)</tt></b> -
+The #x macro expansion makes x a string.
+
+<li><b><tt>#define create(type) type ## _create</tt></b> -
+The ## pastes tokens together (after substitution).
+
+<li><b><tt>VOL(x,type) (*(volatile type *)&amp;(x))</tt></b> - inspired by <a href="http://lwn.net/Articles/508991/" class="external text" title="http://lwn.net/Articles/508991/" rel="nofollow">ACCESS_ONCE()</a> macro.  Volatilizes the access, forcing the compiler not to optimize it too much.
+</ul>
+<a name="Perl_stuff_I_always_forget" id="Perl_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Perl stuff I always forget </span></h2>
+<p>Yes, I'll admit it, I STILL program perl like a C programmer.  But I am
+getting better.  This section is not just how to do C-isms in perl; it's
+also stuff I just haven't managed to memorize yet.
+</p><p>You don't need to use awk to do quick one-liners.
+Here's a one liner that makes a splits space-separated fields into multiple
+lines:
+</p>
+<pre>
+    echo $LONGLINE | perl -nlae 'foreach (@F) {print;}'
+</pre>
+<p>(-n=Loop, -l=Chomp&amp;PrintNl -a=AutoSplit -e=Src)  Just remember that
+(unlike awk) the array
+of fields (@F) is zero-based, not one-based.  You can also include
+"<tt>-F<em>x</em></tt>" where "<tt><em>x</em></tt>" is a delim
+character.
+</p><p>To deal with binary files, invert each byte:
+</p>
+<pre>
+    open INP $ARGV[0] || die &quot;open $ARGV[0]&quot;;
+    binmode(INP);
+    binmode(STDOUT);
+    my ($buf, $len);
+    while ($len = read(INP, $buf, 2048)) {
+        my @bytes = unpack(&quot;C*&quot;, $buf);
+        foreach (@bytes) { $_ = ~ $_; }
+        print pack(&quot;C*&quot;, @bytes);
+    }
+</pre>
+<p>More random stuff:&lt;/p&gt;
+</p>
+<ul>
+
+<li><tt><b>select(undef, undef, undef, 0.25)</b></tt>
+- sleep 250 milliseconds.
+
+<li><tt><b>chr(ord('3blah')) == '3'</b></tt>
+- char to ascii value conversion.
+
+<li><tt><b>mkdir("foo", 0777);</b></tt>
+- Notice that the file mode should have a leading zero to force octal.
+
+<li><tt><b>select(STDOUT); $| = 1;</b></tt>
+- Set stdout to non-buffered (autoflush).
+
+<li><tt><b>$#array</b></tt>
+- index of last element in "<tt>@array</tt>".  Usually equal to
+"<tt>(scalar(@array) - 1)</tt>" (if $[ is 0).  Note that
+"<tt>$#array</tt>" can be an lvalue to extend or truncate an array.
+"<tt>$#array = -1</tt>" is equiv to "<tt>@array = ()</tt>".
+
+<li><tt><b>&lt;&gt;</b></tt>
+- reads a line from a list of files.  Normally used to read from files
+listed on command line, or std-in if none.  Use <tt><b>$ARGV</b></tt> for
+current file name.  Also, you can define your own
+files.  E.g. to read all text files in cur dir:<tt>
+<br />@ARGV = grep { -f &amp;&amp; -T } glob('*');
+</tt>
+
+<li><tt><b>split</b>(/separator/, $string, $limit)</tt>
+- the "<tt>$limit</tt>" parameter causes interesting behaviors:
+<tt>
+<br />("", "", "abc") == split(/,/, ",,abc,,,,");
+<br />("", "", "abc") == split(/,/, ",,abc,,,,", 0);
+<br />(",,abc,,,,") == split(/,/, ",,abc,,,,", 1);
+<br />("", ",abc,,,,") == split(/,/, ",,abc,,,,", 2);
+<br />("", "", "abc,,,,") == split(/,/, ",,abc,,,,", 3);
+<br />("", "", "abc", ",,,") == split(/,/, ",,abc,,,,", 4);
+<br />("", "", "abc", "", ",,") == split(/,/, ",,abc,,,,", 5);
+<br />("", "", "abc", "", "", ",") == split(/,/, ",,abc,,,,", 6);
+<br />("", "", "abc", "", "", "", "") == split(/,/, ",,abc,,,,", 7);
+<br />("", "", "abc", "", "", "", "") == split(/,/, ",,abc,,,,", 99);
+<br />("", "", "abc", "", "", "", "") == split(/,/, ",,abc,,,,", -1);
+</tt>
+
+<li><tt><b>splice</b>(@array, ofs [, len [, list]])</tt>
+- replace elements of "<tt>@array</tt>" starting from "<tt>ofs</tt>"
+("<tt>len</tt>" defaults to rest of array) with "<tt>list</tt>".
+
+Assuming that $[ is 0, here are some equivs:
+<br /><table>
+<tr><td>push(@a, $x)</td> <td>splice(@a, $#a+1, 0, $x)</td></tr>
+<tr><td>pop(@a)</td> <td>splice(@a, -1)</td></tr>
+<tr><td>unshift(@a, $x)</td> <td>splice(@a, 0, 0, $x)</td></tr>
+<tr><td>shift(@a)</td> <td>splice(@a, 0, 1)</td></tr>
+<tr><td>$a[3]=$x</td> <td>splice(@a, 3, 1, $x)</td></tr>
+</table>
+<p><br />
+</p>
+<li><tt><b>for</b></tt>
+- <tt>for (x=0; x&lt;8; ++x) { ... }</tt> or <tt>foreach $x (glob("*.c */*.c)) { ... }</tt>
+
+<li><tt><b>break</b></tt>
+- C's <b>break</b> is replaced by perl's <b>last</b>.  But
+be aware that, unlike C, it doesn't work within a
+"<tt>do&nbsp;{&nbsp;}</tt>" construct.  (Because
+"<tt>do...</tt>" is not a statement but rather a term in an expression,
+just like "<tt>eval&nbsp;{&nbsp;}</tt>" and
+"<tt>sub&nbsp;{&nbsp;}</tt>".  That's also why none of those three
+constructs can be labeled.)
+
+<li><tt><b>continue</b></tt>
+- C's <b>continue</b> is replaced by perl's <b>next</b>.
+(See above for discussion of "<tt>do...</tt>".)
+
+<li><tt><b>redo</b></tt>
+- no C equiv; go to top of loop w/o executing conditional.
+(See above for discussion of "<tt>do...</tt>".)
+
+<li><tt><b>switch</b></tt>
+- note that there is no convenient "fall-through"
+construct.  For strings, switch is cool:
+<pre>
+    for ($test_string) {    # switch with implicit assignment to $_
+        /abc/ &amp;&amp; do {
+            foo;
+            last;
+        };
+        /xyz/ &amp;&amp; do {
+            bar;
+            last;
+        };
+        do {        # need &quot;do&quot; or else &quot;last&quot; just breaks bare block
+            baz;
+            last;
+        };           # or could leave out the braces altogether
+    }  # switch $test_string
+</pre>
+<p>Note that the "last" statements don't break out of the "do" block but
+all the way out of the "for" block (see "break" above).
+</p><p>For non-strings it's a little more messy cuz there isn't a straight-forward
+way to test for non-string equality with the $_ and the operator implied.
+i.e. "<tt>$_&nbsp;==&nbsp;7&nbsp;&amp;&amp;&nbsp;do&nbsp;{</tt>"
+</p>
+<a name="MySql_stuff_I_always_forget" id="MySql_stuff_I_always_forget"></a><h2> <span class="mw-headline"> MySql stuff I always forget </span></h2>
+<p>Some bugzilla stuff:
+</p>
+<pre> $ mysql --user bugs bugs4 --password
+ . . .
+ show tables;
+</pre>
+<p>Note that adding <b>--password</b> causes it to prompt for password.  You can also do <b>--password='xyz'</b> so that it doesn't prompt.
+</p><p>One of the tables is "bugs".  To see the column names:
+</p>
+<pre> select distinct column_name from information_schema.columns where table_name = 'bugs' order by ordinal_position;
+</pre>
+<p>You can also put SQL code into a <b>file</b> and do:
+</p>
+<pre> source file;
+</pre>
+<p>So, you can do a non-interactive SQL this way:
+</p>
+<pre> $ mysql --user bugs bugs4 --password='xyz' --command='source file'
+ 
+</pre>
+<p>In the following examples, it uses the database "radius" that Andrew has on
+the Unix host "radium.csgcsg.net".
+Note that the "calls" table was built by running "dataagent.pl" on
+the file "radiusacct_debug.log".
+</p>
+<pre>
+&lt;em&gt;On radium:&lt;/em&gt;
+  $ &lt;b&gt;mysql -ureporter -pt3st -P3306 -hlocalhost -B -e'select * from calls' radius&lt;/b&gt;    &lt;em&gt;(print all records)&lt;/em&gt;
+  $ &lt;b&gt;mysql -ureporter -pt3st -P3306 -hlocalhost radius&lt;/b&gt;    &lt;em&gt;(interactive)&lt;/em&gt;
+  mysql&gt; &lt;b&gt;SHOW DATABASES;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;USE radius;&lt;/b&gt;           &lt;em&gt;(optional since it's on cmd line)&lt;/em&gt;
+  mysql&gt; &lt;b&gt;SHOW TABLES;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;SHOW TABLE STATUS;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;SHOW COLUMNS FROM calls;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;SELECT * FROM calls;&lt;/b&gt;  &lt;em&gt;(print all columns)&lt;/em&gt;
+
+&lt;em&gt;MySQL doesn't support a transaction environment, so you must lock tables
+to ensure no other thread comes between a select and an update:&lt;/em&gt;
+  mysql&gt; &lt;b&gt;LOCK TABLES trans READ, customer WRITE;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;SELECT SUM(value) FROM trans WHERE customer=&quot;fred&quot;;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;UPDATE customer SET total_value=sum_from_previous_statement WHERE customer=&quot;fred&quot;;&lt;/b&gt;
+  mysql&gt; &lt;b&gt;UNLOCK TABLES;&lt;/b&gt;
+
+&lt;em&gt;Here's a big one [multiple-users.sh]:&lt;/em&gt;
+  mysql&gt; &lt;b&gt;create temporary table tmp (username varchar(80), nu int);&lt;/b&gt;
+      &lt;em&gt;A temporary table is in-memory and will be automatically deleted.&lt;/em&gt;
+  mysql&gt; &lt;b&gt;insert into tmp select user_name, count(user_name) as nusers from calls group by user_name;&lt;/b&gt;
+      &lt;em&gt;The select statement selects 151 rows.&lt;/em&gt;
+  mysql&gt; &lt;b&gt;select username, nu from tmp where nu &gt; &quot;1&quot;;&lt;/b&gt;
+      &lt;em&gt;Prints usernames that show up more than once&lt;/em&gt;
+  mysql&gt; &lt;b&gt;drop table tmp;&lt;/b&gt;       &lt;em&gt;(Prolly not needed)&lt;/em&gt;
+  mysql&gt; &lt;b&gt;quit&lt;/b&gt;                  &lt;em&gt;(No semi-colon needed)&lt;/em&gt;
+
+  mysql&gt; &lt;b&gt;&lt;/b&gt;
+</pre>
+<a name="Oracle_Stuff_I_always_Forget" id="Oracle_Stuff_I_always_Forget"></a><h2> <span class="mw-headline"> Oracle Stuff I always Forget </span></h2>
+<p>Finding the init.ora file:
+</p>
+<pre>
+&lt;em&gt;(On host3)&lt;/em&gt;
+    host3$ cd /space;find local u?? admin -name '*cad2*.ora' -print
+&lt;em&gt;(The first three are just symbolic links to the &quot;real&quot; files)&lt;/em&gt;
+    u01/app/oracle/product/8.0.5/dbs/configcad2.ora -&gt; ...
+    u01/app/oracle/product/8.0.5/dbs/initcad2.ora -&gt; ...
+    u01/app/oracle/product/8.0.5/dbs/initcad2_0.ora -&gt; ...
+&lt;em&gt;(The next three ARE the &quot;real&quot; files)&lt;/em&gt;
+    &lt;b&gt;u01/app/oracle/admin/cad2/pfile/configcad2.ora&lt;/b&gt;
+    &lt;b&gt;u01/app/oracle/admin/cad2/pfile/initcad2.ora&lt;/b&gt;
+    u01/app/oracle/admin/cad2/pfile/initcad2_0.ora    &lt;em&gt;(not used)&lt;/em&gt;
+&lt;em&gt;(The next three are old)&lt;/em&gt;
+    admin/cad2/pfile/configcad2.ora
+    admin/cad2/pfile/initcad2.ora
+    admin/cad2/pfile/initcad2_0.ora
+
+&lt;em&gt;A useful log file:&lt;/em&gt;
+    &lt;b&gt;/space/u01/app/oracle/admin/cad2/bdump/alert_cad2.log&lt;/b&gt;
+
+&lt;em&gt;(On zeus)&lt;/em&gt;
+    zeus$ echo $ORACLE_HOME
+    /usr/local/oracle8/u01/app/oracle/product/8.0.5
+    zeus$ find /usr/local/oracle8 -name '*zs*.ora' -print
+&lt;em&gt;(The first six are symbolic links to the &quot;real&quot; files)&lt;/em&gt;
+    /usr/local/oracle8/u01/app/oracle/product/8.0.3/dbs/configzs.ora
+    /usr/local/oracle8/u01/app/oracle/product/8.0.3/dbs/initzs.ora
+    /usr/local/oracle8/u01/app/oracle/product/8.0.3/dbs/initzs_0.ora
+    /usr/local/oracle8/u01/app/oracle/product/8.0.5/dbs/configzs.ora
+    /usr/local/oracle8/u01/app/oracle/product/8.0.5/dbs/initzs.ora
+    /usr/local/oracle8/u01/app/oracle/product/8.0.5/dbs/initzs_0.ora
+&lt;em&gt;(The next three ARE the &quot;real&quot; files)&lt;/em&gt;
+    /usr/local/oracle8/u01/app/oracle/admin/zs/pfile/configzs.ora
+    /usr/local/oracle8/u01/app/oracle/admin/zs/pfile/initzs.ora
+    /usr/local/oracle8/u01/app/oracle/admin/zs/pfile/initzs_0.ora
+</pre>
+<a name="Fun_with_.24ORACLE_HOME.2Fbin.2Fsqlplus:" id="Fun_with_.24ORACLE_HOME.2Fbin.2Fsqlplus:"></a><h3> <span class="mw-headline"> Fun with $ORACLE_HOME/bin/sqlplus: </span></h3>
+<pre>
+    $ORACLE_HOME/bin/sqlplus -s pdcuser/pdcuser@cad2
+    set echo on;
+    describe all_tables;
+    select owner,table_name,tablespace_name from all_tables;
+    describe dba_tablespaces;
+    select * from dba_tablespaces;
+
+&lt;em&gt;(when a stored procedure has a error, get at it during the same session:)&lt;/em&gt;
+    describe user_errors;
+    select line,position,text from user_errors order by sequence;
+
+&lt;em&gt;(To enable utl_file access:)&lt;/em&gt;
+    su - oracle
+    vi /space/u01/app/oracle/admin/cad2/pfile/initcad2.ora
+        &lt;em&gt;(Add &quot;UTL_FILE_DIR = *&quot;)&lt;/em&gt;
+&lt;em&gt;(Now need to restart Oracle)&lt;/em&gt;
+</pre>
+<a name="Restarting_Oracle" id="Restarting_Oracle"></a><h3> <span class="mw-headline"> Restarting Oracle </span></h3>
+<p>First, become root.  Then:
+</p>
+<pre>
+    su - oracle
+    $ORACLE_HOME/bin/svrmgrl
+    connect internal
+    shutdown immediate
+    startup
+    quit
+</pre>
+<a name="Restarting_the_Oracle_Listener" id="Restarting_the_Oracle_Listener"></a><h3> <span class="mw-headline"> Restarting the Oracle Listener </span></h3>
+<p>First, become root.  Then:
+</p>
+<pre>
+    su - oracle
+    $ORACLE_HOME/bin/lsnrctl
+    status
+    start
+    quit
+</pre>
+<a name="Oracle_errors" id="Oracle_errors"></a><h3> <span class="mw-headline"> Oracle errors </span></h3>
+<ol>
+<li>"DBMS_STANDARD not exist"
+Does this mean that shortcuts were taken when Oracle was installed?
+At any rate, it is non-application-dependant and installs and/or
+sets up a bunch of "standard" stuff.  This takes a long time to run but
+should only need to be done once (or not at all).
+<pre>
+    cd $ORACLE_HOME/rdbms/admin
+    sqlplus sys/change_on_install@zs @catproc
+</pre>
+</ol>
+<a name="Algorithms_I_always_forget" id="Algorithms_I_always_forget"></a><h2> <span class="mw-headline"> Algorithms I always forget </span></h2>
+<p><a href="http://www.koders.com/" class="external free" title="http://www.koders.com/" rel="nofollow">http://www.koders.com/</a>
+- searchable open source code.
+</p>
+<a name="Atomic_add" id="Atomic_add"></a><h3> <span class="mw-headline"> Atomic add </span></h3>
+<p>The <b>xadd</b> instruction adds the source to the destination and copies the original destination value to source.  For windows, it's safer to call <b>InterlockedExchangeAdd()</b>.
+</p>
+<pre>
+    long atomic_add(volatile long *dest, long src)
+    {
+    #if defined(_WIN32)
+        return InterlockedExchangeAdd(dest, src);
+    #elif defined(__GNUC__) &amp;&amp; defined(HAVE_PENTIUM_PROCESSOR)
+        unsigned long addr = (unsigned long)dest;
+        asm(&quot;lock&nbsp;; xadd&nbsp;%0 (%1)&quot;&nbsp;: &quot;+r&quot;(src)&nbsp;: &quot;r&quot;(addr));
+        return src;
+    #else
+        long tmp;
+        pthread_mutex_lock(&amp;global_atomic_lock);
+        tmp = *dest;
+        *dest += src;
+        pthread_mutex_unlock(&amp;global_atomic_lock);
+        return tmp;
+    #endif
+    }  /* atomic_add */
+</pre>
+<a name="Condition_Variables" id="Condition_Variables"></a><h3> <span class="mw-headline"> Condition Variables </span></h3>
+<p><a href="http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.doc/aixprggd/genprogc/condition_variables.htm" class="external text" title="http://publib.boulder.ibm.com/infocenter/pseries/v5r3/index.jsp?topic=/com.ibm.aix.doc/aixprggd/genprogc/condition_variables.htm" rel="nofollow">IBM stuff on condition variables</a>
+</p><p>Much of the info in this section came from an
+<a href="http://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.genprogc/doc/genprogc/condition_variables.htm" class="external text" title="http://publib.boulder.ibm.com/infocenter/pseries/v5r3/topic/com.ibm.aix.genprogc/doc/genprogc/condition_variables.htm" rel="nofollow">IBM page on condition variables</a>.
+</p><p>A "condition predicate" is a general state that can be manipulated and tested.  It can be arbitrarily complex (e.g. many variables being tested in complex ways), but the idea is that the act of testing the condition should not have side effects and it should result in a TRUE/FALSE result (either the condition is present or it is not).  So let's define two fragments of code: MANIP_COND and TEST_COND.
+</p><p>The manipulation and testing of the condition predicate must be protected with a mutex.  (The MANIP_COND and TEST_COND fragments do *not* include mutex operations.)
+</p><p>Note that signaling a condition is an "edge triggering" event - it wakes up any threads that might be waiting, but will not wake up a future wait.  Hence the use algorithms below.
+</p><p>GLOBALS:
+</p>
+<pre>
+    pthread_mutex_t cond1_lock;  /* don't need PTHREAD_MUTEX_INITIALIZER, calling _init */
+    pthread_cond_t cond1_cond;  /* don't need PTHREAD_COND_INITIALIZER, calling _init */
+
+    pthread_mutex_init(&amp;cond_lock, NULL);
+    pthread_cond_init(&amp;cond1_cond, NULL);
+
+    ...  /* rest of program */
+
+    pthread_cond_destroy(&amp;cond1_cond);
+    pthread_mutex_destroy(&amp;cond_lock, NULL);
+
+    /* May need to do this:
+     * while (pthread_cond_destroy(&amp;cond1_cond) == EBUSY) {
+     *   pthread_cond_broadcast(&amp;cond1_cond);
+     *   pthread_yield();
+     * } */
+</pre>
+<p>MANIPULATOR:
+</p>
+<pre>
+    bool cond1_predicate;
+    pthread_mutex_lock(&amp;cond1_lock);
+    MANIP_COND;
+    cond1_predicate = TEST_COND;
+    if (cond1_predicate) {
+        pthread_cond_signal(&amp;cond1_cond);
+        /* or pthread_cond_broadcast(&amp;cond1_cond);
+    }
+    pthread_mutex_unlock(&amp;cond1_lock);
+</pre>
+<p>WAITER:
+</p>
+<pre>
+    bool cond1_predicate;
+    int res = 0;
+    pthread_mutex_lock(&amp;cond1_lock);
+    cond1_predicate = TEST_COND;
+    /* Need to loop because wait can return spuriously */
+    while (res == 0 &amp;&amp;&nbsp;! cond1_predicate) {
+        res = pthread_cond_wait(&amp;cond1_cond, &amp;cond1_lock);
+        cond1_predicate = TEST_COND;
+    }
+    ...   /* Can do some MANIP_COND if want */
+    pthread_mutex_unlock(&amp;cond1_lock);
+
+    /* Or replace pthread_cond_wait with:
+     * struct timespec timeout_tv;
+     * timeout_tv-&gt;tv_sec = (wait_ms) / 1000;
+     * timeout_tv-&gt;tv_nsec = ((wait_ms) mod 1000) * 1000000;
+     * int res = pthread_cond_timedwait(&amp;cond1_cond, &amp;cond1_lock, &amp;timeout_tv);
+     * if (res == ETIMEDOUT) ... */
+</pre>
+<p>Windows Events
+</p><p>The "manualReset" indicates if it is a one-shot wakeup or a stateful wakeup.  Either way, windows events *does* have memory.
+</p>
+<ul>
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms682396.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms682396.aspx" rel="nofollow">handle = CreateEvent(&amp;attrs, manualReset, initialState, &amp;name)</a> - "&amp;name" is usually passed as NULL.
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms686211.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms686211.aspx" rel="nofollow">ok = SetEvent(handle)</a>
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms687032.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms687032.aspx" rel="nofollow">res = WaitForSingleObject(handle, INFINITE)</a>
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms724211.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms724211.aspx" rel="nofollow">CloseHandle(handle)</a>
+</ul>
+<p>See <a href="http://msdn2.microsoft.com/en-us/library/ms686915.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms686915.aspx" rel="nofollow">Example</a> using Win events.&lt;/p&gt;
+</p><p><br />
+</p>
+<a name="Two-lock_Queue" id="Two-lock_Queue"></a><h3> <span class="mw-headline"> Two-lock Queue </span></h3>
+<p><a href="http://www.cs.rochester.edu/u/scott/synchronization/pseudocode/queues.html" class="external free" title="http://www.cs.rochester.edu/u/scott/synchronization/pseudocode/queues.html" rel="nofollow">http://www.cs.rochester.edu/u/scott/synchronization/pseudocode/queues.html</a>
+</p>
+<pre>
+  Two-lock concurrent queue.
+
+structure node_t {value: data type, next: pointer to node_t}
+structure queue_t {Head: pointer to node_t, Tail: pointer to node_t,
+                   H_lock: lock type, T_lock: lock type}
+
+   initialize(Q: pointer to queue_t)
+       node = new_node()// Allocate a free node
+       node-&gt;next.ptr = NULL// Make it the only node in the linked list
+       Q-&gt;Head = Q-&gt;Tail = node// Both Head and Tail point to it
+       Q-&gt;H_lock = Q-&gt;T_lock = FREE// Locks are initially free
+
+   enqueue(Q: pointer to queue_t, value: data type)
+       node = new_node()        // Allocate a new node from the free list
+       node-&gt;value = value// Copy enqueued value into node
+       node-&gt;next.ptr = NULL// Set next pointer of node to NULL
+       lock(&amp;Q-&gt;T_lock)// Acquire T_lock in order to access Tail
+        Q-&gt;Tail-&gt;next = node// Link node at the end of the linked list
+        Q-&gt;Tail = node// Swing Tail to node
+       unlock(&amp;Q-&gt;T_lock)// Release T_lock
+
+   dequeue(Q: pointer to queue_t, pvalue: pointer to data type): boolean
+       lock(&amp;Q-&gt;H_lock)        // Acquire H_lock in order to access Head
+        node = Q-&gt;Head// Read Head
+        new_head = node-&gt;next// Read next pointer
+        if new_head == NULL// Is queue empty?
+          unlock(&amp;Q-&gt;H_lock)// Release H_lock before return
+          return FALSE// Queue was empty
+        endif
+        *pvalue = new_head-&gt;value// Queue not empty.  Read value before release
+        Q-&gt;Head = new_head// Swing Head to next node
+       unlock(&amp;Q-&gt;H_lock)// Release H_lock
+       free(node)// Free node
+       return} TRUE// Queue was not empty, dequeue succeeded
+</pre>
+<a name="Dekker.27s_algorithm" id="Dekker.27s_algorithm"></a><h3> <span class="mw-headline"> Dekker's algorithm </span></h3>
+<p>See <a href="http://en.wikipedia.org/wiki/Dekker's_algorithm" class="external free" title="http://en.wikipedia.org/wiki/Dekker's_algorithm" rel="nofollow">http://en.wikipedia.org/wiki/Dekker's_algorithm</a>
+</p><p>Note that modern CPUs can re-order execution, requiring <a href="http://en.wikipedia.org/wiki/Memory_barrier" class="external text" title="http://en.wikipedia.org/wiki/Memory_barrier" rel="nofollow">memory barriers</a>, for which there doesn't appear to be a portable implementation.  So this algorithm may not be applicable for user-mode code on multi-processor machines.
+</p>
+<pre>
+/* Mutex that only works for 2 CPUs.  Does not require test-and-set */
+#define PROC_A 0
+#define PROC_B 1
+int trying[2] = {0, 0};
+int turn = PROC_A;
+
+void enter(int me)
+{
+    int other = 1 - me;
+    trying[me] = 1;
+    while (trying[other]) {
+        if (turn == other) {
+            trying[me] = 0;
+            while (turn == other) { }    /* perhaps include a sleep */
+            trying[me] = 1;
+        }
+    }
+}  /* enter */
+
+void exit(int me)
+{
+    int other = 1 - me;
+    turn = other;
+    trying[me] = 0;
+}  /* exit */
+</pre>
+<p>See also <a href="http://www.sm.luth.se/csee/courses/smd/006/lectures/code/" class="external free" title="http://www.sm.luth.se/csee/courses/smd/006/lectures/code/" rel="nofollow">http://www.sm.luth.se/csee/courses/smd/006/lectures/code/</a>
+<a href="http://www.cs.tcd.ie/Sotirios.Terzis/3BA3/L3/" class="external free" title="http://www.cs.tcd.ie/Sotirios.Terzis/3BA3/L3/" rel="nofollow">http://www.cs.tcd.ie/Sotirios.Terzis/3BA3/L3/</a>
+and <a href="http://www.cs.wvu.edu/~jdm/classes/cs356/notes/mutex/" class="external free" title="http://www.cs.wvu.edu/~jdm/classes/cs356/notes/mutex/" rel="nofollow">http://www.cs.wvu.edu/~jdm/classes/cs356/notes/mutex/</a>
+for various mutex algorithms.
+</p>
+<a name="Multi-Reader.2C_Single-Writer_Locking" id="Multi-Reader.2C_Single-Writer_Locking"></a><h3> <span class="mw-headline"> Multi-Reader, Single-Writer Locking </span></h3>
+<p>Thanks to Karen Ford for sketching out the algorithm.
+</p>
+<pre>
+#include &quot;pthread.h&quot;
+typedef struct lock_struct {
+    pthread_mutex_t read_lock, write_lock, read_mutex;
+    int num_readers;
+} LOCK;
+
+void read_lock (LOCK *my_lock)
+{
+    pthread_lock(&amp;(my_lock-&gt;write_lock));
+    pthread_lock(&amp;(my_lock-&gt;read_mutex));
+    if (my_lock-&gt;num_readers == 0)
+        pthread_lock(&amp;(my_lock-&gt;read_lock));
+    ++my_lock-&gt;num_readers;
+    pthread_unlock(&amp;(my_lock-&gt;read_mutex));
+    pthread_unlock(&amp;(my_lock-&gt;write_lock));
+}  /* read_lock */
+
+void read_unlock (LOCK *my_lock)
+{
+    pthread_lock(&amp;(my_lock-&gt;read_mutex));
+    if (my_lock-&gt;num_readers &gt; 0)
+        --my_lock-&gt;num_readers;
+    if (my_lock-&gt;num_readers == 0)
+        pthread_unlock(&amp;(my_lock-&gt;read_lock));
+    pthread_unlock(&amp;(my_lock-&gt;read_mutex));
+}  /* read_unlock */
+
+void write_lock (LOCK *my_lock)
+{
+    pthread_lock(&amp;(my_lock-&gt;write_lock));
+    pthread_lock(&amp;(my_lock-&gt;read_lock));
+    // num_readers should be zero at this point
+}  /* write_lock */
+
+void write_unlock (LOCK *my_lock)
+    // num_readers should still be zero at this point
+    pthread_unlock(&amp;(my_lock-&gt;read_lock));
+    pthread_unlock(&amp;(my_lock-&gt;write_lock));
+}  /* write_lock */
+</pre>
+<a name="Debugging_stuff_I_always_forget" id="Debugging_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Debugging stuff I always forget </span></h2>
+<p>Electric fence: <a href="http://duma.sourceforge.net/" class="external free" title="http://duma.sourceforge.net/" rel="nofollow">http://duma.sourceforge.net/</a> For windows, see <a href="http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html" class="external free" title="http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html" rel="nofollow">http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html</a>
+</p><p>Valgrind: <a href="http://valgrind.org/" class="external free" title="http://valgrind.org/" rel="nofollow">http://valgrind.org/</a> (pre-installed on Linix)
+</p>
+<a name="GDB" id="GDB"></a><h3> <span class="mw-headline"> GDB </span></h3>
+<p>Here are the most useful <b>gdb</b> commands:
+</p>
+<ul>
+<li><b>run [program-options]</b> - start execution.
+<li><b>info threads</b> - see list of current threads.
+<li><b>thread 2</b> - switch to thread 1.
+<li><b>bt</b> - backtrace of stack.
+<li><b>thread apply all bt</b> - backtrace of all threads' stack.
+<li><b>up</b> - move up the stack frame (v.s. "down").
+<li><b>x/s $i3</b> - display string at addr contained in reg i3 (sparc).
+<li><b>break 313</b> - set breakpoint at line 313.
+<li><b>break *0x2343</b> - set breakpoint at address 2343 (hex).
+<li><b>finish</b> - continue execution until function in current frame returns.
+<li><b>until <i>location</i></b> - continue execution until location.
+<li><b>info break</b> - list breakpoints.
+<li><b>delete 1</b> - delete breakpoint number 1 (does not renumber).
+<li><b>continue</b> - resume execution.
+<li><b>step</b> - step into.
+<li><b>next</b> - step around.
+<li><b>info registers</b> - display machine registers.
+<li><b>disassemble $pc $pc+100</b> - (need second addr cuz it defaults to
+much too large a range to center on).
+<li>See <a href="http://www.delorie.com/gnu/docs/gdb/gdb_toc.html" class="external free" title="http://www.delorie.com/gnu/docs/gdb/gdb_toc.html" rel="nofollow">http://www.delorie.com/gnu/docs/gdb/gdb_toc.html</a> for more info.
+</ul>
+<a name="DBX" id="DBX"></a><h3> <span class="mw-headline"> DBX </span></h3>
+<p>Here are the most useful <b>dbx -I src_path</b> comands:
+</p>
+<ul>
+<li><b>dbxenv core_lo_pathname on</b> - allow pathmaps.
+<li><b>pathmap /u/gargx/lbm/.../lib /home/sford/lbm/.../lib</b> - override
+shared object search path.
+<li><b>debug prog prog.core</b> - (re)load prog and shared objs.
+<li><b>threads</b> - see list of current threads.
+<li><b>lwps</b> - see list of current light-weight processes.
+<li><b>thread t@2</b> - switch to thread t@2.
+<li><b>lwp l@2</b> - switch to light-weight process l@2.
+<li><b>where</b> - backtrace of stack.
+<li><b>up</b> - Go up a stack frame (loads registers too)
+<li><b>regs</b> - Look at register contents (affected by "up")
+<li><b>dis</b> - Disassemble
+<li><b>x &amp;ctl-&gt;foo.bar</b> - Look at memory.  The "&amp;" makes this
+command roughly equiv to "print ctl-&gt;foo.bar".
+<li><b>x 0x1234abcd / 20 i</b> - disassemble 20 instructions
+<li><b>x 0x1234abcd / 32 s</b> - dump data as string
+<li><b>stop at 304</b> - stop at source line 304 of the current file.  Change
+files with the "file" command.  Or "stop at foo.c:304".
+<li><b>stopi at 0x1234abcd</b> - stop at assem instr
+<li><b>whereami</b> - Display the current source line
+</ul>
+<p>Here is the output of the dbx "commands" command: <a href="/w/index.php?title=Sford_dbx_commands" title="Sford dbx commands">sford dbx commands</a>
+</p>
+<a name="Windows_stuff_I_always_forget" id="Windows_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Windows stuff I always forget </span></h2>
+<p>Electric fence for Windows: <a href="http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html" class="external free" title="http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html" rel="nofollow">http://users.softlab.ece.ntua.gr/~ttsiod/HeapCheck.html</a>
+</p><p>When setting up a new box, you can increase performance (especially VNC
+performance) by turning off various effects.  Right-click the desktop,
+select properties, click the "Appearance" tab, click "Effects...", uncheck
+"Use the following transition effect" and "show shadows under menus".
+</p><p>If you get outlook-style attachments (winmail.dat), you can decode them
+with <a href="http://tud.at/php/tnef/" class="external free" title="http://tud.at/php/tnef/" rel="nofollow">http://tud.at/php/tnef/</a>.
+Or download the "fentun" program from
+<a href="http://www.fentun.com/" class="external free" title="http://www.fentun.com/" rel="nofollow">http://www.fentun.com/</a>.  To use it,
+extract the "winmail.dat" file and run the program from a dos prompt giving it
+the name of the "winmail.dat" file.  (If that site goes away, I've got an
+archive copy <a href="http://geeky-boy.com/fentun.exe" class="external text" title="http://geeky-boy.com/fentun.exe" rel="nofollow">here</a>.)
+</p><p>Windows WSA error codes: <a href="http://www.sockets.com/err_lst1.htm" class="external free" title="http://www.sockets.com/err_lst1.htm" rel="nofollow">http://www.sockets.com/err_lst1.htm</a>
+</p><p>Register "Object Linking and Embedded (OLE) controls such as DLL or
+OCX (ActieX controls):
+</p>
+<pre>
+    regsvr32 \dir\file.dll
+</pre>
+<p>Places to check for auto-run software:
+</p>
+<pre>
+    - Registry HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+    - Startup folders (global and user)
+    - NT service
+</pre>
+<p>Here's a good place for finding out which processes are necessary:
+<a href="http://www.liutilities.com/products/wintaskspro/processlibrary/" class="external free" title="http://www.liutilities.com/products/wintaskspro/processlibrary/" rel="nofollow">http://www.liutilities.com/products/wintaskspro/processlibrary/</a>
+which appears to be very similar to
+<a href="http://www.processlibrary.com/" class="external free" title="http://www.processlibrary.com/" rel="nofollow">http://www.processlibrary.com/</a>
+</p><p>Manipulating registry from dos prompt / batch file:
+</p>
+<pre>
+    rem export key (exports all values)
+    regedit /E c:\x.reg &quot;HKEY_CURRENT_USER\Software\Microsoft\DevStudio\6.0\Build System\Components\Platforms\Win32 (x86)\Directories&quot;
+    rem manipulate file
+    rem re-import (will prompt twice)
+    regedit c:\x.ref
+</pre>
+<p>Some common DOS junk:
+</p>
+<pre>
+    IF NOT x%1==x%BLAH% GOTO foo
+    IF NOT EXIST&nbsp;%FNAME% ECHO&nbsp;%FNAME% not exist
+   &nbsp;:foo
+</pre>
+<p>Overly slow-moving DOS tutorial: <a href="http://www.allenware.com/icsw/icswidx.htm" class="external free" title="http://www.allenware.com/icsw/icswidx.htm" rel="nofollow">http://www.allenware.com/icsw/icswidx.htm</a>
+</p><p>More dos stuff: <a href="http://www.robvanderwoude.com/robmain.html" class="external free" title="http://www.robvanderwoude.com/robmain.html" rel="nofollow">http://www.robvanderwoude.com/robmain.html</a>
+</p><p>Dos reference material: <a href="http://www.ss64.com/nt/" class="external free" title="http://www.ss64.com/nt/" rel="nofollow">http://www.ss64.com/nt/</a>
+</p><p>To run a program that the dos prompt "can't find", use the start command.
+For example, "<b>msinfo32</b>" returns "not recognized" whereas
+"<b>start&nbsp;msinfo32</b>" works.
+</p><p>sshd for windows:
+<a href="http://www.realvnc.com/pipermail/vnc-list/1999-March/005430.html" class="external free" title="http://www.realvnc.com/pipermail/vnc-list/1999-March/005430.html" rel="nofollow">http://www.realvnc.com/pipermail/vnc-list/1999-March/005430.html</a>
+or if the system already has cygwin:
+<a href="http://tech.erdelynet.com/cygwin-sshd.html" class="external free" title="http://tech.erdelynet.com/cygwin-sshd.html" rel="nofollow">http://tech.erdelynet.com/cygwin-sshd.html</a>
+(You might want to set the service to manual startup.)
+</p><p>Hosts file:
+</p>
+<ul>
+<li>Windows 95/98/Me <b>c:\windows\hosts</b>
+<li>Windows NT/2000/XP Pro  <b>c:\winnt\system32\drivers\etc\hosts</b>
+<li>Windows XP Home <b>c:\windows\system32\drivers\etc\hosts</b>
+</ul>
+<p>To get info about the system (processor speed, memory, etc), enter
+"<b>start&nbsp;msinfo32</b>".
+</p><p>To force a W2K/XP system to bluescreen:
+</p>
+<blockquote>
+You can force Windows 2000 and XP to display the blue screen of death. Hopefully, the only reason to do this is that you'll never see it otherwise! In the Registry key HKEY_LOCAL_MACHINE\System\ CurrentControlSet\Services\i8042prt\Parameters, find or create a DWORD value named CrashOnCtrlScroll. Double-click on the value and set its data to 1. Restart your computer. Now you can cause a crash by holding the right-hand Ctrl key and pressing the Scroll Lock key twice.
+
+Dirk A. D. Smith
+
+Actually, a valid reason to crash your computer deliberately is to test your recovery options. Windows 2000 and XP can be configured so that in the rare event of a crash, a memory dump will be saved for debugging purposes and your system will restart automatically. If your system needs maximum uptime, it behooves you to verify how well it recovers from a crash.
+
+First, make sure the recovery configuration is correct. Right-click on My Computer and choose Properties, then click on the Advanced tab. If you are running Windows XP, click on the Settings button in the Startup and Recovery pane. If you're running Win 2000, click on the button titled Startup and Recovery. In the System Failure pane you'll generally want all three of the following options checked: Write an event to the system log, Send an administrative alert, and Automatically restart.
+
+If you choose the 64KB Small Memory Dump, each occurrence is written separately to the folder specified. The Kernel Memory Dump is larger, and a Complete Memory Dump requires that you have a paging file large enough to hold all physical RAM plus 1MB; this is the largest option. By default, the two larger options are written to the file Memory.dmp in the Windows folder, with each occurrence overwriting the previous. Once you get the settings as you want them, close any open programs and use the special keystroke to crash the system. You can verify that the desired memory dump is written and check how long it takes to restart after a crash.
+</blockquote>
+<p><a href="http://www.pcmag.com/article2/0,4149,1213622,00.asp" class="external free" title="http://www.pcmag.com/article2/0,4149,1213622,00.asp" rel="nofollow">http://www.pcmag.com/article2/0,4149,1213622,00.asp</a>
+</p><p>To force a system to boot into safe mode, hit "F8" during the bios
+initialization (before the first windows graphic screen).
+</p><p>To get a bitmap image of the whole screen, <tt><b>PrtSc</b></tt>
+(or <tt><b>Print Screen</b></tt>) makes
+a copy in the windows clipboard (cut buffer) which can then be pasted
+into Word or whatever.  Or <tt><b>Alt+PrtSc</b></tt> will copy only
+the currently active window in.
+</p><p>In 95/98, "winipcfg" is used to release/renew dhcp.  In 2K/NT it is
+a dos cmd "ipconfig".
+</p><p>To see the version and service pack level, "winver".
+</p><p>In Win2k, there are two levels of start menu.  The "all users" is under:
+<br />&nbsp;&nbsp;<tt>C:\Documents&nbsp;and&nbsp;Settings\All&nbsp;Users.W2K\Start&nbsp;Menu</tt>
+<br />For the DCServer development laptop, the administrator start menu is under:
+<br />&nbsp;&nbsp;<tt>C:\Documents&nbsp;and&nbsp;Settings\Administrator.JPENNINGTON-L2\Start&nbsp;Menu</tt>
+</p><p>Microsoft MSDN:
+</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/library/en-us/dllproc/base/processes_and_threads.asp" class="external text" title="http://msdn.microsoft.com/library/en-us/dllproc/base/processes_and_threads.asp" rel="nofollow">Threads</a>.
+<li><a href="http://msdn.microsoft.com/library/en-us/dllproc/base/services.asp" class="external text" title="http://msdn.microsoft.com/library/en-us/dllproc/base/services.asp" rel="nofollow">Services</a>.
+<li><a href="http://msdn.microsoft.com/library/en-us/debug/base/system_error_codes.asp" class="external text" title="http://msdn.microsoft.com/library/en-us/debug/base/system_error_codes.asp" rel="nofollow">Error codes</a>.
+<li>Winsock 2 <a href="http://msdn2.microsoft.com/en-us/library/ms741412.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms741412.aspx" rel="nofollow">considerations</a>,
+<a href="http://msdn2.microsoft.com/en-us/library/ms738545.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms738545.aspx" rel="nofollow">features</a>,
+<a href="http://msdn2.microsoft.com/en-us/library/ms741394.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/ms741394.aspx" rel="nofollow">reference</a>.
+</ul>
+<p>Here's an excellent WinSock resource:
+</p>
+<ul>
+<li><a href="http://geeky-boy.com/tcpip2000.doc" class="external text" title="http://geeky-boy.com/tcpip2000.doc" rel="nofollow">tcpip2000.doc</a> and 
+<a href="http://geeky-boy.com/TCPIP_2003.doc" class="external text" title="http://geeky-boy.com/TCPIP_2003.doc" rel="nofollow">TCPIP_2003.doc</a> (for originals, go to MSDN above and search for "DefaultReceiveWindow AFD buffers").
+For more registry settings,
+see <a href="http://support.microsoft.com/kb/102973" class="external text" title="http://support.microsoft.com/kb/102973" rel="nofollow">here</a>
+and <a href="http://support.microsoft.com/kb/252366" class="external text" title="http://support.microsoft.com/kb/252366" rel="nofollow">here</a>.
+<li><a href="http://www.cyberport.com/~tangent/programming/winsock/" class="external free" title="http://www.cyberport.com/~tangent/programming/winsock/" rel="nofollow">http://www.cyberport.com/~tangent/programming/winsock/</a>
+<li><a href="http://tangentsoft.net/wskfaq/" class="external free" title="http://tangentsoft.net/wskfaq/" rel="nofollow">http://tangentsoft.net/wskfaq/</a> - Winsock FAQ.  For example,
+<a href="http://tangentsoft.net/wskfaq/advanced.html#64sockets" class="external text" title="http://tangentsoft.net/wskfaq/advanced.html#64sockets" rel="nofollow">64-socket limit?</a>
+</ul>
+<a name="RADIUS" id="RADIUS"></a><h2> <span class="mw-headline"> RADIUS </span></h2>
+<p>Applicable RFCs:
+</p>
+<ul>
+<li><a href="http://www.faqs.org/rfcs/rfc2138.html" class="external free" title="http://www.faqs.org/rfcs/rfc2138.html" rel="nofollow">http://www.faqs.org/rfcs/rfc2138.html</a>
+- "<em>Remote Authentication Dial In User Service (RADIUS)</em>"
+
+From rfc2138: <em>The
+early deployment of RADIUS was done using the erroneously chosen port
+number 1645, which conflicts with the "datametrics" service.  The
+officially assigned port number for RADIUS is 1812.</em>
+
+<li><a href="http://www.faqs.org/rfcs/rfc2139.html" class="external free" title="http://www.faqs.org/rfcs/rfc2139.html" rel="nofollow">http://www.faqs.org/rfcs/rfc2139.html</a>
+- "<em>RADIUS Accounting</em>"
+
+From rfc2139: <em>The early deployment of RADIUS Accounting was
+done using the
+erroneously chosen port number 1646, which conflicts with the "sa-msg-port"
+service.  The officially assigned port number for RADIUS
+Accounting is 1813.</em>
+</ul>
+<p>To snoop (skipping the udp header):
+<br /><tt>&nbsp;&nbsp;&nbsp;&nbsp;snoop -x 42 host1 and udp</tt>
+</p>
+<a name="Formats" id="Formats"></a><h3> <span class="mw-headline"> Formats </span></h3>
+<pre>
+RADIUS PACKET:
+    0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |     Code      |  Identifier   |   Len (incl Code, Id, Len)    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                                                               |
+   |                         Authenticator (16 bytes)              |
+   |                                                               |
+   |                                                               |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Attributes ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-
+
+ATTRIBUTES:
+    0                   1                   2
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+   |     Type      |    Length     |  Value ...
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+</pre>
+<a name="Authenticator" id="Authenticator"></a><h3> <span class="mw-headline"> Authenticator </span></h3>
+<p><b>Access-request</b>
+- 128 bit random number with geographic and temporal uniqueness.  Shared
+secret is appended with authenticator to generate an md5 hash which is
+xor'ed with password.
+</p><p><b>Access-response</b>
+- RespAuth = MD5(RespCode+ReqID+RespLen+ReqAuth+RespAttribs+Secret)
+</p><p><b>Accounting-request</b>
+- ReqAuth = MD5(ReqCode+ReqID+ReqLen+16*0x00+ReqAttribs+Secret)
+</p><p><b>Accounting-response</b>
+- RespAuth = MD5(RespCode+ReqID+RespLen+ReqAuth+RespAttribs+Secret)
+</p>
+<a name="Radius_Codes" id="Radius_Codes"></a><h3> <span class="mw-headline"> Radius Codes </span></h3>
+<p>Rad codes:
+</p>
+<table cellpadding="5"><tr><td><pre>
+AUTH_REQ = 01
+AUTH_RSP = 02
+AUTH_REJ = 03
+ACCT_REQ = 04
+ACCT_RSP = 05
+</pre></td><td><pre>
+<p>FREE_REQ = 15
+FREE_RSP = 16
+RESOURCE_QUERY_REQ = 17
+RESOURCE_QUERY_RSP = 18
+RESOURCE_RECLAIM_REQ = 19
+</p>
+</pre></td></tr></table>
+<p>Attribute codes:
+</p>
+<table cellpadding="5"><tr><td><pre>
+USERNAME = 01
+USER_PASSWORD = 02
+CHAP_PASSWORD = 03
+NAS_IP_ADDR = 04
+NAS_PORT = 05
+SERVICE_TYPE = 06
+FRAMED_PROTOCOL = 07
+FRAMED_IP_ADDR = 08
+FRAMED_IP_NETMASK = 09
+FRAMED_IP_ROUTING = 0a
+FILTER_ID = 0b
+FRAMED_MTU = 0c
+FRAMED_COMPRESSION = 0d
+LOGIN_IP_HOST = 0e
+LOGIN_SERVICE = 0f
+LOGIN_TCP_PORT = 10
+REPLY_MESSAGE = 12
+</pre></td><td><pre>
+<p>CALLBACK_NUMBER = 13
+CALLBACK_ID = 14
+FRAMED_ROUTE = 16
+FRAMED_IPX_NETWORK = 17
+STATE = 18
+CLASS = 19
+VENDOR_SPECIFIC = 1a
+SESSION_TIMEOUT = 1b
+IDLE_TIMEOUT = 1c
+TERMINATION_ACTION = 1d
+CALLED_STATION_ID = 1e
+CALLING_STATION = 1f
+NAS_IDENTIFIER = 20
+PROXY_STATE = 21
+LOGIN_LAT_SERVICE = 22
+FRAMED_IPX_NETWORK = 23; (DUP)
+LOGIN_LAT_NODE = 23; (DUP)
+</p>
+</pre></td><td><pre>
+<p>LOGIN_LAT_GROUP = 24
+FRAMED_APPLETALK_LINK = 25
+FRAMED_APPLETALK_NETWORK = 26
+FRAMED_APPLETALK_ZONE = 27
+ACCT_STATUS_TYPE = 28
+ACCT_DELAY_TIME = 29
+ACCT_SESSION_ID = 2c
+ACCT_SESSION_TIME = 2e
+CHAP_CHALLANGE = 3c
+NAS_PORT_TYPE = 3d
+PORT_LIMIT = 3e
+LOGIN_LAT_PORT = 3f
+TUNNEL_TYPE = 40
+TUNNEL_MEDIUM_TYPE = 41
+TUNNEL_CLIENT_ENDPOINT = 42
+TUNNEL_SERVER_ENDPOINT = 43
+TUNNEL_PASSWORD = 45
+</p>
+</pre></td></tr></table>
+<p>For attribute ATTR_VENDOR_SPECIFIC, valid OID codes:
+</p>
+<table cellpadding="5"><tr><td><pre>
+$USR_ORGANIZATION_ID = 000001ad
+</pre></td></tr></table>
+<p>USR-specific attributes:
+</p>
+<table cellpadding="5"><tr><td><pre>
+$USR_ATTR_VPN_ID = 00009006
+$USR_ATTR_VPN_NAME = 00009007
+$USR_ATTR_VPN_NEIGHBOR = 00009008
+$USR_ATTR_TUNNEL_AUTHENTICATOR = 0000900b
+$USR_ATTR_PACKET_INDEX = 0000900c
+</pre></td><td><pre>
+<p>$USR_ATTR_ACCESS_ACCEPT_PACKET = 0000900e
+$USR_ATTR_PRIMARY_DNS_SERVER = 0000900f
+$USR_ATTR_SECONDARY_DNS_SERVER = 00009010
+$USR_ATTR_POOL_NAME = 00009024
+$USR_DNIS_REAUTHENTICATION = 00009875
+</p>
+</pre></td></tr></table>
+<a name="Java_Run-time_Environment_.28JRE.29" id="Java_Run-time_Environment_.28JRE.29"></a><h2> <span class="mw-headline"> Java Run-time Environment (JRE) </span></h2>
+<p>To get the 1.3 version of JRE for Windows:
+<a href="http://java.sun.com/j2se/1.3/jre/download-windows.html" class="external free" title="http://java.sun.com/j2se/1.3/jre/download-windows.html" rel="nofollow">http://java.sun.com/j2se/1.3/jre/download-windows.html</a>
+</p>
+<a name="Network_Change_for_Suns" id="Network_Change_for_Suns"></a><h2> <span class="mw-headline"> Network Change for Suns </span></h2>
+<p>Host1 and Host2 changed the network they resided on.  I had to
+change the following files:
+</p>
+<ul>
+<li><b>/etc/inet/hosts</b> - own host name (and the other changed hosts)
+<li><b>/etc/inet/netmasks</b> - for new network's netmask
+<li><b>/etc/defaultrouter</b> - for gateway
+<li><b>/etc/resolv.conf</b> - for dns servers, prefix
+<li><b>/etc/hosts.allow</b> - for "tcpwrappers" (may not exist)
+</ul>
+<p>In <em>addition</em>, on zeus I had to change:
+</p>
+<ul>
+<li><b>/etc/hosts</b> - for changed hosts (until dns is updated)
+<li>At one time, I had to update
+/usr/local/oracle8/u01/app/oracle/product/8.0.5/network/admin/tnsnames.ora
+for "cad2" (host3's database), but that file appears to have moved to
+<b>/space/u01/app/oracle/product/8.0.5/network/admin/tnsnames.ora</b>
+and no longer has any IP addresses in it.
+</ul>
+<a name="Rsh_on_Alternat_Port" id="Rsh_on_Alternat_Port"></a><h2> <span class="mw-headline"> Rsh on Alternat Port </span></h2>
+<p>I wanted to be able to rsh from host1 to host2.
+</p><p>On host1 and
+host2, I edited "/etc/services" and commented out the existing "shell" entry
+and made a new one:
+</p>
+<pre>
+#shell          514/tcp         cmd             # no passwords used
+shell           12000/tcp               cmd             # no passwords used
+</pre>
+<p>On zeus, I edited "/etc/inetd.conf" and un-commented the "shell"
+line:
+</p>
+<pre>
+shell   stream  tcp     nowait  root    /usr/sbin/tcpd /usr/sbin/in.rshd
+</pre>
+<p>Then, (still zeus) kill -HUP inetd.
+</p><p>Finally, create a ".rhosts" file.
+</p><p>If you want have some control over the environment of the remote
+process, you should use the "bash" shell on the remote machine.  Be sure
+that bash is in the "/etc/shells" file.  Then create a ".bashrc" file
+containing your environment definition.  Note: a login shell executes
+".profile" <em>instead</em> of ".bashrc".  Therefore, you should
+explicitly source ".bashrc" inside your ".profile".
+</p>
+<a name="Restart_Sun_.22Workshop.22_Licence_Manager" id="Restart_Sun_.22Workshop.22_Licence_Manager"></a><h2> <span class="mw-headline"> Restart Sun "Workshop" Licence Manager </span></h2>
+<p>When using dbx (or any of the other Sun "workshop" stuff) the license
+manager has to be running.  For some reason, it tends to crash over the
+weekends.  To restart it, log in as root on zeus.  Then:
+</p>
+<pre>
+    cd /etc/init.d
+    ./lic_mgr stop
+    ./lic_mgr start
+</pre>
+<p>FYI - the licence manager executable is "/etc/opt/licenses/lmgrd.ste".
+Also, the files "/etc/init.d/lic_mgr" and "/etc/rc2.d/S85lmgrd" are
+the same physical file (i.e. are hard-linked).
+</p>
+<a name="Virtual_Interfaces" id="Virtual_Interfaces"></a><h2> <span class="mw-headline"> Virtual Interfaces </span></h2>
+<p>This is an unrouted network:
+</p>
+<pre>
+    ifconfig hme0:1 inet 192.168.0.1 up netmask 0xffffff00 broadcast 192.168.0.255
+</pre>
+<p>Then need to create "/etc/hostname.hme0:1" containing a name (e.g.
+"host1_1").  Then add an entry to "/etc/hosts" (e.g.
+"209.219.112.2&nbsp;host1_1").
+</p><p><br />
+</p>
+<a name="Account_Creation" id="Account_Creation"></a><h2> <span class="mw-headline"> Account Creation </span></h2>
+<p>This outlines what I did for the udp_tool account.  Commands preceided
+with "r" need root access.
+</p>
+<pre>
+   nawk &lt;/etc/passwd -F: &quot;{if(\$3&lt;9999)print \$3}&quot;|sort -n|tail
+   rsh zeus 'nawk &lt;/etc/passwd -F: &quot;{if(\$3&lt;9999) print \$3}&quot;'|sort -n|tail
+   rsh host3 'nawk &lt;/etc/passwd -F: &quot;{if(\$3&lt;9999)print \$3}&quot;'|sort -n|tail
+
+&lt;em&gt;(for each of host1, host2, and host3, do:)&lt;/em&gt;
+r  vi /etc/passwd
+      udp_tool:x:1015:10:udp_tool testing:/export/home/udp_tool:/bin/ksh
+r  vi /etc/shadow
+      udp_tool::::::::
+   passwd udp_tool
+   H=/usr/home              &lt;em&gt;(zeus: &quot;H=/usr/newhome&quot;, vaisya &quot;H=/space&quot;)&lt;/em&gt;
+   mkdir $H/udp_tool
+   chown udp_tool $H/udp_tool
+   chgrp staff $H/udp_tool
+   ln -s $H/udp_tool /export/home/udp_tool
+   /usr/local/bin/ssh -l udp_tool localhost
+   echo host1 &gt;.rhosts  &lt;em&gt;(host2 and host3 only)&lt;/em&gt;
+   exit
+</pre>
+<a name="Perforce_Stuff_I_Always_Forget" id="Perforce_Stuff_I_Always_Forget"></a><h2> <span class="mw-headline"> Perforce Stuff I Always Forget </span></h2>
+<ul>
+
+<li><tt><b>p4 opened</b></tt>
+- lists currently opened files in perforce.
+
+<li>To diff two repository versions:
+<pre>
+    p4 files sub.c                  &lt;em&gt;(To get current version)&lt;/em&gt;
+    p4 diff2 sub.c#19 sub.c#20
+</pre>
+</ul>
+<a name="CVS_Stuff_I_Always_Forget" id="CVS_Stuff_I_Always_Forget"></a><h2> <span class="mw-headline"> CVS Stuff I Always Forget </span></h2>
+<p>See <a href="http://www.cvshome.org/docs/manual/index.html" class="external free" title="http://www.cvshome.org/docs/manual/index.html" rel="nofollow">http://www.cvshome.org/docs/manual/index.html</a> for a cvs manual.
+</p><p><tt><b>cvs history -ca filename | sort</b></tt>
+</p><p><tt><b>cvs tag Rel_1_19b</b></tt>
+- can supply "-b" to make it a branch tag.  But if do, then should typically
+follow with "cvs update -rRel_1_19b" so that current workspace is "sticky".
+See <a href="http://www.cvshome.org/docs/manual/index.html" class="external free" title="http://www.cvshome.org/docs/manual/index.html" rel="nofollow">http://www.cvshome.org/docs/manual/index.html</a> for a cvs manual.
+</p><p><b>Getting "History"</b>
+</p><p>Forget the cvs history command - I still don't know what the heck it is for.  Do a:
+</p>
+<pre>   cvs log file
+</pre>
+<p><b>Running CVS Remotely</b>
+</p><p>There is probably an easier way to do this, but this is the way I got
+working first.
+</p><p>Change your zeus account to use the shell "/usr/local/bin/bash".  Then
+change your ".kshrc" to ".bashrc".  Move your environment definitions out of
+your ".profile" and into your ".bashrc".  In the ".profile", add a line to
+source the ".bashrc" (for some reason, bash doesn't automatically run it
+for the login shell).  Create a file ".rhosts" file.
+</p><p>On the remote system, set your CVSROOT environment variable to be:
+":ext:&lt;USERNAME&gt;@zeus:/usr/local/cvsroot" where "&lt;USERNAME&gt;" is your
+user name on zeus.
+</p><p>As a test, from the remote system enter:
+</p>
+<pre>
+    rsh zeus set | egrep &quot;^PATH&quot;
+</pre>
+<p>It should contain "/usr/local/bin".
+</p><p><b>Creating a project/module</b>
+</p><p>This is taken from
+<a href="http://www.cvshome.org/docs/manual/cvs_3.html#SEC40" class="external free" title="http://www.cvshome.org/docs/manual/cvs_3.html#SEC40" rel="nofollow">http://www.cvshome.org/docs/manual/cvs_3.html#SEC40</a>
+</p><p>If the files you want to install in CVS reside in `wdir', and you
+want them to appear in the repository as `$CVSROOT/yoyodyne/rdir', you
+can do this:
+</p>
+<pre>  
+   $ cd wdir
+   $ cvs import -m &quot;Imported sources&quot; tools/udp_tool init_vtag init_rtag
+   $ cd ..
+   $ cvs checkout CVSROOT/modules
+   $ cd CVSROOT
+   $ vi modules
+   $ cvs commit -m &quot;added udp_tool&quot; modules
+   $ cd ..
+   $ cvs release -d CVSROOT
+</pre>
+<p>Unless you supply a log message with the `-m' flag, CVS starts an
+editor and prompts for a message. The string `init_vtag' is a vendor tag,
+and `init_rtag' is a release tag. They may fill no purpose in this context,
+but since CVS requires them they must be present.
+</p><p><br />
+</p>
+<a name="Mac_Stuff_I_Always_Forget" id="Mac_Stuff_I_Always_Forget"></a><h2> <span class="mw-headline"> Mac Stuff I Always Forget </span></h2>
+<p><b>Sierra Wireless Cell Phone Modem</b>
+</p><p>Before plugging in modem, install SierraWatcher package and bring it up.
+</p>
+<pre> Sierra Wireless Watcher -&gt; Preferences -&gt; Profiles
+ Account: WAP@CINGULAR.COM
+ Password: CINGULAR1
+ APN: WAP.CINGULAR
+</pre>
+<p>Plugging in the modem automatically brings up network preferences.
+</p>
+<pre> Configuration: Default
+ Telephone Number: *99***1#
+ Account Name: WAP@CINGULAR.COM
+ Password: CINGULAR1
+</pre>
+<p><br />
+<b>Become a Wireless Router</b>
+</p>
+<ol><li> In "System Preferences" (under "Internet &amp; Wireless") click: "Sharing", select "Internet Sharing" (but don't check it yet).
+</li><li> Pull down "Share Your Connection From" and select "USB Ethernet 2".  Check: "AirPort".
+</li><li> Click "AirPort Options".
+</li><li> Name: "Test Network", check: "Enable Encryption", WEP Key Length: 128 bit, Password: edie.txt, click: "OK".  Other possible names: "FCC Compliance Test", "29WestLondon"
+</li><li> Check: "Internet Sharing"
+</li><li> Pull down wifi icon, select "Open Network Preferences"
+</li><li> If wifi is connected, click "Disconnect"
+</li></ol>
+<p>Wifi icon should now turn into an upwards-pointing arrow.
+</p><p><br />
+</p>
+<a name="IMAP_stuff_I_always_forget" id="IMAP_stuff_I_always_forget"></a><h2> <span class="mw-headline"> IMAP stuff I always forget </span></h2>
+<p>Thanks to <a href="http://support.microsoft.com/kb/189326" class="external free" title="http://support.microsoft.com/kb/189326" rel="nofollow">http://support.microsoft.com/kb/189326</a> which got me started.  See also <a href="http://tools.ietf.org/html/rfc3501" class="external free" title="http://tools.ietf.org/html/rfc3501" rel="nofollow">http://tools.ietf.org/html/rfc3501</a>
+</p>
+<pre> telnet imap.suso.com 143
+&nbsp;? LOGIN sford psw
+&nbsp;? LIST "" "*"
+&nbsp;? SELECT folder
+&nbsp;? FETCH msg_num ALL
+&nbsp;? FETCH msg_num BODY
+&nbsp;? LOGOUT
+</pre>
+<p>Lines start with a tag, end with CRLF.
+</p><p><br />
+</p>
+<a name="SeaMonkey_stuff_I_always_forget" id="SeaMonkey_stuff_I_always_forget"></a><h2> <span class="mw-headline"> SeaMonkey stuff I always forget </span></h2>
+<p>To edit a page, first display it:
+</p>
+<ul><li> <b>File</b>-&gt;<b>Open File...</b>
+</li><li> Browse to file and click <b>Open</b>
+</li><li> <b>File</b> -&gt; <b>Edit Page</b>
+</li></ul>
+<p>To rebuild TOC:
+</p>
+<ul><li> <b>Insert</b> -&gt; <b>Table of Contents...</b> -&gt; <b>Update</b>
+</li><li> Check the boxes for "Number all entries..." and "Make the table..."
+</li></ul>
+<p>To add a section:
+</p>
+<ul><li> Type section header text as normal paragraph.  Probably include some blank lines above and below.
+</li><li> With the cursor somewhere in that text, pull down the paragraph type selection bar and select a header.
+</li><li> Rebuild TOC (see above) to get label assigned.
+</li></ul>
+<p><br />
+</p>
+<a name="Barrier_stuff_I_always_forget" id="Barrier_stuff_I_always_forget"></a><h2> <span class="mw-headline"> Barrier stuff I always forget </span></h2>
+<p>Compiler barrier for gcc:
+</p>
+<pre>   __inline static void gcc_barrier()
+   {
+       asm volatile (""&nbsp;::: "memory");
+   }
+</pre>
+<p><i>Memory Ordering in Modern Microprocessors</i>, <a href="http://www.linuxjournal.com/article/8211" class="external text" title="http://www.linuxjournal.com/article/8211" rel="nofollow">part 1</a> and <a href="http://www.linuxjournal.com/article/8212" class="external text" title="http://www.linuxjournal.com/article/8212" rel="nofollow">part 2</a> - good articles about memory barriers across various CPU types.
+</p><p>Here's some more good info: <a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" class="external free" title="https://www.kernel.org/doc/Documentation/memory-barriers.txt" rel="nofollow">https://www.kernel.org/doc/Documentation/memory-barriers.txt</a>
+</p><p>A good cache line article: <a href="http://igoro.com/archive/gallery-of-processor-cache-effects/" class="external free" title="http://igoro.com/archive/gallery-of-processor-cache-effects/" rel="nofollow">http://igoro.com/archive/gallery-of-processor-cache-effects/</a>
+</p><p>From <a href="http://www.owchallie.com/systems/cache-itanium2.php" class="external free" title="http://www.owchallie.com/systems/cache-itanium2.php" rel="nofollow">http://www.owchallie.com/systems/cache-itanium2.php</a>:
+</p>
+<blockquote>
+The [Intel Itanium 2] level 3 unified cache is either 1.5MB or 3MB in size and can be accessed at core speed, providing 32GB/cycle. It is single ported and fully pipelined. The cache is 12-way set associative <b>with a 128 byte line size</b>.
+</blockquote></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 308/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:13-0!1!0!!en!2!edit=0 and timestamp 20171202144242 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Sford_cheat_sheets">http://wiki.geeky-boy.com/w/index.php?title=Sford_cheat_sheets</a>"</div>
+</body></html>

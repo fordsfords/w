@@ -1,0 +1,74 @@
+<html><body>
+			<p>This page is my own rumination about using a test to evaluate the coding skills of a candidate for engineering new hire.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1"><a href="#Goals"><span class="tocnumber">2</span> <span class="toctext">Goals</span></a></li>
+<li class="toclevel-1"><a href="#Non-Goals"><span class="tocnumber">3</span> <span class="toctext">Non-Goals</span></a></li>
+<li class="toclevel-1"><a href="#Test_thoughts"><span class="tocnumber">4</span> <span class="toctext">Test thoughts</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<a name="Background" id="Background"></a><h2> <span class="mw-headline"> Background </span></h2>
+<p>Although I have only somewhat recently become a software engineering manager, I have assisted in the interviewing and evaluation of new candidate software engineers.  I have a pretty good 1-hour interview developed, which I have given many times.  One thing that this interview does not contain is any kind of coding test.  I haven't believed in them.
+</p><p>Within the past year, I have done a lot of talking with another colleague who has insisted on a coding test for many years, and he is as strong a believer in them as I am a dis-believer.  Our conversations have been interesting, and he has many good points.  I think we each see the others point of view better, but neither of us convinced the other to join the other side. &nbsp;:-)
+</p><p>Then something happened which has caused me to question my position more profoundly.  I interviewed an engineer who did *very* well on my interview.  He also greatly impressed another interviewer who I feel does a good job at evaluating candidates.  (FYI - the "coding test" colleague did not interview this particular candidate.)  So we hired him.  Round about this same time, I developed a "new hire programming assignment", which was intended NOT to be a "test", but rather a learning tool.  When this particular new hire worked on this programming assignment, he demonstrated quite convincingly that he cannot program his way out of a wet paper bag.  His skill deficiencies were many and varied.
+</p><p>Oops.
+</p>
+<dl><dd><dl><dd>Sidenote: I have not given up on this engineer.  I am still convinced that he is smart, and just needs practice.  Also, the position he was hired for does not have programming as its primary responsibility; there is plenty of non-programming stuff for him to do.  So I intend to ramp him up over time.
+</dd></dl>
+</dd></dl>
+<p>Anyway, you can imagine that this has shaken my anti-testing convictions.  On the one hand, it is well-accepted that *NO* interviewing methodology will weed out all the undesirable candidates.  Also there is the possibility of a false-failure; an engineer I know who commands my highest respect claims that he would fail miserably at all but the most basic programming tests (he is deliberative and careful, and blanks if asked to perform on demand).  Why take the risk of weeding out the best programmer I have ever met if it also does not guarantee to weed out the incompetent programmers? 
+</p><p>On the other hand, any interviewing methodology, even the non-testing methodologies, run the risk of weeding out people who would be good at their jobs.  A person might be physically ugly, or have a poor presentation, or have high interview anxiety - things that might make them poor choices for customer-facing positions, but which would not rule them out for internal development.  As much as we try to look past quirks and see under the nervousness, we always run the risk of rejecting good candidates.  The point of *any* interview methodology is not to be perfect, but to increase your statistical chances of hiring good engineers.  If a coding test measurably improves those statistics, then maybe it is OK that it would reject my most-respected engineer, so long as it also rejects an even greater number of poor fits.
+</p><p>So I've decided to give code testing a much more serious consideration.
+</p><p><br />
+</p>
+<a name="Goals" id="Goals"></a><h2> <span class="mw-headline"> Goals </span></h2>
+<p>In a perfect world, I would like a coding test to evaluate a candidate's skill levels in the following areas:
+</p>
+<ul><li> Good variable name choices and good indention schemes.
+</li><li> Good modularization choices, including when to use global variables.
+</li><li> Firm understanding of how variables work, global, local, an function parameters (both by reference and by value).
+</li><li> Firm understanding of pointers, malloc, and free.
+</li><li> Firm understanding of C strings, what "strlen" returns, and understanding of the trailing NULL.
+</li><li> Ability to make use of OO coding techniques, even when not using an OO language.
+</li><li> Knowledge of when to use various common algorithms.  Adequate knowledge to know how to implement is unimportant.
+</li><li> Knowledge of callbacks.  Getting syntax exactly right from memory is unimportant.
+</li><li> Simplicity of design and coding.  For example, don't optimize too soon.
+</li><li> Raw productivity.
+</li></ul>
+<p>Unfortunately, I'm not sure that a 1-hour programming test can address very many of those.
+</p><p><br />
+</p>
+<a name="Non-Goals" id="Non-Goals"></a><h2> <span class="mw-headline"> Non-Goals </span></h2>
+<ul><li> Getting syntax exactly right.  That's what the book and the compiler are for.
+</li><li> Getting calling sequences of standard APIs exactly right.  That's what man pages and google are for.
+</li></ul>
+<p><br />
+</p>
+<a name="Test_thoughts" id="Test_thoughts"></a><h2> <span class="mw-headline"> Test thoughts </span></h2>
+<p>Fill in the missing code:
+</p>
+<pre> int main(int argc, char **argv)
+ {
+   if (argc&nbsp;!= 2)
+     usage();  // The usage function calls exit
+   printf("inputted string is: '%s'\n", argv[1]);
+   // Insert your code here.  The last line should be to pass a string to "verify" which consists of the inputted string appended with an "X".
+ }
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 5/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:29-0!1!0!!en!2!edit=0 and timestamp 20171202192841 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Sford_coding_test">http://wiki.geeky-boy.com/w/index.php?title=Sford_coding_test</a>"</div>
+</body></html>

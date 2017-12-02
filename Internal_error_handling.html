@@ -1,0 +1,50 @@
+<html><body>
+			<p><big><b><a href="/w/index.php?title=User:Sford" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; Internal error handling</b></big>
+</p><p>See <a href="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" class="external text" title="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" rel="nofollow">my blog</a> for the justifications for this approach.
+</p><p>Here's some code that should be in everybody's Unix C programs.  It's newly-refined, so don't get on my case if you see some of my code that doesn't have it in this form.  This code is <a href="/w/index.php?title=Sford_CC0" title="Sford CC0">Public Domain</a>; use freely without restriction.
+</p>
+<pre>
+/* Minimal but very useful error handling. */
+#define WCHK(cond_expr) do { \
+  if (!(cond_expr)) { \
+    fprintf(stderr, &quot;%s:%d, Warning, expected '%s' to be true (%s)\n&quot;, \
+      __FILE__, __LINE__, #cond_expr, strerror(errno)); \
+  }  \
+} while (0)
+
+#define ECHK(cond_expr) do { \
+  if (!(cond_expr)) { \
+    fprintf(stderr, &quot;%s:%d, Error, expected '%s' to be true (%s)\n&quot;, \
+      __FILE__, __LINE__, #cond_expr, strerror(errno)); \
+    abort(); \
+  }  \
+} while (0)
+</pre>
+<p>These macros are basically a better <tt>assert()</tt>.  In addition to just printing the file/line/conditional, it also prints the human-readable string for <tt>errno</tt>, which might not be applicable for a particular usage, but it's useful enough when it *is* applicable that I just always include it.  <tt>WCHK()</tt> is for warnings (i.e it prints the message but continues execution).  <tt>ECHK()</tt> is for fatal errors (i.e. calls <tt>abort()</tt> which dumps core).  Both should be used for conditions that "should never happen".  A failure typically indicates a software bug that needs to be tracked own and fixed.
+</p><p>They should be used like <tt>assert()</tt>, passing in a boolean expression, typically a conditional.  For example:
+</p>
+<pre>
+char *buf = malloc(65536);  ECHK(buf&nbsp;!= NULL);
+
+FILE *state_fd = fopen(&quot;statefile&quot;, &quot;r&quot;);  WCHK(x_fd&nbsp;!= NULL);  /* we ship initial state file, should never fail. */
+if (state_fd == NULL) {
+    create_statefile();
+}
+FILE *state_fd = fopen(&quot;statefile&quot;, &quot;r&quot;);  ECHK(x_fd&nbsp;!= NULL);
+</pre>
+<p>The <tt>WCHK()</tt> macro should *<i>rarely</i>* be used.  Most errors that have reasonable recovery measures are actually user errors.  User errors should have much better error messages that tell the user what he did wrong and what he should do to correct it.
+</p><p>Note that the macros above are different from the ones in <a href="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" class="external text" title="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" rel="nofollow">my blog</a>.  The use of <tt>errno</tt> and <tt>abort()</tt> is not always appropriate for complicated software systems.  The blog version is more generally applicable to a variety of system-level error handling frameworks.  But for Unix tools, the macros above are usually fine.
+</p><p>But don't just include these macros in your program and then forget about them!  As described in <a href="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" class="external text" title="http://blog.geeky-boy.com/2014/06/error-handling-enemy-of-readability.html" rel="nofollow">my blog</a>, the point of these is to make liberal use of sanity checks in your code, but do so in a way that doesn't significantly degrade your code's readability.  DOWN WITH UNCHECKED RETURN STATUSES AND NEEDLESSLY INDENTED CODE!  (Hmm ... better re-think my career dream as sloganeer.)
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key sford_wikidb-gi_:pcache:idhash:46-0!1!0!!en!2!edit=0 and timestamp 20171202192835 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.geeky-boy.com/w/index.php?title=Internal_error_handling">http://wiki.geeky-boy.com/w/index.php?title=Internal_error_handling</a>"</div>
+</body></html>
