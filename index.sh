@@ -17,7 +17,7 @@ cp orig/* .
 echo "<html><head><title>Wiki Dump</title></head><body>" >x.1
 echo "</body></html>" >x.3
 for F in *.html; do :
-  sed -e '1,/-- start content --/d;s/%3D/=/g;s/"\/w\/index.php?title=\([^"]*\)"/"\1.html"/;/-- end content --/,$d' <$F >x.2
+  sed -e '1,/-- start content --/d;s/%3D/=/g;s/<a href="[^:]*:Sford"[^>]*>[^>]*>//g;s/"\/w\/index.php?title=\([^"]*\)"/"\1.html"/g;/-- end content --/,$d' <$F >x.2
   cat x.[123] >$F
 done
 
@@ -36,5 +36,20 @@ __EOF__
 sed -e '1,$s/^[^=]*=\([^ ]*\) \(.*\)$/<li><a href="\1.html">\2<\/a>/' <index >>index.html
 
 echo "</ul></body></html>" >>index.html
+
+cat <<__EOF__ >404.html
+<html><head><title>404</title></head><body>
+<center><h1>404</h1></center>
+
+<p>I've moved my web hosting, and I've had to remove some content.
+
+<p>I've shut down my wiki, but I've dumped its contents
+<a href="http://www.geeky-boy.com/w/">here</a>.
+
+<p>You can always go to my <a href="http://www.geeky-boy.com">home page</a>, find my
+email address (yes, it is there), and contact me.
+
+</body></html>
+__EOF__
 
 rm x.*
