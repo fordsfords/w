@@ -14,7 +14,7 @@ if [ ! -d orig ]; then :
 fi
 cp orig/* .
 
-echo "<html><body>" >x.1
+echo "<html><head><title>Wiki Dump</title></head><body>" >x.1
 echo "</body></html>" >x.3
 for F in *.html; do :
   sed -e '1,/-- start content --/d;s/%3D/=/g;s/"\/w\/index.php?title=\([^"]*\)"/"\1.html"/;/-- end content --/,$d' <$F >x.2
@@ -22,7 +22,8 @@ for F in *.html; do :
 done
 
 cat <<__EOF__ >index.html
-<html><body>
+<html><head><title>Wiki Dump</title></head><body>
+<center><h1>Wiki Dump</h1></center>
 <p>I used to have a Wikimedia wiki.  But it turns
 out I didn't use it very much.  So I captured its
 content into html pages.  Many of these pages are

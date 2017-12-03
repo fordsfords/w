@@ -1,4 +1,4 @@
-<html><body>
+<html><head><title>Wiki Dump</title></head><body>
 			<p><big><b><a href="User:Sford.html" title="User:Sford">User:Sford</a> &gt; <a href="/w/index.php?title=Sford_wiki" title="Sford wiki">Sford wiki</a> &gt; <a href="/w/index.php?title=Sford_fun" title="Sford fun">Sford fun</a> &gt; Sford index=1 story</b></big>
 </p><p>Non-programmers may leave now, unless you like listening to old programmers' war stories.
 </p><p>Many years ago, I worked on an embedded project.  Our normal way of handling internal errors was to call "fatal error", passing in the function name and a short description of the error.  This was in a primitive language (<a href="http://en.wikipedia.org/wiki/PL/M" class="external text" title="http://en.wikipedia.org/wiki/PL/M" rel="nofollow">PL/M</a>) that didn't support <a href="http://en.wikipedia.org/wiki/Varargs#Example_in_C" class="external text" title="http://en.wikipedia.org/wiki/Varargs#Example_in_C" rel="nofollow">varargs</a>, so we couldn't support an arbitrary "printf" style of function.  Instead, we wrote our fatal error to accept a single integer to help the programmer diagnose the problem.  For example (in C, not PL/M):
