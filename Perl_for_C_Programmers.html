@@ -46,17 +46,14 @@
 <a name="In_The_Beginning" id="In_The_Beginning"></a><h2> <span class="mw-headline"> In The Beginning </span></h2>
 <p>I like to start every Perl program with the following lines:
 </p>
-<pre> #!/usr/local/bin/perl -w
+<pre> #!/usr/bin/env perl
  use strict;
+ use warnings;
  use Getopt::Std;  # this one is optional, but I like to use "getopt()" in many of my programs.
 </pre>
-<p>Perl has a reputation for being a cowboy language which allows (encourages?) the programmer play very fast and loose and basically ignore good programming practices.  The <b>-w</b> on line 1 and the <b>use&nbsp;strict</b> on line 2 basically put a leash on the worst of programmer abuses.  Perl will give you warnings and errors.
-</p><p>In Unix, you can turn on the executable bit for the file and run it like a normal command ... IF Perl is in "/usr/local/bin".  Which sometimes it is not.  And never mind Windows, which does not even support the shebang ("#!") construct.  These days, I tend to run Perl programs like this:
-</p>
-<pre>   perl foo.pl
-</pre>
-<p>Note that the <b>#!/usr/local/bin/perl -w</b> line is still useful, even if invoking perl as above.  When Perl reads that line, it recognizes the shebang and processes the command-line options.  Thus, the <b>-w</b> option is applied.
-</p><p>Finally note that Perl uses "#"-style comments, like Unix shell scripts.  A comment starts with "#" and continues to the end of the line.
+<p>Perl has a reputation for being a cowboy language which allows (encourages?) the programmer play very fast and loose and basically ignore good programming practices.  The the <b>use&nbsp;strict;</b> and <b>use&nbsp;warnings;</b> basically put a leash on the worst of programmer abuses.  Perl will give you warnings and errors.
+</p><p>In Unix, you can turn on the executable bit for the file and run it like a normal command, if the perl executable is in your PATH.
+<p>Note that Perl uses "#"-style comments, like Unix shell scripts.  A comment starts with "#" and continues to the end of the line.
 </p><p><br />
 </p>
 <a name="Print" id="Print"></a><h2> <span class="mw-headline"> Print </span></h2>
